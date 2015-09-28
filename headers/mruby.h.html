@@ -1,0 +1,2870 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Header: mruby.h
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/mruby.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!headers/mruby.h.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/mruby.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (m)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../headers.html" title="headers (headersroot)">headers</a></span></span>
+     &raquo; 
+    <span class="title">mruby.h</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="header_list_link"
+        href="../header_list.html">
+      Header List
+    </a>
+  
+    <a class="full_list_link" id="function_list_link"
+        href="../function_list.html">
+      Function List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Header: mruby.h</h1>
+Included heaers
+
+  <h2>
+    Function Summary
+    <small><a href="#" class="summary_toggle">collapse</a></small>
+  </h2>
+
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_singleton_class-function" title="<strong>mrb_singleton_class</strong>"><strong>mrb_singleton_class</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_include_module-function" title="<strong>mrb_include_module</strong>"><strong>mrb_include_module</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_prepend_module-function" title="<strong>mrb_prepend_module</strong>"><strong>mrb_prepend_module</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_define_method-function" title="<strong>mrb_define_method</strong>"><strong>mrb_define_method</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Defines a global function in ruby.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_define_class_method-function" title="<strong>mrb_define_class_method</strong>"><strong>mrb_define_class_method</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_define_singleton_method-function" title="<strong>mrb_define_singleton_method</strong>"><strong>mrb_define_singleton_method</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_define_module_function-function" title="<strong>mrb_define_module_function</strong>"><strong>mrb_define_module_function</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_define_const-function" title="<strong>mrb_define_const</strong>"><strong>mrb_define_const</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_undef_method-function" title="<strong>mrb_undef_method</strong>"><strong>mrb_undef_method</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_undef_class_method-function" title="<strong>mrb_undef_class_method</strong>"><strong>mrb_undef_class_method</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_obj_new-function" title="<strong>mrb_obj_new</strong>"><strong>mrb_obj_new</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Initialize a new object instace of c class.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_class_new_instance-function" title="<strong>mrb_class_new_instance</strong>"><strong>mrb_class_new_instance</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_instance_new-function" title="<strong>mrb_instance_new</strong>"><strong>mrb_instance_new</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_class_defined-function" title="<strong>mrb_class_defined</strong>"><strong>mrb_class_defined</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_notimplement_m-function" title="<strong>mrb_notimplement_m</strong>"><strong>mrb_notimplement_m</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_obj_dup-function" title="<strong>mrb_obj_dup</strong>"><strong>mrb_obj_dup</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_check_to_integer-function" title="<strong>mrb_check_to_integer</strong>"><strong>mrb_check_to_integer</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_obj_respond_to-function" title="<strong>mrb_obj_respond_to</strong>"><strong>mrb_obj_respond_to</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_get_args-function" title="<strong>mrb_get_args</strong>"><strong>mrb_get_args</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Retrieve arguments from mrb_state.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_funcall-function" title="<strong>mrb_funcall</strong>"><strong>mrb_funcall</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Call existing ruby functions.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_funcall_argv-function" title="<strong>mrb_funcall_argv</strong>"><strong>mrb_funcall_argv</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_funcall_with_block-function" title="<strong>mrb_funcall_with_block</strong>"><strong>mrb_funcall_with_block</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_intern_cstr-function" title="<strong>mrb_intern_cstr</strong>"><strong>mrb_intern_cstr</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_intern-function" title="<strong>mrb_intern</strong>"><strong>mrb_intern</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_intern_static-function" title="<strong>mrb_intern_static</strong>"><strong>mrb_intern_static</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_intern_str-function" title="<strong>mrb_intern_str</strong>"><strong>mrb_intern_str</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_check_intern_cstr-function" title="<strong>mrb_check_intern_cstr</strong>"><strong>mrb_check_intern_cstr</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_check_intern-function" title="<strong>mrb_check_intern</strong>"><strong>mrb_check_intern</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_check_intern_str-function" title="<strong>mrb_check_intern_str</strong>"><strong>mrb_check_intern_str</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_sym2str-function" title="<strong>mrb_sym2str</strong>"><strong>mrb_sym2str</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_free-function" title="<strong>mrb_free</strong>"><strong>mrb_free</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_str_new-function" title="<strong>mrb_str_new</strong>"><strong>mrb_str_new</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_str_new_cstr-function" title="<strong>mrb_str_new_cstr</strong>"><strong>mrb_str_new_cstr</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Turns a C string into a Ruby string value.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_str_new_static-function" title="<strong>mrb_str_new_static</strong>"><strong>mrb_str_new_static</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_close-function" title="<strong>mrb_close</strong>"><strong>mrb_close</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Closes and frees a mrb_state.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_top_self-function" title="<strong>mrb_top_self</strong>"><strong>mrb_top_self</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_run-function" title="<strong>mrb_run</strong>"><strong>mrb_run</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_toplevel_run-function" title="<strong>mrb_toplevel_run</strong>"><strong>mrb_toplevel_run</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_context_run-function" title="<strong>mrb_context_run</strong>"><strong>mrb_context_run</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_p-function" title="<strong>mrb_p</strong>"><strong>mrb_p</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_obj_id-function" title="<strong>mrb_obj_id</strong>"><strong>mrb_obj_id</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_obj_to_sym-function" title="<strong>mrb_obj_to_sym</strong>"><strong>mrb_obj_to_sym</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_obj_eq-function" title="<strong>mrb_obj_eq</strong>"><strong>mrb_obj_eq</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_obj_equal-function" title="<strong>mrb_obj_equal</strong>"><strong>mrb_obj_equal</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_equal-function" title="<strong>mrb_equal</strong>"><strong>mrb_equal</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_convert_to_integer-function" title="<strong>mrb_convert_to_integer</strong>"><strong>mrb_convert_to_integer</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_Integer-function" title="<strong>mrb_Integer</strong>"><strong>mrb_Integer</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_Float-function" title="<strong>mrb_Float</strong>"><strong>mrb_Float</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_inspect-function" title="<strong>mrb_inspect</strong>"><strong>mrb_inspect</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_eql-function" title="<strong>mrb_eql</strong>"><strong>mrb_eql</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_garbage_collect-function" title="<strong>mrb_garbage_collect</strong>"><strong>mrb_garbage_collect</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_full_gc-function" title="<strong>mrb_full_gc</strong>"><strong>mrb_full_gc</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_incremental_gc-function" title="<strong>mrb_incremental_gc</strong>"><strong>mrb_incremental_gc</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_gc_arena_save-function" title="<strong>mrb_gc_arena_save</strong>"><strong>mrb_gc_arena_save</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_gc_arena_restore-function" title="<strong>mrb_gc_arena_restore</strong>"><strong>mrb_gc_arena_restore</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_gc_mark-function" title="<strong>mrb_gc_mark</strong>"><strong>mrb_gc_mark</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_field_write_barrier-function" title="<strong>mrb_field_write_barrier</strong>"><strong>mrb_field_write_barrier</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_write_barrier-function" title="<strong>mrb_write_barrier</strong>"><strong>mrb_write_barrier</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_check_convert_type-function" title="<strong>mrb_check_convert_type</strong>"><strong>mrb_check_convert_type</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_any_to_s-function" title="<strong>mrb_any_to_s</strong>"><strong>mrb_any_to_s</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_class_path-function" title="<strong>mrb_class_path</strong>"><strong>mrb_class_path</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_convert_type-function" title="<strong>mrb_convert_type</strong>"><strong>mrb_convert_type</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_obj_is_kind_of-function" title="<strong>mrb_obj_is_kind_of</strong>"><strong>mrb_obj_is_kind_of</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_obj_inspect-function" title="<strong>mrb_obj_inspect</strong>"><strong>mrb_obj_inspect</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_obj_clone-function" title="<strong>mrb_obj_clone</strong>"><strong>mrb_obj_clone</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_exc_new-function" title="<strong>mrb_exc_new</strong>"><strong>mrb_exc_new</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_exc_raise-function" title="<strong>mrb_exc_raise</strong>"><strong>mrb_exc_raise</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_raise-function" title="<strong>mrb_raise</strong>"><strong>mrb_raise</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_raisef-function" title="<strong>mrb_raisef</strong>"><strong>mrb_raisef</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_name_error-function" title="<strong>mrb_name_error</strong>"><strong>mrb_name_error</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_warn-function" title="<strong>mrb_warn</strong>"><strong>mrb_warn</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_bug-function" title="<strong>mrb_bug</strong>"><strong>mrb_bug</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_print_backtrace-function" title="<strong>mrb_print_backtrace</strong>"><strong>mrb_print_backtrace</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_print_error-function" title="<strong>mrb_print_error</strong>"><strong>mrb_print_error</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_yield-function" title="<strong>mrb_yield</strong>"><strong>mrb_yield</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_yield_argv-function" title="<strong>mrb_yield_argv</strong>"><strong>mrb_yield_argv</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_yield_with_class-function" title="<strong>mrb_yield_with_class</strong>"><strong>mrb_yield_with_class</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_gc_protect-function" title="<strong>mrb_gc_protect</strong>"><strong>mrb_gc_protect</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>mrb_gc_protect() leaves the object in the arena.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_gc_register-function" title="<strong>mrb_gc_register</strong>"><strong>mrb_gc_register</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>mrb_gc_register() keeps the object from GC.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_gc_unregister-function" title="<strong>mrb_gc_unregister</strong>"><strong>mrb_gc_unregister</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>mrb_gc_unregister() removes the object from GC root.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_to_int-function" title="<strong>mrb_to_int</strong>"><strong>mrb_to_int</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_check_type-function" title="<strong>mrb_check_type</strong>"><strong>mrb_check_type</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_define_alias-function" title="<strong>mrb_define_alias</strong>"><strong>mrb_define_alias</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_define_global_const-function" title="<strong>mrb_define_global_const</strong>"><strong>mrb_define_global_const</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_attr_get-function" title="<strong>mrb_attr_get</strong>"><strong>mrb_attr_get</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_respond_to-function" title="<strong>mrb_respond_to</strong>"><strong>mrb_respond_to</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_obj_is_instance_of-function" title="<strong>mrb_obj_is_instance_of</strong>"><strong>mrb_obj_is_instance_of</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_fiber_resume-function" title="<strong>mrb_fiber_resume</strong>"><strong>mrb_fiber_resume</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>fiber functions (you need to link mruby-fiber mrbgem to use).</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_fiber_yield-function" title="<strong>mrb_fiber_yield</strong>"><strong>mrb_fiber_yield</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_pool_close-function" title="<strong>mrb_pool_close</strong>"><strong>mrb_pool_close</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_pool_can_realloc-function" title="<strong>mrb_pool_can_realloc</strong>"><strong>mrb_pool_can_realloc</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_state_atexit-function" title="<strong>mrb_state_atexit</strong>"><strong>mrb_state_atexit</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_show_version-function" title="<strong>mrb_show_version</strong>"><strong>mrb_show_version</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_show_copyright-function" title="<strong>mrb_show_copyright</strong>"><strong>mrb_show_copyright</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_format-function" title="<strong>mrb_format</strong>"><strong>mrb_format</strong></a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+  </ul>
+
+<div id="functions_details" class="method_details_list">
+  <h2>Function Details</h2>
+
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="mrb_singleton_class-function">
+  <strong>mrb_singleton_class</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_include_module-function">
+  <strong>mrb_include_module</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_prepend_module-function">
+  <strong>mrb_prepend_module</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_define_method-function">
+  <strong>mrb_define_method</strong>
+
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Defines a global function in ruby.</p>
+
+<p>If you&#39;re creating a gem it may look something like this:</p>
+
+<pre class="code ruby"><code class="ruby">mrb_value example_method(mrb_state* mrb, mrb_value self)
+{
+     puts(&quot;Executing example command!&quot;);
+     return self;
+}
+
+void mrb_example_gem_init(mrb_state* mrb)
+{
+      mrb_define_method(mrb, mrb-&gt;kernel_module, &quot;example_method&quot;, example_method, MRB_ARGS_NONE());
+}</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_define_class_method-function">
+  <strong>mrb_define_class_method</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_define_singleton_method-function">
+  <strong>mrb_define_singleton_method</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_define_module_function-function">
+  <strong>mrb_define_module_function</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_define_const-function">
+  <strong>mrb_define_const</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_undef_method-function">
+  <strong>mrb_undef_method</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_undef_class_method-function">
+  <strong>mrb_undef_class_method</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_obj_new-function">
+  <strong>mrb_obj_new</strong>
+
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Initialize a new object instace of c class.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'>
+<p>The newly initialized object</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div>
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_class_new_instance-function">
+  <strong>mrb_class_new_instance</strong>
+
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#mrb_obj_new-function" title="mrb_obj_new (function)">mrb_obj_new</a></span></li>
+    
+  </ul>
+
+</div>
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_instance_new-function">
+  <strong>mrb_instance_new</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_class_defined-function">
+  <strong>mrb_class_defined</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_notimplement_m-function">
+  <strong>mrb_notimplement_m</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_obj_dup-function">
+  <strong>mrb_obj_dup</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_check_to_integer-function">
+  <strong>mrb_check_to_integer</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_obj_respond_to-function">
+  <strong>mrb_obj_respond_to</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_get_args-function">
+  <strong>mrb_get_args</strong>
+
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Retrieve arguments from mrb_state.</p>
+
+<p>When applicable, implicit conversions (such as to_str, to_ary, to_hash) are
+applied to received arguments. Use it inside a function pointed by
+mrb_func_t.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'>
+<p>the number of arguments retrieved.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div>
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_funcall-function">
+  <strong>mrb_funcall</strong>
+
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Call existing ruby functions.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_funcall_argv-function">
+  <strong>mrb_funcall_argv</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_funcall_with_block-function">
+  <strong>mrb_funcall_with_block</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_intern_cstr-function">
+  <strong>mrb_intern_cstr</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_intern-function">
+  <strong>mrb_intern</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_intern_static-function">
+  <strong>mrb_intern_static</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_intern_str-function">
+  <strong>mrb_intern_str</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_check_intern_cstr-function">
+  <strong>mrb_check_intern_cstr</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_check_intern-function">
+  <strong>mrb_check_intern</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_check_intern_str-function">
+  <strong>mrb_check_intern_str</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_sym2str-function">
+  <strong>mrb_sym2str</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_free-function">
+  <strong>mrb_free</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_str_new-function">
+  <strong>mrb_str_new</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_str_new_cstr-function">
+  <strong>mrb_str_new_cstr</strong>
+
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Turns a C string into a Ruby string value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_str_new_static-function">
+  <strong>mrb_str_new_static</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_close-function">
+  <strong>mrb_close</strong>
+
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Closes and frees a mrb_state.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_top_self-function">
+  <strong>mrb_top_self</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_run-function">
+  <strong>mrb_run</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_toplevel_run-function">
+  <strong>mrb_toplevel_run</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_context_run-function">
+  <strong>mrb_context_run</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_p-function">
+  <strong>mrb_p</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_obj_id-function">
+  <strong>mrb_obj_id</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_obj_to_sym-function">
+  <strong>mrb_obj_to_sym</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_obj_eq-function">
+  <strong>mrb_obj_eq</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_obj_equal-function">
+  <strong>mrb_obj_equal</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_equal-function">
+  <strong>mrb_equal</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_convert_to_integer-function">
+  <strong>mrb_convert_to_integer</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_Integer-function">
+  <strong>mrb_Integer</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_Float-function">
+  <strong>mrb_Float</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_inspect-function">
+  <strong>mrb_inspect</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_eql-function">
+  <strong>mrb_eql</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_garbage_collect-function">
+  <strong>mrb_garbage_collect</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_full_gc-function">
+  <strong>mrb_full_gc</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_incremental_gc-function">
+  <strong>mrb_incremental_gc</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_gc_arena_save-function">
+  <strong>mrb_gc_arena_save</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_gc_arena_restore-function">
+  <strong>mrb_gc_arena_restore</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_gc_mark-function">
+  <strong>mrb_gc_mark</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_field_write_barrier-function">
+  <strong>mrb_field_write_barrier</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_write_barrier-function">
+  <strong>mrb_write_barrier</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_check_convert_type-function">
+  <strong>mrb_check_convert_type</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_any_to_s-function">
+  <strong>mrb_any_to_s</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_class_path-function">
+  <strong>mrb_class_path</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_convert_type-function">
+  <strong>mrb_convert_type</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_obj_is_kind_of-function">
+  <strong>mrb_obj_is_kind_of</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_obj_inspect-function">
+  <strong>mrb_obj_inspect</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_obj_clone-function">
+  <strong>mrb_obj_clone</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_exc_new-function">
+  <strong>mrb_exc_new</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_exc_raise-function">
+  <strong>mrb_exc_raise</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_raise-function">
+  <strong>mrb_raise</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_raisef-function">
+  <strong>mrb_raisef</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_name_error-function">
+  <strong>mrb_name_error</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_warn-function">
+  <strong>mrb_warn</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_bug-function">
+  <strong>mrb_bug</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_print_backtrace-function">
+  <strong>mrb_print_backtrace</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_print_error-function">
+  <strong>mrb_print_error</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_yield-function">
+  <strong>mrb_yield</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_yield_argv-function">
+  <strong>mrb_yield_argv</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_yield_with_class-function">
+  <strong>mrb_yield_with_class</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_gc_protect-function">
+  <strong>mrb_gc_protect</strong>
+
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>mrb_gc_protect() leaves the object in the arena</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_gc_register-function">
+  <strong>mrb_gc_register</strong>
+
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>mrb_gc_register() keeps the object from GC.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_gc_unregister-function">
+  <strong>mrb_gc_unregister</strong>
+
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>mrb_gc_unregister() removes the object from GC root.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_to_int-function">
+  <strong>mrb_to_int</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_check_type-function">
+  <strong>mrb_check_type</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_define_alias-function">
+  <strong>mrb_define_alias</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_define_global_const-function">
+  <strong>mrb_define_global_const</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_attr_get-function">
+  <strong>mrb_attr_get</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_respond_to-function">
+  <strong>mrb_respond_to</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_obj_is_instance_of-function">
+  <strong>mrb_obj_is_instance_of</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_fiber_resume-function">
+  <strong>mrb_fiber_resume</strong>
+
+  
+</h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>fiber functions (you need to link mruby-fiber mrbgem to use)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_fiber_yield-function">
+  <strong>mrb_fiber_yield</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_pool_close-function">
+  <strong>mrb_pool_close</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_pool_can_realloc-function">
+  <strong>mrb_pool_can_realloc</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_state_atexit-function">
+  <strong>mrb_state_atexit</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_show_version-function">
+  <strong>mrb_show_version</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_show_copyright-function">
+  <strong>mrb_show_copyright</strong>
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_format-function">
+  <strong>mrb_format</strong>
+
+  
+</h3>
+
+</div>
+
+  
+</div>
+</div>
+
+    <div id="footer">
+  Generated on Mon Sep 28 13:37:47 2015 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 in <a href="https://github.com/sagmor/yard-mruby">mruby mode</a> 0.1.0 (ruby-2.2.1).
+</div>
+
+  </body>
+</html>
