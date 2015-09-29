@@ -78,7 +78,19 @@
     <iframe id="search_frame"></iframe>
 
     <div id="content"><h1>Header: mruby/error.h</h1>
-Included heaers
+<h2>Overview</h2>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>MRuby error handling.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>Included heaers
 
   <h2>
     Function Summary
@@ -89,7 +101,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_sys_fail-function" title="<strong>mrb_sys_fail</strong>"><strong>mrb_sys_fail</strong></a>
+    <a href="#mrb_sys_fail-function" title="mrb_sys_fail">void <strong>mrb_sys_fail</strong>(mrb_state *, const char *)</a>
 
     
   </span>
@@ -106,7 +118,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_exc_new_str-function" title="<strong>mrb_exc_new_str</strong>"><strong>mrb_exc_new_str</strong></a>
+    <a href="#mrb_exc_new_str-function" title="mrb_exc_new_str">mrb_value <strong>mrb_exc_new_str</strong>(mrb_state *, struct RClass*, mrb_value)</a>
 
     
   </span>
@@ -123,7 +135,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_make_exception-function" title="<strong>mrb_make_exception</strong>"><strong>mrb_make_exception</strong></a>
+    <a href="#mrb_make_exception-function" title="mrb_make_exception">mrb_value <strong>mrb_make_exception</strong>(mrb_state *, int, const mrb_value *)</a>
 
     
   </span>
@@ -140,7 +152,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_exc_backtrace-function" title="<strong>mrb_exc_backtrace</strong>"><strong>mrb_exc_backtrace</strong></a>
+    <a href="#mrb_exc_backtrace-function" title="mrb_exc_backtrace">mrb_value <strong>mrb_exc_backtrace</strong>(mrb_state *, mrb_value)</a>
 
     
   </span>
@@ -157,7 +169,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_get_backtrace-function" title="<strong>mrb_get_backtrace</strong>"><strong>mrb_get_backtrace</strong></a>
+    <a href="#mrb_get_backtrace-function" title="mrb_get_backtrace">mrb_value <strong>mrb_get_backtrace</strong>(mrb_state *)</a>
 
     
   </span>
@@ -174,7 +186,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_no_method_error-function" title="<strong>mrb_no_method_error</strong>"><strong>mrb_no_method_error</strong></a>
+    <a href="#mrb_no_method_error-function" title="mrb_no_method_error">mrb_noreturn <strong>mrb_no_method_error</strong>(mrb_state *, mrb_sym, mrb_value, const char *, ...)</a>
 
     
   </span>
@@ -191,7 +203,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_f_raise-function" title="<strong>mrb_f_raise</strong>"><strong>mrb_f_raise</strong></a>
+    <a href="#mrb_f_raise-function" title="mrb_f_raise">mrb_value <strong>mrb_f_raise</strong>(mrb_state*, mrb_value)</a>
 
     
   </span>
@@ -210,7 +222,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_protect-function" title="<strong>mrb_protect</strong>"><strong>mrb_protect</strong></a>
+    <a href="#mrb_protect-function" title="mrb_protect">mrb_value <strong>mrb_protect</strong>(mrb_state *, mrb_func_t, mrb_value, mrb_bool *)</a>
 
     
   </span>
@@ -229,7 +241,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_ensure-function" title="<strong>mrb_ensure</strong>"><strong>mrb_ensure</strong></a>
+    <a href="#mrb_ensure-function" title="mrb_ensure">mrb_value <strong>mrb_ensure</strong>(mrb_state *, mrb_func_t, mrb_value, mrb_func_t, mrb_value)</a>
 
     
   </span>
@@ -246,7 +258,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_rescue-function" title="<strong>mrb_rescue</strong>"><strong>mrb_rescue</strong></a>
+    <a href="#mrb_rescue-function" title="mrb_rescue">mrb_value <strong>mrb_rescue</strong>(mrb_state *, mrb_func_t, mrb_value, mrb_func_t, mrb_value)</a>
 
     
   </span>
@@ -263,7 +275,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_rescue_exceptions-function" title="<strong>mrb_rescue_exceptions</strong>"><strong>mrb_rescue_exceptions</strong></a>
+    <a href="#mrb_rescue_exceptions-function" title="mrb_rescue_exceptions">mrb_value <strong>mrb_rescue_exceptions</strong>(mrb_state *, mrb_func_t, mrb_value, mrb_func_t, mrb_value, mrb_int, struct RClass *, classes)</a>
 
     
   </span>
@@ -280,13 +292,34 @@ Included heaers
     
   </ul>
 
+
+  <h2>Define Summary</h2>
+  <dl class="constants">
+    
+      <dt id="MRUBY_ERROR_H-define" class=""><small>#define</small> MRUBY_ERROR_H
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="mrb_exc_ptr-define" class=""><small>#define</small> mrb_exc_ptr
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="mrb_exc_new_str_lit-define" class=""><small>#define</small> mrb_exc_new_str_lit
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+  </dl>
+
 <div id="functions_details" class="method_details_list">
   <h2>Function Details</h2>
 
   
     <div class="method_details first">
   <h3 class="signature first" id="mrb_sys_fail-function">
-  <strong>mrb_sys_fail</strong>
+  void <strong>mrb_sys_fail</strong>(mrb_state * mrb, const char * mesg)
 
   
 </h3>
@@ -296,7 +329,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_exc_new_str-function">
-  <strong>mrb_exc_new_str</strong>
+  mrb_value <strong>mrb_exc_new_str</strong>(mrb_state * mrb, struct RClass* c, mrb_value str)
 
   
 </h3>
@@ -306,7 +339,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_make_exception-function">
-  <strong>mrb_make_exception</strong>
+  mrb_value <strong>mrb_make_exception</strong>(mrb_state * mrb, int argc, const mrb_value * argv)
 
   
 </h3>
@@ -316,7 +349,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_exc_backtrace-function">
-  <strong>mrb_exc_backtrace</strong>
+  mrb_value <strong>mrb_exc_backtrace</strong>(mrb_state * mrb, mrb_value exc)
 
   
 </h3>
@@ -326,7 +359,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_get_backtrace-function">
-  <strong>mrb_get_backtrace</strong>
+  mrb_value <strong>mrb_get_backtrace</strong>(mrb_state * mrb)
 
   
 </h3>
@@ -336,7 +369,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_no_method_error-function">
-  <strong>mrb_no_method_error</strong>
+  mrb_noreturn <strong>mrb_no_method_error</strong>(mrb_state * mrb, mrb_sym id, mrb_value args, const char * fmt, ... )
 
   
 </h3>
@@ -346,7 +379,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_f_raise-function">
-  <strong>mrb_f_raise</strong>
+  mrb_value <strong>mrb_f_raise</strong>(mrb_state* , mrb_value )
 
   
 </h3>
@@ -367,7 +400,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_protect-function">
-  <strong>mrb_protect</strong>
+  mrb_value <strong>mrb_protect</strong>(mrb_state * mrb, mrb_func_t body, mrb_value data, mrb_bool * state)
 
   
 </h3>
@@ -388,7 +421,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_ensure-function">
-  <strong>mrb_ensure</strong>
+  mrb_value <strong>mrb_ensure</strong>(mrb_state * mrb, mrb_func_t body, mrb_value b_data, mrb_func_t ensure, mrb_value e_data)
 
   
 </h3>
@@ -398,7 +431,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_rescue-function">
-  <strong>mrb_rescue</strong>
+  mrb_value <strong>mrb_rescue</strong>(mrb_state * mrb, mrb_func_t body, mrb_value b_data, mrb_func_t rescue, mrb_value r_data)
 
   
 </h3>
@@ -408,7 +441,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_rescue_exceptions-function">
-  <strong>mrb_rescue_exceptions</strong>
+  mrb_value <strong>mrb_rescue_exceptions</strong>(mrb_state * mrb, mrb_func_t body, mrb_value b_data, mrb_func_t rescue, mrb_value r_data, mrb_int len, struct RClass * , classes )
 
   
 </h3>
@@ -420,7 +453,7 @@ Included heaers
 </div>
 
     <div id="footer">
-  Generated on Mon Sep 28 13:37:47 2015 by
+  Generated on Tue Sep 29 15:15:33 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 in <a href="https://github.com/sagmor/yard-mruby">mruby mode</a> 0.1.0 (ruby-2.2.1).
 </div>

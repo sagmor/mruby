@@ -78,7 +78,19 @@
     <iframe id="search_frame"></iframe>
 
     <div id="content"><h1>Header: mruby/variable.h</h1>
-Included heaers
+<h2>Overview</h2>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Functions to access mruby variables.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>Included heaers
 
   <h2>
     Function Summary
@@ -89,7 +101,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_const_get-function" title="<strong>mrb_const_get</strong>"><strong>mrb_const_get</strong></a>
+    <a href="#mrb_const_get-function" title="mrb_const_get">mrb_value <strong>mrb_const_get</strong>(mrb_state*, mrb_value, mrb_sym)</a>
 
     
   </span>
@@ -106,7 +118,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_const_set-function" title="<strong>mrb_const_set</strong>"><strong>mrb_const_set</strong></a>
+    <a href="#mrb_const_set-function" title="mrb_const_set">void <strong>mrb_const_set</strong>(mrb_state*, mrb_value, mrb_sym, mrb_value)</a>
 
     
   </span>
@@ -123,7 +135,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_const_defined-function" title="<strong>mrb_const_defined</strong>"><strong>mrb_const_defined</strong></a>
+    <a href="#mrb_const_defined-function" title="mrb_const_defined">mrb_bool <strong>mrb_const_defined</strong>(mrb_state*, mrb_value, mrb_sym)</a>
 
     
   </span>
@@ -140,7 +152,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_const_remove-function" title="<strong>mrb_const_remove</strong>"><strong>mrb_const_remove</strong></a>
+    <a href="#mrb_const_remove-function" title="mrb_const_remove">void <strong>mrb_const_remove</strong>(mrb_state*, mrb_value, mrb_sym)</a>
 
     
   </span>
@@ -157,7 +169,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_iv_p-function" title="<strong>mrb_iv_p</strong>"><strong>mrb_iv_p</strong></a>
+    <a href="#mrb_iv_p-function" title="mrb_iv_p">mrb_bool <strong>mrb_iv_p</strong>(mrb_state *, mrb_sym)</a>
 
     
   </span>
@@ -174,7 +186,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_iv_check-function" title="<strong>mrb_iv_check</strong>"><strong>mrb_iv_check</strong></a>
+    <a href="#mrb_iv_check-function" title="mrb_iv_check">void <strong>mrb_iv_check</strong>(mrb_state *, mrb_sym)</a>
 
     
   </span>
@@ -191,7 +203,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_obj_iv_get-function" title="<strong>mrb_obj_iv_get</strong>"><strong>mrb_obj_iv_get</strong></a>
+    <a href="#mrb_obj_iv_get-function" title="mrb_obj_iv_get">mrb_value <strong>mrb_obj_iv_get</strong>(mrb_state *, struct RObject *, mrb_sym)</a>
 
     
   </span>
@@ -208,7 +220,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_obj_iv_set-function" title="<strong>mrb_obj_iv_set</strong>"><strong>mrb_obj_iv_set</strong></a>
+    <a href="#mrb_obj_iv_set-function" title="mrb_obj_iv_set">void <strong>mrb_obj_iv_set</strong>(mrb_state *, struct RObject *, mrb_sym, mrb_value)</a>
 
     
   </span>
@@ -225,7 +237,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_obj_iv_defined-function" title="<strong>mrb_obj_iv_defined</strong>"><strong>mrb_obj_iv_defined</strong></a>
+    <a href="#mrb_obj_iv_defined-function" title="mrb_obj_iv_defined">mrb_bool <strong>mrb_obj_iv_defined</strong>(mrb_state *, struct RObject *, mrb_sym)</a>
 
     
   </span>
@@ -242,7 +254,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_obj_iv_ifnone-function" title="<strong>mrb_obj_iv_ifnone</strong>"><strong>mrb_obj_iv_ifnone</strong></a>
+    <a href="#mrb_obj_iv_ifnone-function" title="mrb_obj_iv_ifnone">void <strong>mrb_obj_iv_ifnone</strong>(mrb_state *, struct RObject *, mrb_sym, mrb_value)</a>
 
     
   </span>
@@ -259,7 +271,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_iv_get-function" title="<strong>mrb_iv_get</strong>"><strong>mrb_iv_get</strong></a>
+    <a href="#mrb_iv_get-function" title="mrb_iv_get">mrb_value <strong>mrb_iv_get</strong>(mrb_state *, mrb_value, mrb_sym)</a>
 
     
   </span>
@@ -276,7 +288,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_iv_set-function" title="<strong>mrb_iv_set</strong>"><strong>mrb_iv_set</strong></a>
+    <a href="#mrb_iv_set-function" title="mrb_iv_set">void <strong>mrb_iv_set</strong>(mrb_state *, mrb_value, mrb_sym, mrb_value)</a>
 
     
   </span>
@@ -293,7 +305,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_iv_defined-function" title="<strong>mrb_iv_defined</strong>"><strong>mrb_iv_defined</strong></a>
+    <a href="#mrb_iv_defined-function" title="mrb_iv_defined">mrb_bool <strong>mrb_iv_defined</strong>(mrb_state*, mrb_value, mrb_sym)</a>
 
     
   </span>
@@ -310,7 +322,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_iv_remove-function" title="<strong>mrb_iv_remove</strong>"><strong>mrb_iv_remove</strong></a>
+    <a href="#mrb_iv_remove-function" title="mrb_iv_remove">mrb_value <strong>mrb_iv_remove</strong>(mrb_state *, mrb_value, mrb_sym)</a>
 
     
   </span>
@@ -327,7 +339,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_iv_copy-function" title="<strong>mrb_iv_copy</strong>"><strong>mrb_iv_copy</strong></a>
+    <a href="#mrb_iv_copy-function" title="mrb_iv_copy">void <strong>mrb_iv_copy</strong>(mrb_state *, mrb_value, mrb_value)</a>
 
     
   </span>
@@ -344,7 +356,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_const_defined_at-function" title="<strong>mrb_const_defined_at</strong>"><strong>mrb_const_defined_at</strong></a>
+    <a href="#mrb_const_defined_at-function" title="mrb_const_defined_at">mrb_bool <strong>mrb_const_defined_at</strong>(mrb_state *, mrb_value, mrb_sym)</a>
 
     
   </span>
@@ -361,7 +373,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_gv_get-function" title="<strong>mrb_gv_get</strong>"><strong>mrb_gv_get</strong></a>
+    <a href="#mrb_gv_get-function" title="mrb_gv_get">mrb_value <strong>mrb_gv_get</strong>(mrb_state *, mrb_sym)</a>
 
     
   </span>
@@ -378,7 +390,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_gv_set-function" title="<strong>mrb_gv_set</strong>"><strong>mrb_gv_set</strong></a>
+    <a href="#mrb_gv_set-function" title="mrb_gv_set">void <strong>mrb_gv_set</strong>(mrb_state *, mrb_sym, mrb_value)</a>
 
     
   </span>
@@ -395,7 +407,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_gv_remove-function" title="<strong>mrb_gv_remove</strong>"><strong>mrb_gv_remove</strong></a>
+    <a href="#mrb_gv_remove-function" title="mrb_gv_remove">void <strong>mrb_gv_remove</strong>(mrb_state *, mrb_sym)</a>
 
     
   </span>
@@ -412,7 +424,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_cv_get-function" title="<strong>mrb_cv_get</strong>"><strong>mrb_cv_get</strong></a>
+    <a href="#mrb_cv_get-function" title="mrb_cv_get">mrb_value <strong>mrb_cv_get</strong>(mrb_state *, mrb_value, mrb_sym)</a>
 
     
   </span>
@@ -429,7 +441,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_mod_cv_set-function" title="<strong>mrb_mod_cv_set</strong>"><strong>mrb_mod_cv_set</strong></a>
+    <a href="#mrb_mod_cv_set-function" title="mrb_mod_cv_set">void <strong>mrb_mod_cv_set</strong>(mrb_state *, struct RClass *, mrb_sym, mrb_value)</a>
 
     
   </span>
@@ -446,7 +458,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_cv_set-function" title="<strong>mrb_cv_set</strong>"><strong>mrb_cv_set</strong></a>
+    <a href="#mrb_cv_set-function" title="mrb_cv_set">void <strong>mrb_cv_set</strong>(mrb_state *, mrb_value, mrb_sym, mrb_value)</a>
 
     
   </span>
@@ -463,7 +475,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_cv_defined-function" title="<strong>mrb_cv_defined</strong>"><strong>mrb_cv_defined</strong></a>
+    <a href="#mrb_cv_defined-function" title="mrb_cv_defined">mrb_bool <strong>mrb_cv_defined</strong>(mrb_state *, mrb_value, mrb_sym)</a>
 
     
   </span>
@@ -480,13 +492,24 @@ Included heaers
     
   </ul>
 
+
+  <h2>Define Summary</h2>
+  <dl class="constants">
+    
+      <dt id="MRUBY_VARIABLE_H-define" class=""><small>#define</small> MRUBY_VARIABLE_H
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+  </dl>
+
 <div id="functions_details" class="method_details_list">
   <h2>Function Details</h2>
 
   
     <div class="method_details first">
   <h3 class="signature first" id="mrb_const_get-function">
-  <strong>mrb_const_get</strong>
+  mrb_value <strong>mrb_const_get</strong>(mrb_state* , mrb_value , mrb_sym )
 
   
 </h3>
@@ -496,7 +519,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_const_set-function">
-  <strong>mrb_const_set</strong>
+  void <strong>mrb_const_set</strong>(mrb_state* , mrb_value , mrb_sym , mrb_value )
 
   
 </h3>
@@ -506,7 +529,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_const_defined-function">
-  <strong>mrb_const_defined</strong>
+  mrb_bool <strong>mrb_const_defined</strong>(mrb_state* , mrb_value , mrb_sym )
 
   
 </h3>
@@ -516,7 +539,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_const_remove-function">
-  <strong>mrb_const_remove</strong>
+  void <strong>mrb_const_remove</strong>(mrb_state* , mrb_value , mrb_sym )
 
   
 </h3>
@@ -526,7 +549,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_iv_p-function">
-  <strong>mrb_iv_p</strong>
+  mrb_bool <strong>mrb_iv_p</strong>(mrb_state * mrb, mrb_sym sym)
 
   
 </h3>
@@ -536,7 +559,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_iv_check-function">
-  <strong>mrb_iv_check</strong>
+  void <strong>mrb_iv_check</strong>(mrb_state * mrb, mrb_sym sym)
 
   
 </h3>
@@ -546,7 +569,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_obj_iv_get-function">
-  <strong>mrb_obj_iv_get</strong>
+  mrb_value <strong>mrb_obj_iv_get</strong>(mrb_state * mrb, struct RObject * obj, mrb_sym sym)
 
   
 </h3>
@@ -556,7 +579,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_obj_iv_set-function">
-  <strong>mrb_obj_iv_set</strong>
+  void <strong>mrb_obj_iv_set</strong>(mrb_state * mrb, struct RObject * obj, mrb_sym sym, mrb_value v)
 
   
 </h3>
@@ -566,7 +589,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_obj_iv_defined-function">
-  <strong>mrb_obj_iv_defined</strong>
+  mrb_bool <strong>mrb_obj_iv_defined</strong>(mrb_state * mrb, struct RObject * obj, mrb_sym sym)
 
   
 </h3>
@@ -576,7 +599,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_obj_iv_ifnone-function">
-  <strong>mrb_obj_iv_ifnone</strong>
+  void <strong>mrb_obj_iv_ifnone</strong>(mrb_state * mrb, struct RObject * obj, mrb_sym sym, mrb_value v)
 
   
 </h3>
@@ -586,7 +609,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_iv_get-function">
-  <strong>mrb_iv_get</strong>
+  mrb_value <strong>mrb_iv_get</strong>(mrb_state * mrb, mrb_value obj, mrb_sym sym)
 
   
 </h3>
@@ -596,7 +619,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_iv_set-function">
-  <strong>mrb_iv_set</strong>
+  void <strong>mrb_iv_set</strong>(mrb_state * mrb, mrb_value obj, mrb_sym sym, mrb_value v)
 
   
 </h3>
@@ -606,7 +629,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_iv_defined-function">
-  <strong>mrb_iv_defined</strong>
+  mrb_bool <strong>mrb_iv_defined</strong>(mrb_state* , mrb_value , mrb_sym )
 
   
 </h3>
@@ -616,7 +639,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_iv_remove-function">
-  <strong>mrb_iv_remove</strong>
+  mrb_value <strong>mrb_iv_remove</strong>(mrb_state * mrb, mrb_value obj, mrb_sym sym)
 
   
 </h3>
@@ -626,7 +649,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_iv_copy-function">
-  <strong>mrb_iv_copy</strong>
+  void <strong>mrb_iv_copy</strong>(mrb_state * mrb, mrb_value dst, mrb_value src)
 
   
 </h3>
@@ -636,7 +659,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_const_defined_at-function">
-  <strong>mrb_const_defined_at</strong>
+  mrb_bool <strong>mrb_const_defined_at</strong>(mrb_state * mrb, mrb_value mod, mrb_sym id)
 
   
 </h3>
@@ -646,7 +669,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_gv_get-function">
-  <strong>mrb_gv_get</strong>
+  mrb_value <strong>mrb_gv_get</strong>(mrb_state * mrb, mrb_sym sym)
 
   
 </h3>
@@ -656,7 +679,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_gv_set-function">
-  <strong>mrb_gv_set</strong>
+  void <strong>mrb_gv_set</strong>(mrb_state * mrb, mrb_sym sym, mrb_value val)
 
   
 </h3>
@@ -666,7 +689,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_gv_remove-function">
-  <strong>mrb_gv_remove</strong>
+  void <strong>mrb_gv_remove</strong>(mrb_state * mrb, mrb_sym sym)
 
   
 </h3>
@@ -676,7 +699,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_cv_get-function">
-  <strong>mrb_cv_get</strong>
+  mrb_value <strong>mrb_cv_get</strong>(mrb_state * mrb, mrb_value mod, mrb_sym sym)
 
   
 </h3>
@@ -686,7 +709,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_mod_cv_set-function">
-  <strong>mrb_mod_cv_set</strong>
+  void <strong>mrb_mod_cv_set</strong>(mrb_state * mrb, struct RClass * c, mrb_sym sym, mrb_value v)
 
   
 </h3>
@@ -696,7 +719,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_cv_set-function">
-  <strong>mrb_cv_set</strong>
+  void <strong>mrb_cv_set</strong>(mrb_state * mrb, mrb_value mod, mrb_sym sym, mrb_value v)
 
   
 </h3>
@@ -706,7 +729,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_cv_defined-function">
-  <strong>mrb_cv_defined</strong>
+  mrb_bool <strong>mrb_cv_defined</strong>(mrb_state * mrb, mrb_value mod, mrb_sym sym)
 
   
 </h3>
@@ -718,7 +741,7 @@ Included heaers
 </div>
 
     <div id="footer">
-  Generated on Mon Sep 28 13:37:47 2015 by
+  Generated on Tue Sep 29 15:15:33 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 in <a href="https://github.com/sagmor/yard-mruby">mruby mode</a> 0.1.0 (ruby-2.2.1).
 </div>

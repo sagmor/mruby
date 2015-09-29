@@ -503,10 +503,10 @@ given return an array with all matches of <code>pattern</code>.</p>
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/string.rb', line 202</span>
 
-<span class='kw'>def</span> <span class='op'>=~</span><span class='lparen'>(</span><span class='id identifier rubyid_re'>re</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>TypeError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>type mismatch: String given</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_re'>re</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span> <span class='symbol'>:to_str</span>
-  <span class='id identifier rubyid_re'>re</span> <span class='op'>=~</span> <span class='kw'>self</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">=~</span>(re)
+  raise <span style="color:#036;font-weight:bold">TypeError</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">type mismatch: String given</span><span style="color:#710">&quot;</span></span> <span style="color:#080;font-weight:bold">if</span> re.respond_to? <span style="color:#A60">:to_str</span>
+  re =~ <span style="color:#069">self</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -585,47 +585,47 @@ portion of the string affected is determined using the same criteria as
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/string.rb', line 158</span>
 
-<span class='kw'>def</span> <span class='op'>[]=</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_anum'>anum</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_anum'>anum</span> <span class='op'>==</span> <span class='int'>2</span>
-    <span class='id identifier rubyid_pos'>pos</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_pos'>pos</span><span class='period'>.</span><span class='id identifier rubyid_kind_of?'>kind_of?</span> <span class='const'>String</span>
-      <span class='id identifier rubyid_posnum'>posnum</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_index'>index</span><span class='lparen'>(</span><span class='id identifier rubyid_pos'>pos</span><span class='rparen'>)</span>
-      <span class='kw'>if</span> <span class='id identifier rubyid_posnum'>posnum</span>
-        <span class='id identifier rubyid_b'>b</span> <span class='op'>=</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='id identifier rubyid_posnum'>posnum</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span><span class='rbracket'>]</span>
-        <span class='id identifier rubyid_a'>a</span> <span class='op'>=</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='lparen'>(</span><span class='id identifier rubyid_posnum'>posnum</span> <span class='op'>+</span> <span class='id identifier rubyid_pos'>pos</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='rparen'>)</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span>
-        <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_replace'>replace</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_b'>b</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='comma'>,</span> <span class='id identifier rubyid_a'>a</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
-        <span class='kw'>return</span> <span class='id identifier rubyid_value'>value</span>
-      <span class='kw'>else</span>
-        <span class='id identifier rubyid_raise'>raise</span> <span class='const'>IndexError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>string not matched</span><span class='tstring_end'>&quot;</span></span>
-      <span class='kw'>end</span>
-    <span class='kw'>else</span>
-      <span class='id identifier rubyid_pos'>pos</span> <span class='op'>+=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='kw'>if</span> <span class='id identifier rubyid_pos'>pos</span> <span class='op'>&lt;</span> <span class='int'>0</span>
-      <span class='kw'>if</span> <span class='id identifier rubyid_pos'>pos</span> <span class='op'>&lt;</span> <span class='int'>0</span> <span class='op'>||</span> <span class='id identifier rubyid_pos'>pos</span> <span class='op'>&gt;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span>
-        <span class='id identifier rubyid_raise'>raise</span> <span class='const'>IndexError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>index </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'> out of string</span><span class='tstring_end'>&quot;</span></span>
-      <span class='kw'>end</span>
-      <span class='id identifier rubyid_b'>b</span> <span class='op'>=</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='id identifier rubyid_pos'>pos</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span><span class='rbracket'>]</span>
-      <span class='id identifier rubyid_a'>a</span> <span class='op'>=</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='id identifier rubyid_pos'>pos</span> <span class='op'>+</span> <span class='int'>1</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span>
-      <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_replace'>replace</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_b'>b</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='comma'>,</span> <span class='id identifier rubyid_a'>a</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
-      <span class='kw'>return</span> <span class='id identifier rubyid_value'>value</span>
-    <span class='kw'>end</span>
-  <span class='kw'>elsif</span> <span class='id identifier rubyid_anum'>anum</span> <span class='op'>==</span> <span class='int'>3</span>
-    <span class='id identifier rubyid_pos'>pos</span><span class='comma'>,</span> <span class='id identifier rubyid_len'>len</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span>
-    <span class='id identifier rubyid_pos'>pos</span> <span class='op'>+=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='kw'>if</span> <span class='id identifier rubyid_pos'>pos</span> <span class='op'>&lt;</span> <span class='int'>0</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_pos'>pos</span> <span class='op'>&lt;</span> <span class='int'>0</span> <span class='op'>||</span> <span class='id identifier rubyid_pos'>pos</span> <span class='op'>&gt;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span>
-      <span class='id identifier rubyid_raise'>raise</span> <span class='const'>IndexError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>index </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'> out of string</span><span class='tstring_end'>&quot;</span></span>
-    <span class='kw'>end</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_len'>len</span> <span class='op'>&lt;</span> <span class='int'>0</span>
-      <span class='id identifier rubyid_raise'>raise</span> <span class='const'>IndexError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>negative length </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_len'>len</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
-    <span class='kw'>end</span>
-    <span class='id identifier rubyid_b'>b</span> <span class='op'>=</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='id identifier rubyid_pos'>pos</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_a'>a</span> <span class='op'>=</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='id identifier rubyid_pos'>pos</span> <span class='op'>+</span> <span class='id identifier rubyid_len'>len</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span>
-    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_replace'>replace</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_b'>b</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='comma'>,</span> <span class='id identifier rubyid_a'>a</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
-    <span class='kw'>return</span> <span class='id identifier rubyid_value'>value</span>
-  <span class='kw'>else</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>wrong number of arguments (</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_anum'>anum</span><span class='embexpr_end'>}</span><span class='tstring_content'> for 2..3)</span><span class='tstring_end'>&quot;</span></span>
-  <span class='kw'>end</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">[]=</span>(*args)
+  anum = args.size
+  <span style="color:#080;font-weight:bold">if</span> anum == <span style="color:#00D">2</span>
+    pos, value = args
+    <span style="color:#080;font-weight:bold">if</span> pos.kind_of? <span style="color:#036;font-weight:bold">String</span>
+      posnum = <span style="color:#069">self</span>.index(pos)
+      <span style="color:#080;font-weight:bold">if</span> posnum
+        b = <span style="color:#069">self</span>[<span style="color:#00D">0</span>, posnum.to_i]
+        a = <span style="color:#069">self</span>[(posnum + pos.length)..<span style="color:#00D">-1</span>]
+        <span style="color:#069">self</span>.replace([b, value, a].join(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#710">'</span></span>))
+        <span style="color:#080;font-weight:bold">return</span> value
+      <span style="color:#080;font-weight:bold">else</span>
+        raise <span style="color:#036;font-weight:bold">IndexError</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">string not matched</span><span style="color:#710">&quot;</span></span>
+      <span style="color:#080;font-weight:bold">end</span>
+    <span style="color:#080;font-weight:bold">else</span>
+      pos += <span style="color:#069">self</span>.length <span style="color:#080;font-weight:bold">if</span> pos &lt; <span style="color:#00D">0</span>
+      <span style="color:#080;font-weight:bold">if</span> pos &lt; <span style="color:#00D">0</span> || pos &gt; <span style="color:#069">self</span>.length
+        raise <span style="color:#036;font-weight:bold">IndexError</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">index </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>args[<span style="color:#00D">0</span>]<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20"> out of string</span><span style="color:#710">&quot;</span></span>
+      <span style="color:#080;font-weight:bold">end</span>
+      b = <span style="color:#069">self</span>[<span style="color:#00D">0</span>, pos.to_i]
+      a = <span style="color:#069">self</span>[pos + <span style="color:#00D">1</span>..<span style="color:#00D">-1</span>]
+      <span style="color:#069">self</span>.replace([b, value, a].join(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#710">'</span></span>))
+      <span style="color:#080;font-weight:bold">return</span> value
+    <span style="color:#080;font-weight:bold">end</span>
+  <span style="color:#080;font-weight:bold">elsif</span> anum == <span style="color:#00D">3</span>
+    pos, len, value = args
+    pos += <span style="color:#069">self</span>.length <span style="color:#080;font-weight:bold">if</span> pos &lt; <span style="color:#00D">0</span>
+    <span style="color:#080;font-weight:bold">if</span> pos &lt; <span style="color:#00D">0</span> || pos &gt; <span style="color:#069">self</span>.length
+      raise <span style="color:#036;font-weight:bold">IndexError</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">index </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>args[<span style="color:#00D">0</span>]<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20"> out of string</span><span style="color:#710">&quot;</span></span>
+    <span style="color:#080;font-weight:bold">end</span>
+    <span style="color:#080;font-weight:bold">if</span> len &lt; <span style="color:#00D">0</span>
+      raise <span style="color:#036;font-weight:bold">IndexError</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">negative length </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>len<span style="font-weight:bold;color:#666">}</span></span><span style="color:#710">&quot;</span></span>
+    <span style="color:#080;font-weight:bold">end</span>
+    b = <span style="color:#069">self</span>[<span style="color:#00D">0</span>, pos.to_i]
+    a = <span style="color:#069">self</span>[pos + len..<span style="color:#00D">-1</span>]
+    <span style="color:#069">self</span>.replace([b, value, a].join(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#710">'</span></span>))
+    <span style="color:#080;font-weight:bold">return</span> value
+  <span style="color:#080;font-weight:bold">else</span>
+    raise <span style="color:#036;font-weight:bold">ArgumentError</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">wrong number of arguments (</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>anum<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20"> for 2..3)</span><span style="color:#710">&quot;</span></span>
+  <span style="color:#080;font-weight:bold">end</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -683,28 +683,28 @@ portion of the string affected is determined using the same criteria as
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/string.rb', line 23</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid___sub_replace'>__sub_replace</span><span class='lparen'>(</span><span class='id identifier rubyid_pre'>pre</span><span class='comma'>,</span> <span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span class='id identifier rubyid_post'>post</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_s'>s</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
-  <span class='id identifier rubyid_i'>i</span> <span class='op'>=</span> <span class='int'>0</span>
-  <span class='kw'>while</span> <span class='id identifier rubyid_j'>j</span> <span class='op'>=</span> <span class='id identifier rubyid_index'>index</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\\</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_i'>i</span><span class='rparen'>)</span>
-    <span class='kw'>break</span> <span class='kw'>if</span> <span class='id identifier rubyid_j'>j</span> <span class='op'>==</span> <span class='id identifier rubyid_length'>length</span><span class='op'>-</span><span class='int'>1</span>
-    <span class='id identifier rubyid_t'>t</span> <span class='op'>=</span> <span class='kw'>case</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='id identifier rubyid_j'>j</span><span class='op'>+</span><span class='int'>1</span><span class='rbracket'>]</span>
-        <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\\</span><span class='tstring_end'>&quot;</span></span>
-          <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\\</span><span class='tstring_end'>&quot;</span></span>
-        <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>`</span><span class='tstring_end'>&quot;</span></span>
-          <span class='id identifier rubyid_pre'>pre</span>
-        <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&amp;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>0</span><span class='tstring_end'>&quot;</span></span>
-          <span class='id identifier rubyid_m'>m</span>
-        <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&#39;</span><span class='tstring_end'>&quot;</span></span>
-          <span class='id identifier rubyid_post'>post</span>
-        <span class='kw'>else</span>
-          <span class='kw'>self</span><span class='lbracket'>[</span><span class='id identifier rubyid_j'>j</span><span class='comma'>,</span> <span class='int'>2</span><span class='rbracket'>]</span>
-        <span class='kw'>end</span>
-    <span class='id identifier rubyid_s'>s</span> <span class='op'>+=</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span> <span class='id identifier rubyid_j'>j</span><span class='op'>-</span><span class='id identifier rubyid_i'>i</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_t'>t</span>
-    <span class='id identifier rubyid_i'>i</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span> <span class='op'>+</span> <span class='int'>2</span>
-  <span class='kw'>end</span>
-  <span class='id identifier rubyid_s'>s</span> <span class='op'>+</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span> <span class='id identifier rubyid_length'>length</span><span class='op'>-</span><span class='id identifier rubyid_i'>i</span><span class='rbracket'>]</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">__sub_replace</span>(pre, m, post)
+  s = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#710">&quot;</span></span>
+  i = <span style="color:#00D">0</span>
+  <span style="color:#080;font-weight:bold">while</span> j = index(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#b0b">\\</span><span style="color:#710">&quot;</span></span>, i)
+    <span style="color:#080;font-weight:bold">break</span> <span style="color:#080;font-weight:bold">if</span> j == length-<span style="color:#00D">1</span>
+    t = <span style="color:#080;font-weight:bold">case</span> <span style="color:#069">self</span>[j+<span style="color:#00D">1</span>]
+        <span style="color:#080;font-weight:bold">when</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#b0b">\\</span><span style="color:#710">&quot;</span></span>
+          <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#b0b">\\</span><span style="color:#710">&quot;</span></span>
+        <span style="color:#080;font-weight:bold">when</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">`</span><span style="color:#710">&quot;</span></span>
+          pre
+        <span style="color:#080;font-weight:bold">when</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">&amp;</span><span style="color:#710">&quot;</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">0</span><span style="color:#710">&quot;</span></span>
+          m
+        <span style="color:#080;font-weight:bold">when</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">'</span><span style="color:#710">&quot;</span></span>
+          post
+        <span style="color:#080;font-weight:bold">else</span>
+          <span style="color:#069">self</span>[j, <span style="color:#00D">2</span>]
+        <span style="color:#080;font-weight:bold">end</span>
+    s += <span style="color:#069">self</span>[i, j-i] + t
+    i = j + <span style="color:#00D">2</span>
+  <span style="color:#080;font-weight:bold">end</span>
+  s + <span style="color:#069">self</span>[i, length-i]
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -749,15 +749,15 @@ portion of the string affected is determined using the same criteria as
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/string.rb', line 145</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_each_byte'>each_byte</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_bytes'>bytes</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_bytes'>bytes</span>
-  <span class='id identifier rubyid_pos'>pos</span> <span class='op'>=</span> <span class='int'>0</span>
-  <span class='kw'>while</span> <span class='id identifier rubyid_pos'>pos</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_bytes'>bytes</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
-    <span class='id identifier rubyid_block'>block</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_bytes'>bytes</span><span class='lbracket'>[</span><span class='id identifier rubyid_pos'>pos</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_pos'>pos</span> <span class='op'>+=</span> <span class='int'>1</span>
-  <span class='kw'>end</span>
-  <span class='kw'>self</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">each_byte</span>(&amp;block)
+  bytes = <span style="color:#069">self</span>.bytes
+  pos = <span style="color:#00D">0</span>
+  <span style="color:#080;font-weight:bold">while</span> pos &lt; bytes.size
+    block.call(bytes[pos])
+    pos += <span style="color:#00D">1</span>
+  <span style="color:#080;font-weight:bold">end</span>
+  <span style="color:#069">self</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -801,14 +801,14 @@ portion of the string affected is determined using the same criteria as
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/string.rb', line 134</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_each_char'>each_char</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_pos'>pos</span> <span class='op'>=</span> <span class='int'>0</span>
-  <span class='kw'>while</span> <span class='id identifier rubyid_pos'>pos</span> <span class='op'>&lt;</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
-    <span class='id identifier rubyid_block'>block</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='kw'>self</span><span class='lbracket'>[</span><span class='id identifier rubyid_pos'>pos</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_pos'>pos</span> <span class='op'>+=</span> <span class='int'>1</span>
-  <span class='kw'>end</span>
-  <span class='kw'>self</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">each_char</span>(&amp;block)
+  pos = <span style="color:#00D">0</span>
+  <span style="color:#080;font-weight:bold">while</span> pos &lt; <span style="color:#069">self</span>.size
+    block.call(<span style="color:#069">self</span>[pos])
+    pos += <span style="color:#00D">1</span>
+  <span style="color:#080;font-weight:bold">end</span>
+  <span style="color:#069">self</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -855,15 +855,15 @@ portion of the string affected is determined using the same criteria as
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/string.rb', line 12</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_each_line'>each_line</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_offset'>offset</span> <span class='op'>=</span> <span class='int'>0</span>
-  <span class='kw'>while</span> <span class='id identifier rubyid_pos'>pos</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_index'>index</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_offset'>offset</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_block'>block</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='kw'>self</span><span class='lbracket'>[</span><span class='id identifier rubyid_offset'>offset</span><span class='comma'>,</span> <span class='id identifier rubyid_pos'>pos</span> <span class='op'>+</span> <span class='int'>1</span> <span class='op'>-</span> <span class='id identifier rubyid_offset'>offset</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_offset'>offset</span> <span class='op'>=</span> <span class='id identifier rubyid_pos'>pos</span> <span class='op'>+</span> <span class='int'>1</span>
-  <span class='kw'>end</span>
-  <span class='id identifier rubyid_block'>block</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='kw'>self</span><span class='lbracket'>[</span><span class='id identifier rubyid_offset'>offset</span><span class='comma'>,</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>-</span> <span class='id identifier rubyid_offset'>offset</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>&gt;</span> <span class='id identifier rubyid_offset'>offset</span>
-  <span class='kw'>self</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">each_line</span>(&amp;block)
+  offset = <span style="color:#00D">0</span>
+  <span style="color:#080;font-weight:bold">while</span> pos = <span style="color:#069">self</span>.index(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#b0b">\n</span><span style="color:#710">&quot;</span></span>, offset)
+    block.call(<span style="color:#069">self</span>[offset, pos + <span style="color:#00D">1</span> - offset])
+    offset = pos + <span style="color:#00D">1</span>
+  <span style="color:#080;font-weight:bold">end</span>
+  block.call(<span style="color:#069">self</span>[offset, <span style="color:#069">self</span>.size - offset]) <span style="color:#080;font-weight:bold">if</span> <span style="color:#069">self</span>.size &gt; offset
+  <span style="color:#069">self</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -922,25 +922,25 @@ the value of the block. Return the final value.</p>
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/string.rb', line 53</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_args'>args</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>==</span> <span class='int'>2</span>
-    <span class='id identifier rubyid_s'>s</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
-    <span class='id identifier rubyid_i'>i</span> <span class='op'>=</span> <span class='int'>0</span>
-    <span class='kw'>while</span> <span class='id identifier rubyid_j'>j</span> <span class='op'>=</span> <span class='id identifier rubyid_index'>index</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_i'>i</span><span class='rparen'>)</span>
-      <span class='id identifier rubyid_seplen'>seplen</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span>
-      <span class='id identifier rubyid_k'>k</span> <span class='op'>=</span> <span class='id identifier rubyid_j'>j</span> <span class='op'>+</span> <span class='id identifier rubyid_seplen'>seplen</span>
-      <span class='id identifier rubyid_pre'>pre</span> <span class='op'>=</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='id identifier rubyid_j'>j</span><span class='rbracket'>]</span>
-      <span class='id identifier rubyid_post'>post</span> <span class='op'>=</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span> <span class='id identifier rubyid_length'>length</span><span class='op'>-</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span>
-      <span class='id identifier rubyid_s'>s</span> <span class='op'>+=</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span> <span class='id identifier rubyid_j'>j</span><span class='op'>-</span><span class='id identifier rubyid_i'>i</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid___sub_replace'>__sub_replace</span><span class='lparen'>(</span><span class='id identifier rubyid_pre'>pre</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_post'>post</span><span class='rparen'>)</span>
-      <span class='id identifier rubyid_i'>i</span> <span class='op'>=</span> <span class='id identifier rubyid_k'>k</span>
-    <span class='kw'>end</span>
-    <span class='id identifier rubyid_s'>s</span> <span class='op'>+</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='id identifier rubyid_i'>i</span><span class='comma'>,</span> <span class='id identifier rubyid_length'>length</span><span class='op'>-</span><span class='id identifier rubyid_i'>i</span><span class='rbracket'>]</span>
-  <span class='kw'>elsif</span> <span class='id identifier rubyid_args'>args</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>==</span> <span class='int'>1</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_block'>block</span>
-    <span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_block'>block</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='rparen'>)</span>
-  <span class='kw'>else</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>wrong number of arguments</span><span class='tstring_end'>&quot;</span></span>
-  <span class='kw'>end</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">gsub</span>(*args, &amp;block)
+  <span style="color:#080;font-weight:bold">if</span> args.size == <span style="color:#00D">2</span>
+    s = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#710">&quot;</span></span>
+    i = <span style="color:#00D">0</span>
+    <span style="color:#080;font-weight:bold">while</span> j = index(args[<span style="color:#00D">0</span>], i)
+      seplen = args[<span style="color:#00D">0</span>].length
+      k = j + seplen
+      pre = <span style="color:#069">self</span>[<span style="color:#00D">0</span>, j]
+      post = <span style="color:#069">self</span>[k, length-k]
+      s += <span style="color:#069">self</span>[i, j-i] + args[<span style="color:#00D">1</span>].__sub_replace(pre, args[<span style="color:#00D">0</span>], post)
+      i = k
+    <span style="color:#080;font-weight:bold">end</span>
+    s + <span style="color:#069">self</span>[i, length-i]
+  <span style="color:#080;font-weight:bold">elsif</span> args.size == <span style="color:#00D">1</span> &amp;&amp; block
+    split(args[<span style="color:#00D">0</span>], <span style="color:#00D">-1</span>).join(block.call(args[<span style="color:#00D">0</span>]))
+  <span style="color:#080;font-weight:bold">else</span>
+    raise <span style="color:#036;font-weight:bold">ArgumentError</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">wrong number of arguments</span><span style="color:#710">&quot;</span></span>
+  <span style="color:#080;font-weight:bold">end</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -985,11 +985,11 @@ the value of the block. Modify <code>self</code> with the final value.</p>
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/string.rb', line 80</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_gsub!'>gsub!</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_str'>str</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
-  <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>if</span> <span class='id identifier rubyid_str'>str</span> <span class='op'>==</span> <span class='kw'>self</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_replace'>replace</span><span class='lparen'>(</span><span class='id identifier rubyid_str'>str</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">gsub!</span>(*args, &amp;block)
+  str = <span style="color:#069">self</span>.gsub(*args, &amp;block)
+  <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">nil</span> <span style="color:#080;font-weight:bold">if</span> str == <span style="color:#069">self</span>
+  <span style="color:#069">self</span>.replace(str)
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -1037,18 +1037,18 @@ the value of the block. Modify <code>self</code> with the final value.</p>
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/string.rb', line 209</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_match'>match</span><span class='lparen'>(</span><span class='id identifier rubyid_re'>re</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_re'>re</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span> <span class='symbol'>:to_str</span>
-    <span class='kw'>if</span> <span class='const'>Object</span><span class='period'>.</span><span class='id identifier rubyid_const_defined?'>const_defined?</span><span class='lparen'>(</span><span class='symbol'>:Regexp</span><span class='rparen'>)</span>
-      <span class='id identifier rubyid_r'>r</span> <span class='op'>=</span> <span class='const'>Regexp</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_re'>re</span><span class='rparen'>)</span>
-      <span class='id identifier rubyid_r'>r</span><span class='period'>.</span><span class='id identifier rubyid_match'>match</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
-    <span class='kw'>else</span>
-      <span class='id identifier rubyid_raise'>raise</span> <span class='const'>NotImplementedError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>String#match needs Regexp class</span><span class='tstring_end'>&quot;</span></span>
-    <span class='kw'>end</span>
-  <span class='kw'>else</span>
-    <span class='id identifier rubyid_re'>re</span><span class='period'>.</span><span class='id identifier rubyid_match'>match</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
-  <span class='kw'>end</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">match</span>(re, &amp;block)
+  <span style="color:#080;font-weight:bold">if</span> re.respond_to? <span style="color:#A60">:to_str</span>
+    <span style="color:#080;font-weight:bold">if</span> <span style="color:#036;font-weight:bold">Object</span>.const_defined?(<span style="color:#A60">:Regexp</span>)
+      r = <span style="color:#036;font-weight:bold">Regexp</span>.new(re)
+      r.match(<span style="color:#069">self</span>, &amp;block)
+    <span style="color:#080;font-weight:bold">else</span>
+      raise <span style="color:#036;font-weight:bold">NotImplementedError</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">String#match needs Regexp class</span><span style="color:#710">&quot;</span></span>
+    <span style="color:#080;font-weight:bold">end</span>
+  <span style="color:#080;font-weight:bold">else</span>
+    re.match(<span style="color:#069">self</span>, &amp;block)
+  <span style="color:#080;font-weight:bold">end</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -1093,12 +1093,12 @@ given return an array with all matches of <code>pattern</code>.</p>
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/string.rb', line 92</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_scan'>scan</span><span class='lparen'>(</span><span class='id identifier rubyid_reg'>reg</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
-  <span class='comment'>### *** TODO *** ###
-</span>  <span class='kw'>unless</span> <span class='const'>Object</span><span class='period'>.</span><span class='id identifier rubyid_const_defined?'>const_defined?</span><span class='lparen'>(</span><span class='symbol'>:Regexp</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>NotImplementedError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>scan not available (yet)</span><span class='tstring_end'>&quot;</span></span>
-  <span class='kw'>end</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">scan</span>(reg, &amp;block)
+  <span style="color:#777">### *** TODO *** ###</span>
+  <span style="color:#080;font-weight:bold">unless</span> <span style="color:#036;font-weight:bold">Object</span>.const_defined?(<span style="color:#A60">:Regexp</span>)
+    raise <span style="color:#036;font-weight:bold">NotImplementedError</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">scan not available (yet)</span><span style="color:#710">&quot;</span></span>
+  <span style="color:#080;font-weight:bold">end</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -1149,17 +1149,17 @@ given return an array with all matches of <code>pattern</code>.</p>
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/string.rb', line 106</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_sub'>sub</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_args'>args</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>==</span> <span class='int'>2</span>
-    <span class='id identifier rubyid_pre'>pre</span><span class='comma'>,</span> <span class='id identifier rubyid_post'>post</span> <span class='op'>=</span> <span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span>
-    <span class='kw'>return</span> <span class='kw'>self</span> <span class='kw'>unless</span> <span class='id identifier rubyid_post'>post</span> <span class='comment'># The sub target wasn&#39;t found in the string
-</span>    <span class='id identifier rubyid_pre'>pre</span> <span class='op'>+</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid___sub_replace'>__sub_replace</span><span class='lparen'>(</span><span class='id identifier rubyid_pre'>pre</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_post'>post</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='id identifier rubyid_post'>post</span>
-  <span class='kw'>elsif</span> <span class='id identifier rubyid_args'>args</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>==</span> <span class='int'>1</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_block'>block</span>
-    <span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_block'>block</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='rparen'>)</span>
-  <span class='kw'>else</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>wrong number of arguments</span><span class='tstring_end'>&quot;</span></span>
-  <span class='kw'>end</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">sub</span>(*args, &amp;block)
+  <span style="color:#080;font-weight:bold">if</span> args.size == <span style="color:#00D">2</span>
+    pre, post = split(args[<span style="color:#00D">0</span>], <span style="color:#00D">2</span>)
+    <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">self</span> <span style="color:#080;font-weight:bold">unless</span> post <span style="color:#777"># The sub target wasn't found in the string</span>
+    pre + args[<span style="color:#00D">1</span>].__sub_replace(pre, args[<span style="color:#00D">0</span>], post) + post
+  <span style="color:#080;font-weight:bold">elsif</span> args.size == <span style="color:#00D">1</span> &amp;&amp; block
+    split(args[<span style="color:#00D">0</span>], <span style="color:#00D">2</span>).join(block.call(args[<span style="color:#00D">0</span>]))
+  <span style="color:#080;font-weight:bold">else</span>
+    raise <span style="color:#036;font-weight:bold">ArgumentError</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">wrong number of arguments</span><span style="color:#710">&quot;</span></span>
+  <span style="color:#080;font-weight:bold">end</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -1205,11 +1205,11 @@ with the final value.</p>
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/string.rb', line 125</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_sub!'>sub!</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_str'>str</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_sub'>sub</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
-  <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>if</span> <span class='id identifier rubyid_str'>str</span> <span class='op'>==</span> <span class='kw'>self</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_replace'>replace</span><span class='lparen'>(</span><span class='id identifier rubyid_str'>str</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">sub!</span>(*args, &amp;block)
+  str = <span style="color:#069">self</span>.sub(*args, &amp;block)
+  <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">nil</span> <span style="color:#080;font-weight:bold">if</span> str == <span style="color:#069">self</span>
+  <span style="color:#069">self</span>.replace(str)
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -1220,7 +1220,7 @@ with the final value.</p>
 </div>
 
     <div id="footer">
-  Generated on Mon Sep 28 13:37:46 2015 by
+  Generated on Tue Sep 29 15:15:31 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 in <a href="https://github.com/sagmor/yard-mruby">mruby mode</a> 0.1.0 (ruby-2.2.1).
 </div>

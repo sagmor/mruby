@@ -576,8 +576,8 @@ hsh.select!                          -&gt; an_enumerator.</p>
     
 <p>Equality—Two hashes are equal if they each contain the same number</p>
 
-<pre class="code ruby"><code class="ruby">of keys and if each key-value pair is equal to (according to
-&lt;code&gt;Object#==&lt;/code&gt;) the corresponding elements in the other
+<pre class="code ruby"><code class="ruby">of keys <span style="color:#080;font-weight:bold">and</span> <span style="color:#080;font-weight:bold">if</span> each key-value pair is equal to (according to
+&lt;code&gt;<span style="color:#036;font-weight:bold">Object</span><span style="color:#777">#==&lt;/code&gt;) the corresponding elements in the other</span>
 hash.</code></pre>
 
 <p>ISO 15.2.13.4.1</p>
@@ -612,20 +612,20 @@ hash.</code></pre>
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/hash.rb', line 13</span>
 
-<span class='kw'>def</span> <span class='op'>==</span><span class='lparen'>(</span><span class='id identifier rubyid_hash'>hash</span><span class='rparen'>)</span>
-  <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_equal?'>equal?</span><span class='lparen'>(</span><span class='id identifier rubyid_hash'>hash</span><span class='rparen'>)</span>
-  <span class='kw'>begin</span>
-    <span class='id identifier rubyid_hash'>hash</span> <span class='op'>=</span> <span class='id identifier rubyid_hash'>hash</span><span class='period'>.</span><span class='id identifier rubyid_to_hash'>to_hash</span>
-  <span class='kw'>rescue</span> <span class='const'>NoMethodError</span>
-    <span class='kw'>return</span> <span class='kw'>false</span>
-  <span class='kw'>end</span>
-  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>!=</span> <span class='id identifier rubyid_hash'>hash</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span><span class='id identifier rubyid_v'>v</span><span class='op'>|</span>
-    <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_hash'>hash</span><span class='period'>.</span><span class='id identifier rubyid_key?'>key?</span><span class='lparen'>(</span><span class='id identifier rubyid_k'>k</span><span class='rparen'>)</span>
-    <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='id identifier rubyid_hash'>hash</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span>
-  <span class='kw'>end</span>
-  <span class='kw'>return</span> <span class='kw'>true</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">==</span>(hash)
+  <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">true</span> <span style="color:#080;font-weight:bold">if</span> <span style="color:#069">self</span>.equal?(hash)
+  <span style="color:#080;font-weight:bold">begin</span>
+    hash = hash.to_hash
+  <span style="color:#080;font-weight:bold">rescue</span> <span style="color:#036;font-weight:bold">NoMethodError</span>
+    <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">false</span>
+  <span style="color:#080;font-weight:bold">end</span>
+  <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">false</span> <span style="color:#080;font-weight:bold">if</span> <span style="color:#069">self</span>.size != hash.size
+  <span style="color:#069">self</span>.each <span style="color:#080;font-weight:bold">do</span> |k,v|
+    <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">false</span> <span style="color:#080;font-weight:bold">unless</span> hash.key?(k)
+    <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">false</span> <span style="color:#080;font-weight:bold">unless</span> <span style="color:#069">self</span>[k] == hash[k]
+  <span style="color:#080;font-weight:bold">end</span>
+  <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">true</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -654,10 +654,10 @@ hash.</code></pre>
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/hash.rb', line 345</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid___update'>__update</span><span class='lparen'>(</span><span class='id identifier rubyid_h'>h</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_h'>h</span><span class='period'>.</span><span class='id identifier rubyid_each_key'>each_key</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='op'>|</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_h'>h</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span><span class='rbrace'>}</span>
-  <span class='kw'>self</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">__update</span>(h)
+  h.each_key{|k| <span style="color:#069">self</span>[k] = h[k]}
+  <span style="color:#069">self</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -699,12 +699,12 @@ hash.</code></pre>
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/hash.rb', line 196</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid__inspect'>_inspect</span>
-  <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>{}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>==</span> <span class='int'>0</span>
-  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>{</span><span class='tstring_end'>&quot;</span></span><span class='op'>+</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span><span class='id identifier rubyid_v'>v</span><span class='op'>|</span>
-    <span class='id identifier rubyid_k'>k</span><span class='period'>.</span><span class='id identifier rubyid__inspect'>_inspect</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>=&gt;</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_v'>v</span><span class='period'>.</span><span class='id identifier rubyid__inspect'>_inspect</span>
-  <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>, </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='op'>+</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>}</span><span class='tstring_end'>&quot;</span></span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">_inspect</span>
+  <span style="color:#080;font-weight:bold">return</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">{}</span><span style="color:#710">&quot;</span></span> <span style="color:#080;font-weight:bold">if</span> <span style="color:#069">self</span>.size == <span style="color:#00D">0</span>
+  <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">{</span><span style="color:#710">&quot;</span></span>+<span style="color:#069">self</span>.map {|k,v|
+    k._inspect + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">=&gt;</span><span style="color:#710">&quot;</span></span> + v._inspect
+  }.join(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">, </span><span style="color:#710">&quot;</span></span>)+<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">}</span><span style="color:#710">&quot;</span></span>
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -751,13 +751,13 @@ a block is given, call the block with the value of the element.</p>
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/hash.rb', line 56</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_block'>block</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_has_key?'>has_key?</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_block'>block</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='rparen'>)</span>
-  <span class='kw'>else</span>
-    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid___delete'>__delete</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='rparen'>)</span>
-  <span class='kw'>end</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">delete</span>(key, &amp;block)
+  <span style="color:#080;font-weight:bold">if</span> block &amp;&amp; !<span style="color:#069">self</span>.has_key?(key)
+    block.call(key)
+  <span style="color:#080;font-weight:bold">else</span>
+    <span style="color:#069">self</span>.__delete(key)
+  <span style="color:#080;font-weight:bold">end</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -787,8 +787,8 @@ hsh.each_pair                         -&gt; an_enumerator</code></pre>
 
 <p>If no block is given, an enumerator is returned instead.</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_h'>h</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>a</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='int'>100</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>b</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='int'>200</span> <span class='rbrace'>}</span>
-<span class='id identifier rubyid_h'>h</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='op'>|</span> <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_key'>key</span><span class='embexpr_end'>}</span><span class='tstring_content'> is </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_value'>value</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
+<pre class="code ruby"><code class="ruby">h = { <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">a</span><span style="color:#710">&quot;</span></span> =&gt; <span style="color:#00D">100</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">b</span><span style="color:#710">&quot;</span></span> =&gt; <span style="color:#00D">200</span> }
+h.each {|key, value| puts <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>key<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20"> is </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>value<span style="font-weight:bold;color:#666">}</span></span><span style="color:#710">&quot;</span></span> }
 </code></pre>
 
 <p><em>produces:</em></p>
@@ -826,19 +826,19 @@ hsh.each_pair                         -&gt; an_enumerator</code></pre>
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/hash.rb', line 86</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_each'>each</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
-  <span class='kw'>return</span> <span class='id identifier rubyid_to_enum'>to_enum</span> <span class='symbol'>:each</span> <span class='kw'>unless</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">each</span>(&amp;block)
+  <span style="color:#080;font-weight:bold">return</span> to_enum <span style="color:#A60">:each</span> <span style="color:#080;font-weight:bold">unless</span> block_given?
 
-  <span class='id identifier rubyid_keys'>keys</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span>
-  <span class='id identifier rubyid_vals'>vals</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_values'>values</span>
-  <span class='id identifier rubyid_len'>len</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
-  <span class='id identifier rubyid_i'>i</span> <span class='op'>=</span> <span class='int'>0</span>
-  <span class='kw'>while</span> <span class='id identifier rubyid_i'>i</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_len'>len</span>
-    <span class='id identifier rubyid_block'>block</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span> <span class='lbracket'>[</span><span class='id identifier rubyid_keys'>keys</span><span class='lbracket'>[</span><span class='id identifier rubyid_i'>i</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_vals'>vals</span><span class='lbracket'>[</span><span class='id identifier rubyid_i'>i</span><span class='rbracket'>]</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_i'>i</span> <span class='op'>+=</span> <span class='int'>1</span>
-  <span class='kw'>end</span>
-  <span class='kw'>self</span>
-<span class='kw'>end</span></pre>
+  keys = <span style="color:#069">self</span>.keys
+  vals = <span style="color:#069">self</span>.values
+  len = <span style="color:#069">self</span>.size
+  i = <span style="color:#00D">0</span>
+  <span style="color:#080;font-weight:bold">while</span> i &lt; len
+    block.call [keys[i], vals[i]]
+    i += <span style="color:#00D">1</span>
+  <span style="color:#080;font-weight:bold">end</span>
+  <span style="color:#069">self</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -866,14 +866,14 @@ hsh.each_key                  -&gt; an_enumerator</code></pre>
 
 <p>If no block is given, an enumerator is returned instead.</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_h'>h</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>a</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='int'>100</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>b</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='int'>200</span> <span class='rbrace'>}</span>
-<span class='id identifier rubyid_h'>h</span><span class='period'>.</span><span class='id identifier rubyid_each_key'>each_key</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_key'>key</span><span class='op'>|</span> <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_key'>key</span> <span class='rbrace'>}</span>
+<pre class="code ruby"><code class="ruby">h = { <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">a</span><span style="color:#710">&quot;</span></span> =&gt; <span style="color:#00D">100</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">b</span><span style="color:#710">&quot;</span></span> =&gt; <span style="color:#00D">200</span> }
+h.each_key {|key| puts key }
 </code></pre>
 
 <p><em>produces:</em></p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_a'>a</span>
-<span class='id identifier rubyid_b'>b</span>
+<pre class="code ruby"><code class="ruby">a
+b
 </code></pre>
 
 <p>ISO 15.2.13.4.10</p>
@@ -900,12 +900,12 @@ hsh.each_key                  -&gt; an_enumerator</code></pre>
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/hash.rb', line 119</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_each_key'>each_key</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
-  <span class='kw'>return</span> <span class='id identifier rubyid_to_enum'>to_enum</span> <span class='symbol'>:each_key</span> <span class='kw'>unless</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">each_key</span>(&amp;block)
+  <span style="color:#080;font-weight:bold">return</span> to_enum <span style="color:#A60">:each_key</span> <span style="color:#080;font-weight:bold">unless</span> block_given?
 
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='op'>|</span> <span class='id identifier rubyid_block'>block</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_k'>k</span><span class='rparen'>)</span><span class='rbrace'>}</span>
-  <span class='kw'>self</span>
-<span class='kw'>end</span></pre>
+  <span style="color:#069">self</span>.keys.each{|k| block.call(k)}
+  <span style="color:#069">self</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -933,14 +933,14 @@ hsh.each_value                    -&gt; an_enumerator</code></pre>
 
 <p>If no block is given, an enumerator is returned instead.</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_h'>h</span> <span class='op'>=</span> <span class='lbrace'>{</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>a</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='int'>100</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>b</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='int'>200</span> <span class='rbrace'>}</span>
-<span class='id identifier rubyid_h'>h</span><span class='period'>.</span><span class='id identifier rubyid_each_value'>each_value</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_value'>value</span><span class='op'>|</span> <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_value'>value</span> <span class='rbrace'>}</span>
+<pre class="code ruby"><code class="ruby">h = { <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">a</span><span style="color:#710">&quot;</span></span> =&gt; <span style="color:#00D">100</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">b</span><span style="color:#710">&quot;</span></span> =&gt; <span style="color:#00D">200</span> }
+h.each_value {|value| puts value }
 </code></pre>
 
 <p><em>produces:</em></p>
 
-<pre class="code ruby"><code class="ruby"><span class='int'>100</span>
-<span class='int'>200</span>
+<pre class="code ruby"><code class="ruby"><span style="color:#00D">100</span>
+<span style="color:#00D">200</span>
 </code></pre>
 
 <p>ISO 15.2.13.4.11</p>
@@ -967,12 +967,12 @@ hsh.each_value                    -&gt; an_enumerator</code></pre>
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/hash.rb', line 145</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_each_value'>each_value</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
-  <span class='kw'>return</span> <span class='id identifier rubyid_to_enum'>to_enum</span> <span class='symbol'>:each_value</span> <span class='kw'>unless</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">each_value</span>(&amp;block)
+  <span style="color:#080;font-weight:bold">return</span> to_enum <span style="color:#A60">:each_value</span> <span style="color:#080;font-weight:bold">unless</span> block_given?
 
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='op'>|</span> <span class='id identifier rubyid_block'>block</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='kw'>self</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='rbrace'>}</span>
-  <span class='kw'>self</span>
-<span class='kw'>end</span></pre>
+  <span style="color:#069">self</span>.keys.each{|k| block.call(<span style="color:#069">self</span>[k])}
+  <span style="color:#069">self</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -1038,20 +1038,20 @@ hashes with the same content compared by eql?.</p>
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/hash.rb', line 33</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_eql?'>eql?</span><span class='lparen'>(</span><span class='id identifier rubyid_hash'>hash</span><span class='rparen'>)</span>
-  <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_equal?'>equal?</span><span class='lparen'>(</span><span class='id identifier rubyid_hash'>hash</span><span class='rparen'>)</span>
-  <span class='kw'>begin</span>
-    <span class='id identifier rubyid_hash'>hash</span> <span class='op'>=</span> <span class='id identifier rubyid_hash'>hash</span><span class='period'>.</span><span class='id identifier rubyid_to_hash'>to_hash</span>
-  <span class='kw'>rescue</span> <span class='const'>NoMethodError</span>
-    <span class='kw'>return</span> <span class='kw'>false</span>
-  <span class='kw'>end</span>
-  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>!=</span> <span class='id identifier rubyid_hash'>hash</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span><span class='id identifier rubyid_v'>v</span><span class='op'>|</span>
-    <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_hash'>hash</span><span class='period'>.</span><span class='id identifier rubyid_key?'>key?</span><span class='lparen'>(</span><span class='id identifier rubyid_k'>k</span><span class='rparen'>)</span>
-    <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_eql?'>eql?</span><span class='lparen'>(</span><span class='id identifier rubyid_hash'>hash</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-  <span class='kw'>end</span>
-  <span class='kw'>return</span> <span class='kw'>true</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">eql?</span>(hash)
+  <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">true</span> <span style="color:#080;font-weight:bold">if</span> <span style="color:#069">self</span>.equal?(hash)
+  <span style="color:#080;font-weight:bold">begin</span>
+    hash = hash.to_hash
+  <span style="color:#080;font-weight:bold">rescue</span> <span style="color:#036;font-weight:bold">NoMethodError</span>
+    <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">false</span>
+  <span style="color:#080;font-weight:bold">end</span>
+  <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">false</span> <span style="color:#080;font-weight:bold">if</span> <span style="color:#069">self</span>.size != hash.size
+  <span style="color:#069">self</span>.each <span style="color:#080;font-weight:bold">do</span> |k,v|
+    <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">false</span> <span style="color:#080;font-weight:bold">unless</span> hash.key?(k)
+    <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">false</span> <span style="color:#080;font-weight:bold">unless</span> <span style="color:#069">self</span>[k].eql?(hash[k])
+  <span style="color:#080;font-weight:bold">end</span>
+  <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">true</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -1098,13 +1098,13 @@ hashes with the same content compared by eql?.</p>
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/hash.rb', line 206</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_inspect'>inspect</span>
-  <span class='kw'>begin</span>
-    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid__inspect'>_inspect</span>
-  <span class='kw'>rescue</span> <span class='const'>SystemStackError</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>{...}</span><span class='tstring_end'>&quot;</span></span>
-  <span class='kw'>end</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">inspect</span>
+  <span style="color:#080;font-weight:bold">begin</span>
+    <span style="color:#069">self</span>._inspect
+  <span style="color:#080;font-weight:bold">rescue</span> <span style="color:#036;font-weight:bold">SystemStackError</span>
+    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">{...}</span><span style="color:#710">&quot;</span></span>
+  <span style="color:#080;font-weight:bold">end</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -1172,20 +1172,20 @@ this element.</p>
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/hash.rb', line 180</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_other'>other</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_h'>h</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>TypeError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>can&#39;t convert argument into Hash</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:to_hash</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_other'>other</span> <span class='op'>=</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_to_hash'>to_hash</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_each_key'>each_key</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='op'>|</span> <span class='id identifier rubyid_h'>h</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span><span class='rbrace'>}</span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_block'>block</span>
-    <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_each_key'>each_key</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='op'>|</span>
-      <span class='id identifier rubyid_h'>h</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_has_key?'>has_key?</span><span class='lparen'>(</span><span class='id identifier rubyid_k'>k</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='op'>?</span> <span class='id identifier rubyid_block'>block</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span> <span class='kw'>self</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_other'>other</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='op'>:</span> <span class='id identifier rubyid_other'>other</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span>
-    <span class='rbrace'>}</span>
-  <span class='kw'>else</span>
-    <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_each_key'>each_key</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='op'>|</span> <span class='id identifier rubyid_h'>h</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_other'>other</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span><span class='rbrace'>}</span>
-  <span class='kw'>end</span>
-  <span class='id identifier rubyid_h'>h</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">merge</span>(other, &amp;block)
+  h = {}
+  raise <span style="color:#036;font-weight:bold">TypeError</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">can't convert argument into Hash</span><span style="color:#710">&quot;</span></span> <span style="color:#080;font-weight:bold">unless</span> other.respond_to?(<span style="color:#A60">:to_hash</span>)
+  other = other.to_hash
+  <span style="color:#069">self</span>.each_key{|k| h[k] = <span style="color:#069">self</span>[k]}
+  <span style="color:#080;font-weight:bold">if</span> block
+    other.each_key{|k|
+      h[k] = (<span style="color:#069">self</span>.has_key?(k))? block.call(k, <span style="color:#069">self</span>[k], other[k]): other[k]
+    }
+  <span style="color:#080;font-weight:bold">else</span>
+    other.each_key{|k| h[k] = other[k]}
+  <span style="color:#080;font-weight:bold">end</span>
+  h
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -1207,16 +1207,16 @@ this element.</p>
 
 <pre class="code ruby"><code class="ruby">  hsh.rehash -&gt; hsh
 
-Rebuilds the hash based on the current hash values for each key. If
+<span style="color:#036;font-weight:bold">Rebuilds</span> the hash based on the current hash values <span style="color:#080;font-weight:bold">for</span> each key. If
 values of key objects have changed since they were inserted, this
-method will reindex &lt;i&gt;hsh&lt;/i&gt;.
+method will reindex &lt;i&gt;hsh&lt;<span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#404">/</span><span style="color:#808">i&gt;.
 
    h = {&quot;AAA&quot; =&gt; &quot;b&quot;}
    h.keys[0].chop!
    h          #=&gt; {&quot;AA&quot;=&gt;&quot;b&quot;}
    h[&quot;AA&quot;]    #=&gt; nil
    h.rehash   #=&gt; {&quot;AA&quot;=&gt;&quot;b&quot;}
-   h[&quot;AA&quot;]    #=&gt; &quot;b&quot;</code></pre>
+   h[&quot;AA&quot;]    #=&gt; &quot;b&quot;</span></span></code></pre>
 
 
   </div>
@@ -1241,13 +1241,13 @@ method will reindex &lt;i&gt;hsh&lt;/i&gt;.
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/hash.rb', line 337</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_rehash'>rehash</span>
-  <span class='id identifier rubyid_h'>h</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span><span class='id identifier rubyid_v'>v</span><span class='op'>|</span>
-    <span class='id identifier rubyid_h'>h</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_v'>v</span>
-  <span class='rbrace'>}</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_replace'>replace</span><span class='lparen'>(</span><span class='id identifier rubyid_h'>h</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">rehash</span>
+  h = {}
+  <span style="color:#069">self</span>.each{|k,v|
+    h[k] = v
+  }
+  <span style="color:#069">self</span>.replace(h)
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -1270,15 +1270,15 @@ method will reindex &lt;i&gt;hsh&lt;/i&gt;.
 <pre class="code ruby"><code class="ruby">   hsh.reject {|key, value| block}   -&gt; a_hash
    hsh.reject                        -&gt; an_enumerator
 
-Returns a new hash consisting of entries for which the block returns false.
+<span style="color:#036;font-weight:bold">Returns</span> a new hash consisting of entries <span style="color:#080;font-weight:bold">for</span> which the block returns <span style="color:#069">false</span>.
 
 If no block is given, an enumerator is returned instead.
 
-   h = { &quot;a&quot; =&gt; 100, &quot;b&quot; =&gt; 200, &quot;c&quot; =&gt; 300 }
-   h.reject {|k,v| k &lt; &quot;b&quot;}  #=&gt; {&quot;b&quot; =&gt; 200, &quot;c&quot; =&gt; 300}
-   h.reject {|k,v| v &gt; 100}  #=&gt; {&quot;a&quot; =&gt; 100}
+   h = { <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">a</span><span style="color:#710">&quot;</span></span> =&gt; <span style="color:#00D">100</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">b</span><span style="color:#710">&quot;</span></span> =&gt; <span style="color:#00D">200</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">c</span><span style="color:#710">&quot;</span></span> =&gt; <span style="color:#00D">300</span> }
+   h.reject {|k,v| k &lt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">b</span><span style="color:#710">&quot;</span></span>}  <span style="color:#777">#=&gt; {&quot;b&quot; =&gt; 200, &quot;c&quot; =&gt; 300}</span>
+   h.reject {|k,v| v &gt; <span style="color:#00D">100</span>}  <span style="color:#777">#=&gt; {&quot;a&quot; =&gt; 100}</span>
 
-1.8/1.9 Hash#reject returns Hash; ISO says nothing.</code></pre>
+<span style="color:#60E">1.8</span>/<span style="color:#60E">1.9</span> <span style="color:#036;font-weight:bold">Hash</span><span style="color:#777">#reject returns Hash; ISO says nothing.</span></code></pre>
 
 
   </div>
@@ -1307,17 +1307,17 @@ If no block is given, an enumerator is returned instead.
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/hash.rb', line 257</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_reject'>reject</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span>
-  <span class='kw'>return</span> <span class='id identifier rubyid_to_enum'>to_enum</span> <span class='symbol'>:reject</span> <span class='kw'>unless</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">reject</span>(&amp;b)
+  <span style="color:#080;font-weight:bold">return</span> to_enum <span style="color:#A60">:reject</span> <span style="color:#080;font-weight:bold">unless</span> block_given?
 
-  <span class='id identifier rubyid_h'>h</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span><span class='id identifier rubyid_v'>v</span><span class='op'>|</span>
-    <span class='kw'>unless</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span> <span class='id identifier rubyid_v'>v</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-      <span class='id identifier rubyid_h'>h</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_v'>v</span>
-    <span class='kw'>end</span>
-  <span class='rbrace'>}</span>
-  <span class='id identifier rubyid_h'>h</span>
-<span class='kw'>end</span></pre>
+  h = {}
+  <span style="color:#069">self</span>.each{|k,v|
+    <span style="color:#080;font-weight:bold">unless</span> b.call([k, v])
+      h[k] = v
+    <span style="color:#080;font-weight:bold">end</span>
+  }
+  h
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -1337,13 +1337,13 @@ If no block is given, an enumerator is returned instead.
     
 <p>call-seq:</p>
 
-<pre class="code ruby"><code class="ruby">   hsh.reject! {| key, value | block }  -&gt; hsh or nil
+<pre class="code ruby"><code class="ruby">   hsh.reject! {| key, value | block }  -&gt; hsh <span style="color:#080;font-weight:bold">or</span> <span style="color:#069">nil</span>
    hsh.reject!                          -&gt; an_enumerator
 
-Equivalent to &lt;code&gt;Hash#delete_if&lt;/code&gt;, but returns
-&lt;code&gt;nil&lt;/code&gt; if no changes were made.
+<span style="color:#036;font-weight:bold">Equivalent</span> to &lt;code&gt;<span style="color:#036;font-weight:bold">Hash</span><span style="color:#777">#delete_if&lt;/code&gt;, but returns</span>
+&lt;code&gt;<span style="color:#069">nil</span>&lt;<span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#404">/</span><span style="color:#808">code&gt; if no changes were made.
 
-1.8/1.9 Hash#reject! returns Hash; ISO says nothing.</code></pre>
+1.8</span><span style="color:#404">/</span></span><span style="color:#60E">1.9</span> <span style="color:#036;font-weight:bold">Hash</span><span style="color:#777">#reject! returns Hash; ISO says nothing.</span></code></pre>
 
 
   </div>
@@ -1376,21 +1376,21 @@ Equivalent to &lt;code&gt;Hash#delete_if&lt;/code&gt;, but returns
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/hash.rb', line 226</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_reject!'>reject!</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span>
-  <span class='kw'>return</span> <span class='id identifier rubyid_to_enum'>to_enum</span> <span class='symbol'>:reject!</span> <span class='kw'>unless</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">reject!</span>(&amp;b)
+  <span style="color:#080;font-weight:bold">return</span> to_enum <span style="color:#A60">:reject!</span> <span style="color:#080;font-weight:bold">unless</span> block_given?
 
-  <span class='id identifier rubyid_keys'>keys</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span><span class='id identifier rubyid_v'>v</span><span class='op'>|</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span> <span class='id identifier rubyid_v'>v</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-      <span class='id identifier rubyid_keys'>keys</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_k'>k</span><span class='rparen'>)</span>
-    <span class='kw'>end</span>
-  <span class='rbrace'>}</span>
-  <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>if</span> <span class='id identifier rubyid_keys'>keys</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>==</span> <span class='int'>0</span>
-  <span class='id identifier rubyid_keys'>keys</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='op'>|</span>
-    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_k'>k</span><span class='rparen'>)</span>
-  <span class='rbrace'>}</span>
-  <span class='kw'>self</span>
-<span class='kw'>end</span></pre>
+  keys = []
+  <span style="color:#069">self</span>.each{|k,v|
+    <span style="color:#080;font-weight:bold">if</span> b.call([k, v])
+      keys.push(k)
+    <span style="color:#080;font-weight:bold">end</span>
+  }
+  <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">nil</span> <span style="color:#080;font-weight:bold">if</span> keys.size == <span style="color:#00D">0</span>
+  keys.each{|k|
+    <span style="color:#069">self</span>.delete(k)
+  }
+  <span style="color:#069">self</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -1445,19 +1445,19 @@ Equivalent to &lt;code&gt;Hash#delete_if&lt;/code&gt;, but returns
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/hash.rb', line 156</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_replace'>replace</span><span class='lparen'>(</span><span class='id identifier rubyid_hash'>hash</span><span class='rparen'>)</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_clear'>clear</span>
-  <span class='id identifier rubyid_hash'>hash</span> <span class='op'>=</span> <span class='id identifier rubyid_hash'>hash</span><span class='period'>.</span><span class='id identifier rubyid_to_hash'>to_hash</span>
-  <span class='id identifier rubyid_hash'>hash</span><span class='period'>.</span><span class='id identifier rubyid_each_key'>each_key</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='op'>|</span>
-    <span class='kw'>self</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_hash'>hash</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span>
-  <span class='rbrace'>}</span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_hash'>hash</span><span class='period'>.</span><span class='id identifier rubyid_default_proc'>default_proc</span>
-    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_default_proc'>default_proc</span> <span class='op'>=</span> <span class='id identifier rubyid_hash'>hash</span><span class='period'>.</span><span class='id identifier rubyid_default_proc'>default_proc</span>
-  <span class='kw'>else</span>
-    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_default'>default</span> <span class='op'>=</span> <span class='id identifier rubyid_hash'>hash</span><span class='period'>.</span><span class='id identifier rubyid_default'>default</span>
-  <span class='kw'>end</span>
-  <span class='kw'>self</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">replace</span>(hash)
+  <span style="color:#069">self</span>.clear
+  hash = hash.to_hash
+  hash.each_key{|k|
+    <span style="color:#069">self</span>[k] = hash[k]
+  }
+  <span style="color:#080;font-weight:bold">if</span> hash.default_proc
+    <span style="color:#069">self</span>.default_proc = hash.default_proc
+  <span style="color:#080;font-weight:bold">else</span>
+    <span style="color:#069">self</span>.default = hash.default
+  <span style="color:#080;font-weight:bold">end</span>
+  <span style="color:#069">self</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -1480,15 +1480,15 @@ Equivalent to &lt;code&gt;Hash#delete_if&lt;/code&gt;, but returns
 <pre class="code ruby"><code class="ruby">   hsh.select {|key, value| block}   -&gt; a_hash
    hsh.select                        -&gt; an_enumerator
 
-Returns a new hash consisting of entries for which the block returns true.
+<span style="color:#036;font-weight:bold">Returns</span> a new hash consisting of entries <span style="color:#080;font-weight:bold">for</span> which the block returns <span style="color:#069">true</span>.
 
 If no block is given, an enumerator is returned instead.
 
-   h = { &quot;a&quot; =&gt; 100, &quot;b&quot; =&gt; 200, &quot;c&quot; =&gt; 300 }
-   h.select {|k,v| k &gt; &quot;a&quot;}  #=&gt; {&quot;b&quot; =&gt; 200, &quot;c&quot; =&gt; 300}
-   h.select {|k,v| v &lt; 200}  #=&gt; {&quot;a&quot; =&gt; 100}
+   h = { <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">a</span><span style="color:#710">&quot;</span></span> =&gt; <span style="color:#00D">100</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">b</span><span style="color:#710">&quot;</span></span> =&gt; <span style="color:#00D">200</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">c</span><span style="color:#710">&quot;</span></span> =&gt; <span style="color:#00D">300</span> }
+   h.select {|k,v| k &gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">a</span><span style="color:#710">&quot;</span></span>}  <span style="color:#777">#=&gt; {&quot;b&quot; =&gt; 200, &quot;c&quot; =&gt; 300}</span>
+   h.select {|k,v| v &lt; <span style="color:#00D">200</span>}  <span style="color:#777">#=&gt; {&quot;a&quot; =&gt; 100}</span>
 
-1.9 Hash#select returns Hash; ISO says nothing</code></pre>
+<span style="color:#60E">1.9</span> <span style="color:#036;font-weight:bold">Hash</span><span style="color:#777">#select returns Hash; ISO says nothing</span></code></pre>
 
 
   </div>
@@ -1517,17 +1517,17 @@ If no block is given, an enumerator is returned instead.
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/hash.rb', line 310</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_select'>select</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span>
-  <span class='kw'>return</span> <span class='id identifier rubyid_to_enum'>to_enum</span> <span class='symbol'>:select</span> <span class='kw'>unless</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">select</span>(&amp;b)
+  <span style="color:#080;font-weight:bold">return</span> to_enum <span style="color:#A60">:select</span> <span style="color:#080;font-weight:bold">unless</span> block_given?
 
-  <span class='id identifier rubyid_h'>h</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span><span class='id identifier rubyid_v'>v</span><span class='op'>|</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span> <span class='id identifier rubyid_v'>v</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-      <span class='id identifier rubyid_h'>h</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_v'>v</span>
-    <span class='kw'>end</span>
-  <span class='rbrace'>}</span>
-  <span class='id identifier rubyid_h'>h</span>
-<span class='kw'>end</span></pre>
+  h = {}
+  <span style="color:#069">self</span>.each{|k,v|
+    <span style="color:#080;font-weight:bold">if</span> b.call([k, v])
+      h[k] = v
+    <span style="color:#080;font-weight:bold">end</span>
+  }
+  h
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -1547,13 +1547,13 @@ If no block is given, an enumerator is returned instead.
     
 <p>call-seq:</p>
 
-<pre class="code ruby"><code class="ruby">   hsh.select! {| key, value | block }  -&gt; hsh or nil
+<pre class="code ruby"><code class="ruby">   hsh.select! {| key, value | block }  -&gt; hsh <span style="color:#080;font-weight:bold">or</span> <span style="color:#069">nil</span>
    hsh.select!                          -&gt; an_enumerator
 
-Equivalent to &lt;code&gt;Hash#keep_if&lt;/code&gt;, but returns
-&lt;code&gt;nil&lt;/code&gt; if no changes were made.
+<span style="color:#036;font-weight:bold">Equivalent</span> to &lt;code&gt;<span style="color:#036;font-weight:bold">Hash</span><span style="color:#777">#keep_if&lt;/code&gt;, but returns</span>
+&lt;code&gt;<span style="color:#069">nil</span>&lt;<span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#404">/</span><span style="color:#808">code&gt; if no changes were made.
 
-1.9 Hash#select! returns Hash; ISO says nothing.</code></pre>
+1.9 Hash#select! returns Hash; ISO says nothing.</span></span></code></pre>
 
 
   </div>
@@ -1586,21 +1586,21 @@ Equivalent to &lt;code&gt;Hash#keep_if&lt;/code&gt;, but returns
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/hash.rb', line 279</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_select!'>select!</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span>
-  <span class='kw'>return</span> <span class='id identifier rubyid_to_enum'>to_enum</span> <span class='symbol'>:select!</span> <span class='kw'>unless</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">select!</span>(&amp;b)
+  <span style="color:#080;font-weight:bold">return</span> to_enum <span style="color:#A60">:select!</span> <span style="color:#080;font-weight:bold">unless</span> block_given?
 
-  <span class='id identifier rubyid_keys'>keys</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span><span class='id identifier rubyid_v'>v</span><span class='op'>|</span>
-    <span class='kw'>unless</span> <span class='id identifier rubyid_b'>b</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='comma'>,</span> <span class='id identifier rubyid_v'>v</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-      <span class='id identifier rubyid_keys'>keys</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_k'>k</span><span class='rparen'>)</span>
-    <span class='kw'>end</span>
-  <span class='rbrace'>}</span>
-  <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>if</span> <span class='id identifier rubyid_keys'>keys</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>==</span> <span class='int'>0</span>
-  <span class='id identifier rubyid_keys'>keys</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='op'>|</span>
-    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_k'>k</span><span class='rparen'>)</span>
-  <span class='rbrace'>}</span>
-  <span class='kw'>self</span>
-<span class='kw'>end</span></pre>
+  keys = []
+  <span style="color:#069">self</span>.each{|k,v|
+    <span style="color:#080;font-weight:bold">unless</span> b.call([k, v])
+      keys.push(k)
+    <span style="color:#080;font-weight:bold">end</span>
+  }
+  <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">nil</span> <span style="color:#080;font-weight:bold">if</span> keys.size == <span style="color:#00D">0</span>
+  keys.each{|k|
+    <span style="color:#069">self</span>.delete(k)
+  }
+  <span style="color:#069">self</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -1611,7 +1611,7 @@ Equivalent to &lt;code&gt;Hash#keep_if&lt;/code&gt;, but returns
 </div>
 
     <div id="footer">
-  Generated on Mon Sep 28 13:37:45 2015 by
+  Generated on Tue Sep 29 15:15:30 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 in <a href="https://github.com/sagmor/yard-mruby">mruby mode</a> 0.1.0 (ruby-2.2.1).
 </div>

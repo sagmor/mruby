@@ -106,9 +106,9 @@ binaries.</p>
 called <em>build_config.rb</em>. This file contains the build configuration
 of mruby and looks like this for example:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='const'>MRuby</span><span class='op'>::</span><span class='const'>Build</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_conf'>conf</span><span class='op'>|</span>
-  <span class='id identifier rubyid_toolchain'>toolchain</span> <span class='symbol'>:gcc</span>
-<span class='kw'>end</span>
+<pre class="code ruby"><code class="ruby"><span style="color:#036;font-weight:bold">MRuby</span>::<span style="color:#036;font-weight:bold">Build</span>.new <span style="color:#080;font-weight:bold">do</span> |conf|
+  toolchain <span style="color:#A60">:gcc</span>
+<span style="color:#080;font-weight:bold">end</span>
 </code></pre>
 
 <p>All tools necessary to compile mruby can be set or modified here. In case
@@ -134,7 +134,7 @@ configure the build environment for specific compiler infrastructures.</p>
 
 <p>Toolchain configuration for the GNU C Compiler.</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_toolchain'>toolchain</span> <span class='symbol'>:gcc</span>
+<pre class="code ruby"><code class="ruby">toolchain <span style="color:#A60">:gcc</span>
 </code></pre>
 
 <h4>clang</h4>
@@ -142,7 +142,7 @@ configure the build environment for specific compiler infrastructures.</p>
 <p>Toolchain configuration for the LLVM C Compiler clang. Mainly equal to the
 GCC toolchain.</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_toolchain'>toolchain</span> <span class='symbol'>:clang</span>
+<pre class="code ruby"><code class="ruby">toolchain <span style="color:#A60">:clang</span>
 </code></pre>
 
 <h4>Visual Studio 2010, 2012 and 2013</h4>
@@ -151,14 +151,14 @@ GCC toolchain.</p>
 <a href="http://msdn.microsoft.com/en-us/library/ms229859(v=vs.110).aspx">Visual Studio Command Prompt</a>,
 you normally do not have to specify this manually, since it gets automatically detected by our build process.</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_toolchain'>toolchain</span> <span class='symbol'>:visualcpp</span>
+<pre class="code ruby"><code class="ruby">toolchain <span style="color:#A60">:visualcpp</span>
 </code></pre>
 
 <h4>Android</h4>
 
 <p>Toolchain configuration for Android.</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_toolchain'>toolchain</span> <span class='symbol'>:androideabi</span>
+<pre class="code ruby"><code class="ruby">toolchain <span style="color:#A60">:androideabi</span>
 </code></pre>
 
 <p>Requires the custom standalone Android NDK and the toolchain path
@@ -176,8 +176,8 @@ process. The following tools can be selected:</p>
 
 <p>To select them declare conf.gem as follows:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_conf'>conf</span><span class='period'>.</span><span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_root'>root</span><span class='embexpr_end'>}</span><span class='tstring_content'>/mrbgems/mruby-bin-mruby</span><span class='tstring_end'>&quot;</span></span>
-<span class='id identifier rubyid_conf'>conf</span><span class='period'>.</span><span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_root'>root</span><span class='embexpr_end'>}</span><span class='tstring_content'>/mrbgems/mruby-bin-mirb</span><span class='tstring_end'>&quot;</span></span>
+<pre class="code ruby"><code class="ruby">conf.gem <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>root<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">/mrbgems/mruby-bin-mruby</span><span style="color:#710">&quot;</span></span>
+conf.gem <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>root<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">/mrbgems/mruby-bin-mirb</span><span style="color:#710">&quot;</span></span>
 </code></pre>
 
 <h3>File Separator</h3>
@@ -185,14 +185,14 @@ process. The following tools can be selected:</p>
 <p>Some environments require a different file separator character. It is possible to
 set the character via <code>conf.file_separator</code>.</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_conf'>conf</span><span class='period'>.</span><span class='id identifier rubyid_file_separator'>file_separator</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/</span><span class='tstring_end'>&#39;</span></span>
+<pre class="code ruby"><code class="ruby">conf.file_separator = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">/</span><span style="color:#710">'</span></span>
 </code></pre>
 
 <h3>C Compiler</h3>
 
 <p>Configuration of the C compiler binary, flags and include paths.</p>
 
-<pre class="code ruby"><code class="ruby">conf.cc do |cc|
+<pre class="code ruby"><code class="ruby">conf.cc <span style="color:#080;font-weight:bold">do</span> |cc|
   cc.command = ...
   cc.flags = ...
   cc.include_paths = ...
@@ -200,26 +200,26 @@ set the character via <code>conf.file_separator</code>.</p>
   cc.option_include_path = ...
   cc.option_define = ...
   cc.compile_options = ...
-end
+<span style="color:#080;font-weight:bold">end</span>
 </code></pre>
 
 <p>C Compiler has header searcher to detect installed library.</p>
 
 <p>If you need a include path of header file use <code>search_header_path</code>:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='comment'># Searches ```iconv.h```.
-</span><span class='comment'># If found it will return include path of the header file.
-</span><span class='comment'># Otherwise it will return nil .
-</span><span class='id identifier rubyid_fail'>fail</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>iconv.h not found</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_conf'>conf</span><span class='period'>.</span><span class='id identifier rubyid_cc'>cc</span><span class='period'>.</span><span class='id identifier rubyid_search_header_path'>search_header_path</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>iconv.h</span><span class='tstring_end'>&#39;</span></span>
+<pre class="code ruby"><code class="ruby"><span style="color:#777"># Searches ```iconv.h```.</span>
+<span style="color:#777"># If found it will return include path of the header file.</span>
+<span style="color:#777"># Otherwise it will return nil .</span>
+fail <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">iconv.h not found</span><span style="color:#710">'</span></span> <span style="color:#080;font-weight:bold">unless</span> conf.cc.search_header_path <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">iconv.h</span><span style="color:#710">'</span></span>
 </code></pre>
 
 <p>If you need a full file name of header file use <code>search_header</code>:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='comment'># Searches ```iconv.h```.
-</span><span class='comment'># If found it will return full path of the header file.
-</span><span class='comment'># Otherwise it will return nil .
-</span><span class='id identifier rubyid_iconv_h'>iconv_h</span> <span class='op'>=</span> <span class='id identifier rubyid_conf'>conf</span><span class='period'>.</span><span class='id identifier rubyid_cc'>cc</span><span class='period'>.</span><span class='id identifier rubyid_search_header'>search_header</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>iconv.h</span><span class='tstring_end'>&#39;</span></span>
-<span class='id identifier rubyid_print'>print</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>iconv.h found: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_iconv_h'>iconv_h</span><span class='embexpr_end'>}</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+<pre class="code ruby"><code class="ruby"><span style="color:#777"># Searches ```iconv.h```.</span>
+<span style="color:#777"># If found it will return full path of the header file.</span>
+<span style="color:#777"># Otherwise it will return nil .</span>
+iconv_h = conf.cc.search_header <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">iconv.h</span><span style="color:#710">'</span></span>
+print <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">iconv.h found: </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>iconv_h<span style="font-weight:bold;color:#666">}</span></span><span style="color:#b0b">\n</span><span style="color:#710">&quot;</span></span>
 </code></pre>
 
 <p>Header searcher uses compiler&#39;s <code>include_paths</code> by default.
@@ -228,16 +228,16 @@ it will use compiler specific include paths too. (For example <code>/usr/local/i
 
 <p>If you need a special header search paths define a singleton method <code>header_search_paths</code> to C compiler:</p>
 
-<pre class="code ruby"><code class="ruby">def conf.cc.header_search_paths
-  [&#39;/opt/local/include&#39;] + include_paths
-end
+<pre class="code ruby"><code class="ruby"><span style="color:#080;font-weight:bold">def</span> conf.cc.<span style="color:#06B;font-weight:bold">header_search_paths</span>
+  [<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">/opt/local/include</span><span style="color:#710">'</span></span>] + include_paths
+<span style="color:#080;font-weight:bold">end</span>
 </code></pre>
 
 <h3>Linker</h3>
 
 <p>Configuration of the Linker binary, flags and library paths.</p>
 
-<pre class="code ruby"><code class="ruby">conf.linker do |linker|
+<pre class="code ruby"><code class="ruby">conf.linker <span style="color:#080;font-weight:bold">do</span> |linker|
   linker.command = ...
   linker.flags = ...
   linker.flags_before_libraries = ...
@@ -247,59 +247,59 @@ end
   linker.option_library = ...
   linker.option_library_path = ...
   linker.link_options = ...
-end
+<span style="color:#080;font-weight:bold">end</span>
 </code></pre>
 
 <h3>Archiver</h3>
 
 <p>Configuration of the Archiver binary and flags.</p>
 
-<pre class="code ruby"><code class="ruby">conf.archiver do |archiver|
+<pre class="code ruby"><code class="ruby">conf.archiver <span style="color:#080;font-weight:bold">do</span> |archiver|
   archiver.command = ...
   archiver.archive_options = ...
-end
+<span style="color:#080;font-weight:bold">end</span>
 </code></pre>
 
 <h3>Parser Generator</h3>
 
 <p>Configuration of the Parser Generator binary and flags.</p>
 
-<pre class="code ruby"><code class="ruby">conf.yacc do |yacc|
+<pre class="code ruby"><code class="ruby">conf.yacc <span style="color:#080;font-weight:bold">do</span> |yacc|
   yacc.command = ...
   yacc.compile_options = ...
-end
+<span style="color:#080;font-weight:bold">end</span>
 </code></pre>
 
 <h3>GPerf</h3>
 
 <p>Configuration of the GPerf binary and flags.</p>
 
-<pre class="code ruby"><code class="ruby">conf.gperf do |gperf|
+<pre class="code ruby"><code class="ruby">conf.gperf <span style="color:#080;font-weight:bold">do</span> |gperf|
   gperf.command = ...
   gperf.compile_options = ...
-end
+<span style="color:#080;font-weight:bold">end</span>
 </code></pre>
 
 <h3>File Extensions</h3>
 
-<pre class="code ruby"><code class="ruby">conf.exts do |exts|
+<pre class="code ruby"><code class="ruby">conf.exts <span style="color:#080;font-weight:bold">do</span> |exts|
   exts.object = ...
   exts.executable = ...
   exts.library = ...
-end
+<span style="color:#080;font-weight:bold">end</span>
 </code></pre>
 
 <h3>Mrbgems</h3>
 
 <p>Integrate GEMs in the build process.</p>
 
-<pre class="code ruby"><code class="ruby"># Integrate GEM with additional configuration
-conf.gem &#39;path/to/gem&#39; do |g|
+<pre class="code ruby"><code class="ruby"><span style="color:#777"># Integrate GEM with additional configuration</span>
+conf.gem <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">path/to/gem</span><span style="color:#710">'</span></span> <span style="color:#080;font-weight:bold">do</span> |g|
   g.cc.flags &lt;&lt; ...
-end
+<span style="color:#080;font-weight:bold">end</span>
 
-# Integrate GEM without additional configuration
-conf.gem &#39;path/to/another/gem&#39;
+<span style="color:#777"># Integrate GEM without additional configuration</span>
+conf.gem <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">path/to/another/gem</span><span style="color:#710">'</span></span>
 </code></pre>
 
 <p>See doc/mrbgems/README.md for more option about mrbgems.</p>
@@ -310,7 +310,7 @@ conf.gem &#39;path/to/another/gem&#39;
 
 <p>If you want mrbtest.a only, You should set <code>conf.build_mrbtest_lib_only</code></p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_conf'>conf</span><span class='period'>.</span><span class='id identifier rubyid_build_mrbtest_lib_only'>build_mrbtest_lib_only</span>
+<pre class="code ruby"><code class="ruby">conf.build_mrbtest_lib_only
 </code></pre>
 
 <h3>Bintest</h3>
@@ -322,7 +322,7 @@ If you want a temporary files use <code>tempfile</code> module of CRuby instead 
 
 <p>You can enable it with following:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_conf'>conf</span><span class='period'>.</span><span class='id identifier rubyid_enable_bintest'>enable_bintest</span>
+<pre class="code ruby"><code class="ruby">conf.enable_bintest
 </code></pre>
 
 <h3>C++ ABI</h3>
@@ -333,7 +333,7 @@ By using C++ exception it can release C++ stack object correctly.
 Whenever you mix C++ code C++ ABI mode would be enabled automatically.
 If you need to enable C++ ABI mode explicitly add the following:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_conf'>conf</span><span class='period'>.</span><span class='id identifier rubyid_enable_cxx_abi'>enable_cxx_abi</span>
+<pre class="code ruby"><code class="ruby">conf.enable_cxx_abi
 </code></pre>
 
 <h4>C++ exception disabling.</h4>
@@ -342,7 +342,7 @@ If you need to enable C++ ABI mode explicitly add the following:</p>
 (For example using a compiler option to disable C++ exception)
 add following:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_conf'>conf</span><span class='period'>.</span><span class='id identifier rubyid_disable_cxx_exception'>disable_cxx_exception</span>
+<pre class="code ruby"><code class="ruby">conf.disable_cxx_exception
 </code></pre>
 
 <p>Note that it must be called before <code>enable_cxx_abi</code> or <code>gem</code> method.</p>
@@ -351,7 +351,7 @@ add following:</p>
 
 <p>To enable debugging mode add the following:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_conf'>conf</span><span class='period'>.</span><span class='id identifier rubyid_enable_debug'>enable_debug</span>
+<pre class="code ruby"><code class="ruby">conf.enable_debug
 </code></pre>
 
 <p>When debugging mode is enabled</p>
@@ -378,12 +378,12 @@ achieve this the <em>build_config.rb</em> needs to contain an instance of
 tools and flags for the target platform. An example could look
 like this:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='const'>MRuby</span><span class='op'>::</span><span class='const'>CrossBuild</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>32bit</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_conf'>conf</span><span class='op'>|</span>
-  <span class='id identifier rubyid_toolchain'>toolchain</span> <span class='symbol'>:gcc</span>
+<pre class="code ruby"><code class="ruby"><span style="color:#036;font-weight:bold">MRuby</span>::<span style="color:#036;font-weight:bold">CrossBuild</span>.new(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">32bit</span><span style="color:#710">'</span></span>) <span style="color:#080;font-weight:bold">do</span> |conf|
+  toolchain <span style="color:#A60">:gcc</span>
 
-  <span class='id identifier rubyid_conf'>conf</span><span class='period'>.</span><span class='id identifier rubyid_cc'>cc</span><span class='period'>.</span><span class='id identifier rubyid_flags'>flags</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>-m32</span><span class='tstring_end'>&quot;</span></span>
-  <span class='id identifier rubyid_conf'>conf</span><span class='period'>.</span><span class='id identifier rubyid_linker'>linker</span><span class='period'>.</span><span class='id identifier rubyid_flags'>flags</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>-m32</span><span class='tstring_end'>&quot;</span></span>
-<span class='kw'>end</span>
+  conf.cc.flags &lt;&lt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">-m32</span><span style="color:#710">&quot;</span></span>
+  conf.linker.flags &lt;&lt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">-m32</span><span style="color:#710">&quot;</span></span>
+<span style="color:#080;font-weight:bold">end</span>
 </code></pre>
 
 <p>All configuration options of <code>MRuby::Build</code> can also be used
@@ -394,14 +394,14 @@ in <code>MRuby::CrossBuild</code>.</p>
 <p>In cross compilation, you can run <code>mrbtest</code> on emulator if
 you have it by changing configuration of test runner.</p>
 
-<pre class="code ruby"><code class="ruby">conf.test_runner do |t|
-  t.command = ... # set emulator. this value must be non nil or false
-  t.flags = ... # set flags of emulator
+<pre class="code ruby"><code class="ruby">conf.test_runner <span style="color:#080;font-weight:bold">do</span> |t|
+  t.command = ... <span style="color:#777"># set emulator. this value must be non nil or false</span>
+  t.flags = ... <span style="color:#777"># set flags of emulator</span>
 
-  def t.run(bin) # override `run` if you need to change the behavior of it
-    ... # `bin` is the full path of mrbtest
-  end
-end
+  <span style="color:#080;font-weight:bold">def</span> t.<span style="color:#06B;font-weight:bold">run</span>(bin) <span style="color:#777"># override `run` if you need to change the behavior of it</span>
+    ... <span style="color:#777"># `bin` is the full path of mrbtest</span>
+  <span style="color:#080;font-weight:bold">end</span>
+<span style="color:#080;font-weight:bold">end</span>
 </code></pre>
 
 <h2>Build process</h2>
@@ -413,9 +413,9 @@ root directory. The structure of this directory will look like this:</p>
    |
    +-  host
        |
-       +- bin          &lt;- Binaries (mirb, mrbc and mruby)
+       +- bin          &lt;- <span style="color:#036;font-weight:bold">Binaries</span> (mirb, mrbc <span style="color:#080;font-weight:bold">and</span> mruby)
        |
-       +- lib          &lt;- Libraries (libmruby.a and libmruby_core.a)
+       +- lib          &lt;- <span style="color:#036;font-weight:bold">Libraries</span> (libmruby.a <span style="color:#080;font-weight:bold">and</span> libmruby_core.a)
        |
        +- mrblib
        |
@@ -454,7 +454,7 @@ linking with <em>build/host/lib/libmruby.a</em></li>
 </ul>
 
 <pre class="code ruby"><code class="ruby"> _____    _____    ______    ____    ____    _____    _____    ____
-| CC  |-&gt;|GEN  |-&gt;|AR    |-&gt;|CC  |-&gt;|CC  |-&gt;|AR   |-&gt;|CC   |-&gt;|CC  |
+| <span style="color:#036;font-weight:bold">CC</span>  |-&gt;|<span style="color:#036;font-weight:bold">GEN</span>  |-&gt;|<span style="color:#036;font-weight:bold">AR</span>    |-&gt;|<span style="color:#036;font-weight:bold">CC</span>  |-&gt;|<span style="color:#036;font-weight:bold">CC</span>  |-&gt;|<span style="color:#036;font-weight:bold">AR</span>   |-&gt;|<span style="color:#036;font-weight:bold">CC</span>   |-&gt;|<span style="color:#036;font-weight:bold">CC</span>  |
 | *.c |  |y.tab|  |core.a|  |mrbc|  |*.rb|  |lib.a|  |mruby|  |mirb|
  -----    -----    ------    ----    ----    -----    -----    ----
 </code></pre>
@@ -468,15 +468,15 @@ like this:</p>
    |
    +-  host
    |   |
-   |   +- bin           &lt;- Native Binaries
+   |   +- bin           &lt;- <span style="color:#036;font-weight:bold">Native</span> <span style="color:#036;font-weight:bold">Binaries</span>
    |   |
-   |   +- lib           &lt;- Native Libraries
+   |   +- lib           &lt;- <span style="color:#036;font-weight:bold">Native</span> <span style="color:#036;font-weight:bold">Libraries</span>
    |   |
    |   +- mrblib
    |   |
    |   +- src
    |   |
-   |   +- test          &lt;- Native mrbtest tool
+   |   +- test          &lt;- <span style="color:#036;font-weight:bold">Native</span> mrbtest tool
    |   |
    |   +- tools
    |      |
@@ -487,15 +487,15 @@ like this:</p>
    |      +- mruby
    +- i386
       |
-      +- bin            &lt;- Cross-compiled Binaries
+      +- bin            &lt;- <span style="color:#036;font-weight:bold">Cross</span>-compiled <span style="color:#036;font-weight:bold">Binaries</span>
       |
-      +- lib            &lt;- Cross-compiled Libraries
+      +- lib            &lt;- <span style="color:#036;font-weight:bold">Cross</span>-compiled <span style="color:#036;font-weight:bold">Libraries</span>
       |
       +- mrblib
       |
       +- src
       |
-      +- test           &lt;- Cross-compiled mrbtest tool
+      +- test           &lt;- <span style="color:#036;font-weight:bold">Cross</span>-compiled mrbtest tool
       |
       +- tools
          |
@@ -534,15 +534,15 @@ linking with <em>build/i386/lib/libmruby_core.a</em></li>
 </ul>
 
 <pre class="code ruby"><code class="ruby"> _______________________________________________________________
-|              Native Compilation for Host System               |
+|              <span style="color:#036;font-weight:bold">Native</span> <span style="color:#036;font-weight:bold">Compilation</span> <span style="color:#080;font-weight:bold">for</span> <span style="color:#036;font-weight:bold">Host</span> <span style="color:#036;font-weight:bold">System</span>               |
 |  _____      ______      _____      ____      ____      _____  |
-| | CC  | -&gt; |AR    | -&gt; |GEN  | -&gt; |CC  | -&gt; |CC  | -&gt; |AR   | |
+| | <span style="color:#036;font-weight:bold">CC</span>  | -&gt; |<span style="color:#036;font-weight:bold">AR</span>    | -&gt; |<span style="color:#036;font-weight:bold">GEN</span>  | -&gt; |<span style="color:#036;font-weight:bold">CC</span>  | -&gt; |<span style="color:#036;font-weight:bold">CC</span>  | -&gt; |<span style="color:#036;font-weight:bold">AR</span>   | |
 | | *.c |    |core.a|    |y.tab|    |mrbc|    |*.rb|    |lib.a| |
 |  -----      ------      -----      ----      ----      -----  |
  ---------------------------------------------------------------
                                 ||
-                               \||/
-                                \/
+                               <span style="color:#F00;background-color:#FAA">\</span>||<span style="background-color:hsla(300,100%,50%,0.06)"><span style="color:#404">/</span><span style="color:#808">
+                                </span><span style="color:#D20">\/</span><span style="color:#808">
  ________________________________________________________________
 |             Cross Compilation for Target System                |
 |  _____      _____      _____      ____      ______      _____  |
@@ -550,7 +550,7 @@ linking with <em>build/i386/lib/libmruby_core.a</em></li>
 | | *.c |    |lib.a|    |mruby|    |mirb|    |core.a|    |mrbc | |
 |  -----      -----      -----      ----      ------      -----  |
  ----------------------------------------------------------------
-</code></pre>
+</span></span></code></pre>
 
 <h2>Build Configuration Examples</h2>
 
@@ -560,12 +560,12 @@ linking with <em>build/i386/lib/libmruby_core.a</em></li>
 feature due to the reason that there are functions (i.e. stdio) which
 can&#39;t be disabled for the main build.</p>
 
-<pre class="code ruby"><code class="ruby"><span class='const'>MRuby</span><span class='op'>::</span><span class='const'>CrossBuild</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Minimal</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_conf'>conf</span><span class='op'>|</span>
-  <span class='id identifier rubyid_toolchain'>toolchain</span> <span class='symbol'>:gcc</span>
+<pre class="code ruby"><code class="ruby"><span style="color:#036;font-weight:bold">MRuby</span>::<span style="color:#036;font-weight:bold">CrossBuild</span>.new(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Minimal</span><span style="color:#710">'</span></span>) <span style="color:#080;font-weight:bold">do</span> |conf|
+  toolchain <span style="color:#A60">:gcc</span>
 
-  <span class='id identifier rubyid_conf'>conf</span><span class='period'>.</span><span class='id identifier rubyid_cc'>cc</span><span class='period'>.</span><span class='id identifier rubyid_defines'>defines</span> <span class='op'>=</span> <span class='qwords_beg'>%w(</span><span class='tstring_content'>DISABLE_STDIO</span><span class='words_sep'>)</span>
-  <span class='id identifier rubyid_conf'>conf</span><span class='period'>.</span><span class='id identifier rubyid_bins'>bins</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-<span class='kw'>end</span>
+  conf.cc.defines = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">%w(</span><span style="color:#D20">DISABLE_STDIO</span><span style="color:#710">)</span></span>
+  conf.bins = []
+<span style="color:#080;font-weight:bold">end</span>
 </code></pre>
 
 <p>This configuration defines a cross compile build called &#39;Minimal&#39; which
@@ -582,7 +582,7 @@ generated. You can copy this binary and run on your target system.</p>
 </div></div>
 
     <div id="footer">
-  Generated on Mon Sep 28 13:37:45 2015 by
+  Generated on Tue Sep 29 15:15:29 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 in <a href="https://github.com/sagmor/yard-mruby">mruby mode</a> 0.1.0 (ruby-2.2.1).
 </div>

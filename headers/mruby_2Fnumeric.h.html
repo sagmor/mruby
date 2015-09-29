@@ -89,7 +89,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_flo_to_fixnum-function" title="<strong>mrb_flo_to_fixnum</strong>"><strong>mrb_flo_to_fixnum</strong></a>
+    <a href="#mrb_flo_to_fixnum-function" title="mrb_flo_to_fixnum">mrb_value <strong>mrb_flo_to_fixnum</strong>(mrb_state *, mrb_value)</a>
 
     
   </span>
@@ -106,7 +106,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_fixnum_to_str-function" title="<strong>mrb_fixnum_to_str</strong>"><strong>mrb_fixnum_to_str</strong></a>
+    <a href="#mrb_fixnum_to_str-function" title="mrb_fixnum_to_str">mrb_value <strong>mrb_fixnum_to_str</strong>(mrb_state *, mrb_value, int)</a>
 
     
   </span>
@@ -123,7 +123,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_float_to_str-function" title="<strong>mrb_float_to_str</strong>"><strong>mrb_float_to_str</strong></a>
+    <a href="#mrb_float_to_str-function" title="mrb_float_to_str">mrb_value <strong>mrb_float_to_str</strong>(mrb_state *, mrb_value, const char *)</a>
 
     
   </span>
@@ -143,7 +143,7 @@ href="aAeEfFgG">0-9]+)?</a>/.</p>
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_to_flo-function" title="<strong>mrb_to_flo</strong>"><strong>mrb_to_flo</strong></a>
+    <a href="#mrb_to_flo-function" title="mrb_to_flo">mrb_float <strong>mrb_to_flo</strong>(mrb_state *, mrb_value)</a>
 
     
   </span>
@@ -160,13 +160,72 @@ href="aAeEfFgG">0-9]+)?</a>/.</p>
     
   </ul>
 
+
+  <h2>Define Summary</h2>
+  <dl class="constants">
+    
+      <dt id="MRUBY_NUMERIC_H-define" class=""><small>#define</small> MRUBY_NUMERIC_H
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="POSFIXABLE-define" class=""><small>#define</small> POSFIXABLE
+        <div class="docstring">
+  <div class="discussion">
+    
+<p>Numeric class and it&#39;s sub-classes.</p>
+
+<p>Integer, Float and Fixnum</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="NEGFIXABLE-define" class=""><small>#define</small> NEGFIXABLE
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="FIXABLE-define" class=""><small>#define</small> FIXABLE
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="MRB_UINT_MAKE2-define" class=""><small>#define</small> MRB_UINT_MAKE2
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="MRB_UINT_MAKE-define" class=""><small>#define</small> MRB_UINT_MAKE
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="mrb_uint-define" class=""><small>#define</small> mrb_uint
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="MRB_INT_OVERFLOW_MASK-define" class=""><small>#define</small> MRB_INT_OVERFLOW_MASK
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+  </dl>
+
 <div id="functions_details" class="method_details_list">
   <h2>Function Details</h2>
 
   
     <div class="method_details first">
   <h3 class="signature first" id="mrb_flo_to_fixnum-function">
-  <strong>mrb_flo_to_fixnum</strong>
+  mrb_value <strong>mrb_flo_to_fixnum</strong>(mrb_state * mrb, mrb_value val)
 
   
 </h3>
@@ -176,7 +235,7 @@ href="aAeEfFgG">0-9]+)?</a>/.</p>
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_fixnum_to_str-function">
-  <strong>mrb_fixnum_to_str</strong>
+  mrb_value <strong>mrb_fixnum_to_str</strong>(mrb_state * mrb, mrb_value x, int base)
 
   
 </h3>
@@ -186,7 +245,7 @@ href="aAeEfFgG">0-9]+)?</a>/.</p>
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_float_to_str-function">
-  <strong>mrb_float_to_str</strong>
+  mrb_value <strong>mrb_float_to_str</strong>(mrb_state * mrb, mrb_value x, const char * fmt)
 
   
 </h3>
@@ -208,7 +267,7 @@ href="aAeEfFgG">0-9]+)?</a>/</p>
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_to_flo-function">
-  <strong>mrb_to_flo</strong>
+  mrb_float <strong>mrb_to_flo</strong>(mrb_state * mrb, mrb_value x)
 
   
 </h3>
@@ -220,7 +279,7 @@ href="aAeEfFgG">0-9]+)?</a>/</p>
 </div>
 
     <div id="footer">
-  Generated on Mon Sep 28 13:37:47 2015 by
+  Generated on Tue Sep 29 15:15:33 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 in <a href="https://github.com/sagmor/yard-mruby">mruby mode</a> 0.1.0 (ruby-2.2.1).
 </div>

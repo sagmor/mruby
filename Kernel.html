@@ -286,9 +286,9 @@
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/kernel.rb', line 38</span>
 
-<span class='kw'>def</span> <span class='op'>!~</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
-  <span class='op'>!</span><span class='lparen'>(</span><span class='kw'>self</span> <span class='op'>=~</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">!~</span>(y)
+  !(<span style="color:#069">self</span> =~ y)
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -327,9 +327,9 @@
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/kernel.rb', line 43</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid__inspect'>_inspect</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">_inspect</span>
+  <span style="color:#069">self</span>.inspect
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -381,9 +381,9 @@
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/kernel.rb', line 10</span>
 
-<span class='kw'>def</span> <span class='backtick'>`</span><span class='lparen'>(</span><span class='id identifier rubyid_s'>s</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>NotImplementedError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>backquotes not implemented</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">`</span>(s)
+  raise <span style="color:#036;font-weight:bold">NotImplementedError</span>.new(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">backquotes not implemented</span><span style="color:#710">&quot;</span></span>)
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -430,15 +430,15 @@
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/kernel.rb', line 27</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_loop'>loop</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
-  <span class='kw'>return</span> <span class='id identifier rubyid_to_enum'>to_enum</span> <span class='symbol'>:loop</span> <span class='kw'>unless</span> <span class='id identifier rubyid_block'>block</span>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">loop</span>(&amp;block)
+  <span style="color:#080;font-weight:bold">return</span> to_enum <span style="color:#A60">:loop</span> <span style="color:#080;font-weight:bold">unless</span> block
 
-  <span class='kw'>while</span> <span class='kw'>true</span>
-    <span class='kw'>yield</span>
-  <span class='kw'>end</span>
-<span class='kw'>rescue</span> <span class='const'>StopIteration</span>
-  <span class='kw'>nil</span>
-<span class='kw'>end</span></pre>
+  <span style="color:#080;font-weight:bold">while</span> <span style="color:#069">true</span>
+    <span style="color:#080;font-weight:bold">yield</span>
+  <span style="color:#080;font-weight:bold">end</span>
+<span style="color:#080;font-weight:bold">rescue</span> <span style="color:#036;font-weight:bold">StopIteration</span>
+  <span style="color:#069">nil</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -488,9 +488,9 @@
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/kernel.rb', line 47</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_to_enum'>to_enum</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_a'>a</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>NotImplementedError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>fiber required for enumerator</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">to_enum</span>(*a)
+  raise <span style="color:#036;font-weight:bold">NotImplementedError</span>.new(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">fiber required for enumerator</span><span style="color:#710">&quot;</span></span>)
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -501,7 +501,7 @@
 </div>
 
     <div id="footer">
-  Generated on Mon Sep 28 13:37:45 2015 by
+  Generated on Tue Sep 29 15:15:30 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 in <a href="https://github.com/sagmor/yard-mruby">mruby mode</a> 0.1.0 (ruby-2.2.1).
 </div>

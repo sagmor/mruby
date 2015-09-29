@@ -353,10 +353,10 @@ exc_initialize(mrb_state *mrb, mrb_value exc)
 {
   mrb_value mesg;
 
-  if (mrb_get_args(mrb, &quot;|o&quot;, &amp;mesg) == 1) {
-    mrb_iv_set(mrb, exc, mrb_intern_lit(mrb, &quot;mesg&quot;), mesg);
+  <span style="color:#080;font-weight:bold">if</span> (mrb_get_args(mrb, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">|o</span><span style="color:#710">&quot;</span></span>, &amp;mesg) == <span style="color:#00D">1</span>) {
+    mrb_iv_set(mrb, exc, mrb_intern_lit(mrb, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">mesg</span><span style="color:#710">&quot;</span></span>), mesg);
   }
-  return exc;
+  <span style="color:#080;font-weight:bold">return</span> exc;
 }</pre>
     </td>
   </tr>
@@ -396,7 +396,7 @@ exc_initialize(mrb_state *mrb, mrb_value exc)
     
 <p>call-seq:</p>
 
-<pre class="code"><code class="">exc.exception(string)  -&gt;  an_exception or exc</code></pre>
+<pre class="code"><code class="">exc.exception(string)  -&gt;  an_exception <span style="color:#080;font-weight:bold">or</span> exc</code></pre>
 
 <p>With no argument, or if the argument is the same as the receiver, return
 the receiver. Otherwise, create a new exception object of the same class as
@@ -434,19 +434,19 @@ the receiver, but with a message equal to <code>string.to_str</code>.</p>
       <pre class="code"><span class="info file"># File 'src/error.c', line 67</span>
 
 static mrb_value
-exc_exception(mrb_state *mrb, mrb_value self)
+exc_exception(mrb_state *mrb, mrb_value <span style="color:#069">self</span>)
 {
   mrb_value exc;
   mrb_value a;
   int argc;
 
-  argc = mrb_get_args(mrb, &quot;|o&quot;, &amp;a);
-  if (argc == 0) return self;
-  if (mrb_obj_equal(mrb, self, a)) return self;
-  exc = mrb_obj_clone(mrb, self);
-  mrb_iv_set(mrb, exc, mrb_intern_lit(mrb, &quot;mesg&quot;), a);
+  argc = mrb_get_args(mrb, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">|o</span><span style="color:#710">&quot;</span></span>, &amp;a);
+  <span style="color:#080;font-weight:bold">if</span> (argc == <span style="color:#00D">0</span>) <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">self</span>;
+  <span style="color:#080;font-weight:bold">if</span> (mrb_obj_equal(mrb, <span style="color:#069">self</span>, a)) <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">self</span>;
+  exc = mrb_obj_clone(mrb, <span style="color:#069">self</span>);
+  mrb_iv_set(mrb, exc, mrb_intern_lit(mrb, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">mesg</span><span style="color:#710">&quot;</span></span>), a);
 
-  return exc;
+  <span style="color:#080;font-weight:bold">return</span> exc;
 }</pre>
     </td>
   </tr>
@@ -558,42 +558,42 @@ exc_inspect(mrb_state *mrb, mrb_value exc)
   mrb_value str, mesg, file, line;
   mrb_bool append_mesg;
 
-  mesg = mrb_attr_get(mrb, exc, mrb_intern_lit(mrb, &quot;mesg&quot;));
-  file = mrb_attr_get(mrb, exc, mrb_intern_lit(mrb, &quot;file&quot;));
-  line = mrb_attr_get(mrb, exc, mrb_intern_lit(mrb, &quot;line&quot;));
+  mesg = mrb_attr_get(mrb, exc, mrb_intern_lit(mrb, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">mesg</span><span style="color:#710">&quot;</span></span>));
+  file = mrb_attr_get(mrb, exc, mrb_intern_lit(mrb, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">file</span><span style="color:#710">&quot;</span></span>));
+  line = mrb_attr_get(mrb, exc, mrb_intern_lit(mrb, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">line</span><span style="color:#710">&quot;</span></span>));
 
   append_mesg = !mrb_nil_p(mesg);
-  if (append_mesg) {
+  <span style="color:#080;font-weight:bold">if</span> (append_mesg) {
     mesg = mrb_obj_as_string(mrb, mesg);
-    append_mesg = RSTRING_LEN(mesg) &gt; 0;
+    append_mesg = RSTRING_LEN(mesg) &gt; <span style="color:#00D">0</span>;
   }
 
-  if (!mrb_nil_p(file) &amp;&amp; !mrb_nil_p(line)) {
+  <span style="color:#080;font-weight:bold">if</span> (!mrb_nil_p(file) &amp;&amp; !mrb_nil_p(line)) {
     str = mrb_str_dup(mrb, file);
-    mrb_str_cat_lit(mrb, str, &quot;:&quot;);
+    mrb_str_cat_lit(mrb, str, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">:</span><span style="color:#710">&quot;</span></span>);
     mrb_str_append(mrb, str, line);
-    mrb_str_cat_lit(mrb, str, &quot;: &quot;);
-    if (append_mesg) {
+    mrb_str_cat_lit(mrb, str, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">: </span><span style="color:#710">&quot;</span></span>);
+    <span style="color:#080;font-weight:bold">if</span> (append_mesg) {
       mrb_str_cat_str(mrb, str, mesg);
-      mrb_str_cat_lit(mrb, str, &quot; (&quot;);
+      mrb_str_cat_lit(mrb, str, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20"> (</span><span style="color:#710">&quot;</span></span>);
     }
     mrb_str_cat_cstr(mrb, str, mrb_obj_classname(mrb, exc));
-    if (append_mesg) {
-      mrb_str_cat_lit(mrb, str, &quot;)&quot;);
+    <span style="color:#080;font-weight:bold">if</span> (append_mesg) {
+      mrb_str_cat_lit(mrb, str, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">)</span><span style="color:#710">&quot;</span></span>);
     }
   }
-  else {
+  <span style="color:#080;font-weight:bold">else</span> {
     const char *cname = mrb_obj_classname(mrb, exc);
     str = mrb_str_new_cstr(mrb, cname);
-    mrb_str_cat_lit(mrb, str, &quot;: &quot;);
-    if (append_mesg) {
+    mrb_str_cat_lit(mrb, str, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">: </span><span style="color:#710">&quot;</span></span>);
+    <span style="color:#080;font-weight:bold">if</span> (append_mesg) {
       mrb_str_cat_str(mrb, str, mesg);
     }
-    else {
+    <span style="color:#080;font-weight:bold">else</span> {
       mrb_str_cat_cstr(mrb, str, cname);
     }
   }
-  return str;
+  <span style="color:#080;font-weight:bold">return</span> str;
 }</pre>
     </td>
   </tr>
@@ -664,7 +664,7 @@ exceptions are agreeing to be used where Strings are expected.</p>
 static mrb_value
 exc_message(mrb_state *mrb, mrb_value exc)
 {
-  return mrb_funcall(mrb, exc, &quot;to_s&quot;, 0);
+  <span style="color:#080;font-weight:bold">return</span> mrb_funcall(mrb, exc, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">to_s</span><span style="color:#710">&quot;</span></span>, <span style="color:#00D">0</span>);
 }</pre>
     </td>
   </tr>
@@ -744,17 +744,17 @@ is set).</p>
 static mrb_value
 exc_to_s(mrb_state *mrb, mrb_value exc)
 {
-  mrb_value mesg = mrb_attr_get(mrb, exc, mrb_intern_lit(mrb, &quot;mesg&quot;));
-  struct RObject *p;
+  mrb_value mesg = mrb_attr_get(mrb, exc, mrb_intern_lit(mrb, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">mesg</span><span style="color:#710">&quot;</span></span>));
+  struct <span style="color:#036;font-weight:bold">RObject</span> *p;
 
-  if (!mrb_string_p(mesg)) {
-    return mrb_str_new_cstr(mrb, mrb_obj_classname(mrb, exc));
+  <span style="color:#080;font-weight:bold">if</span> (!mrb_string_p(mesg)) {
+    <span style="color:#080;font-weight:bold">return</span> mrb_str_new_cstr(mrb, mrb_obj_classname(mrb, exc));
   }
   p = mrb_obj_ptr(mesg);
-  if (!p-&gt;c) {
+  <span style="color:#080;font-weight:bold">if</span> (!p-&gt;c) {
     p-&gt;c = mrb-&gt;string_class;
   }
-  return mesg;
+  <span style="color:#080;font-weight:bold">return</span> mesg;
 }</pre>
     </td>
   </tr>
@@ -766,7 +766,7 @@ exc_to_s(mrb_state *mrb, mrb_value exc)
 </div>
 
     <div id="footer">
-  Generated on Mon Sep 28 13:37:46 2015 by
+  Generated on Tue Sep 29 15:15:32 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 in <a href="https://github.com/sagmor/yard-mruby">mruby mode</a> 0.1.0 (ruby-2.2.1).
 </div>

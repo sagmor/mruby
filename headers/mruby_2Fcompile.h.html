@@ -89,7 +89,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrbc_context_free-function" title="<strong>mrbc_context_free</strong>"><strong>mrbc_context_free</strong></a>
+    <a href="#mrbc_context_new-function" title="mrbc_context_new">mrbc_context* <strong>mrbc_context_new</strong>(mrb_state *)</a>
 
     
   </span>
@@ -106,7 +106,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrbc_partial_hook-function" title="<strong>mrbc_partial_hook</strong>"><strong>mrbc_partial_hook</strong></a>
+    <a href="#mrbc_context_free-function" title="mrbc_context_free">void <strong>mrbc_context_free</strong>(mrb_state *, mrbc_context *)</a>
 
     
   </span>
@@ -123,7 +123,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_toplevel_run_keep-function" title="<strong>mrb_toplevel_run_keep</strong>"><strong>mrb_toplevel_run_keep</strong></a>
+    <a href="#mrb_toplevel_run_keep-function" title="mrb_toplevel_run_keep">mrb_value <strong>mrb_toplevel_run_keep</strong>(mrb_state*, struct RProc*, unsigned)</a>
 
     
   </span>
@@ -140,7 +140,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_parser_free-function" title="<strong>mrb_parser_free</strong>"><strong>mrb_parser_free</strong></a>
+    <a href="#mrb_parser_new-function" title="mrb_parser_new">struct mrb_parser_state* <strong>mrb_parser_new</strong>(mrb_state*)</a>
 
     
   </span>
@@ -157,7 +157,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_parser_parse-function" title="<strong>mrb_parser_parse</strong>"><strong>mrb_parser_parse</strong></a>
+    <a href="#mrb_parser_free-function" title="mrb_parser_free">void <strong>mrb_parser_free</strong>(struct mrb_parser_state*)</a>
 
     
   </span>
@@ -174,7 +174,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_parser_set_filename-function" title="<strong>mrb_parser_set_filename</strong>"><strong>mrb_parser_set_filename</strong></a>
+    <a href="#mrb_parser_parse-function" title="mrb_parser_parse">void <strong>mrb_parser_parse</strong>(struct mrb_parser_state*, mrbc_context*)</a>
 
     
   </span>
@@ -191,7 +191,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_load_file-function" title="<strong>mrb_load_file</strong>"><strong>mrb_load_file</strong></a>
+    <a href="#mrb_parser_set_filename-function" title="mrb_parser_set_filename">void <strong>mrb_parser_set_filename</strong>(struct mrb_parser_state*, char)</a>
 
     
   </span>
@@ -208,7 +208,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_load_string-function" title="<strong>mrb_load_string</strong>"><strong>mrb_load_string</strong></a>
+    <a href="#mrb_parse_file-function" title="mrb_parse_file">struct mrb_parser_state* <strong>mrb_parse_file</strong>(mrb_state*, FILE*, mrbc_context*)</a>
 
     
   </span>
@@ -225,7 +225,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_load_nstring-function" title="<strong>mrb_load_nstring</strong>"><strong>mrb_load_nstring</strong></a>
+    <a href="#mrb_parse_string-function" title="mrb_parse_string">struct mrb_parser_state* <strong>mrb_parse_string</strong>(mrb_state*, const char*, mrbc_context*)</a>
 
     
   </span>
@@ -242,7 +242,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_load_file_cxt-function" title="<strong>mrb_load_file_cxt</strong>"><strong>mrb_load_file_cxt</strong></a>
+    <a href="#mrb_parse_nstring-function" title="mrb_parse_nstring">struct mrb_parser_state* <strong>mrb_parse_nstring</strong>(mrb_state*, const char*, int, mrbc_context*)</a>
 
     
   </span>
@@ -259,7 +259,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_load_string_cxt-function" title="<strong>mrb_load_string_cxt</strong>"><strong>mrb_load_string_cxt</strong></a>
+    <a href="#mrb_generate_code-function" title="mrb_generate_code">struct RProc* <strong>mrb_generate_code</strong>(mrb_state*, struct mrb_parser_state*)</a>
 
     
   </span>
@@ -276,7 +276,92 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_load_nstring_cxt-function" title="<strong>mrb_load_nstring_cxt</strong>"><strong>mrb_load_nstring_cxt</strong></a>
+    <a href="#mrb_load_file-function" title="mrb_load_file">mrb_value <strong>mrb_load_file</strong>(mrb_state*, FILE*)</a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_load_string-function" title="mrb_load_string">mrb_value <strong>mrb_load_string</strong>(mrb_state *, const char *)</a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_load_nstring-function" title="mrb_load_nstring">mrb_value <strong>mrb_load_nstring</strong>(mrb_state *, const char *, int)</a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_load_file_cxt-function" title="mrb_load_file_cxt">mrb_value <strong>mrb_load_file_cxt</strong>(mrb_state*, FILE*, mrbc_context *)</a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_load_string_cxt-function" title="mrb_load_string_cxt">mrb_value <strong>mrb_load_string_cxt</strong>(mrb_state *, const char *, mrbc_context *)</a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_load_nstring_cxt-function" title="mrb_load_nstring_cxt">mrb_value <strong>mrb_load_nstring_cxt</strong>(mrb_state *, const char *, int, mrbc_context *)</a>
 
     
   </span>
@@ -293,13 +378,69 @@ Included heaers
     
   </ul>
 
+
+  <h2>Define Summary</h2>
+  <dl class="constants">
+    
+      <dt id="MRUBY_COMPILE_H-define" class=""><small>#define</small> MRUBY_COMPILE_H
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="STR_FUNC_PARSING-define" class=""><small>#define</small> STR_FUNC_PARSING
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="STR_FUNC_EXPAND-define" class=""><small>#define</small> STR_FUNC_EXPAND
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="STR_FUNC_REGEXP-define" class=""><small>#define</small> STR_FUNC_REGEXP
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="STR_FUNC_WORD-define" class=""><small>#define</small> STR_FUNC_WORD
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="STR_FUNC_SYMBOL-define" class=""><small>#define</small> STR_FUNC_SYMBOL
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="STR_FUNC_ARRAY-define" class=""><small>#define</small> STR_FUNC_ARRAY
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="STR_FUNC_HEREDOC-define" class=""><small>#define</small> STR_FUNC_HEREDOC
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="STR_FUNC_XQUOTE-define" class=""><small>#define</small> STR_FUNC_XQUOTE
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="MRB_PARSER_BUF_SIZE-define" class=""><small>#define</small> MRB_PARSER_BUF_SIZE
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+  </dl>
+
 <div id="functions_details" class="method_details_list">
   <h2>Function Details</h2>
 
   
     <div class="method_details first">
-  <h3 class="signature first" id="mrbc_context_free-function">
-  <strong>mrbc_context_free</strong>
+  <h3 class="signature first" id="mrbc_context_new-function">
+  mrbc_context* <strong>mrbc_context_new</strong>(mrb_state * mrb)
 
   
 </h3>
@@ -308,8 +449,8 @@ Included heaers
 
   
     <div class="method_details ">
-  <h3 class="signature " id="mrbc_partial_hook-function">
-  <strong>mrbc_partial_hook</strong>
+  <h3 class="signature " id="mrbc_context_free-function">
+  void <strong>mrbc_context_free</strong>(mrb_state * mrb, mrbc_context * cxt)
 
   
 </h3>
@@ -319,7 +460,17 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_toplevel_run_keep-function">
-  <strong>mrb_toplevel_run_keep</strong>
+  mrb_value <strong>mrb_toplevel_run_keep</strong>(mrb_state* , struct RProc* , unsigned int)
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_parser_new-function">
+  struct mrb_parser_state* <strong>mrb_parser_new</strong>(mrb_state* )
 
   
 </h3>
@@ -329,7 +480,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_parser_free-function">
-  <strong>mrb_parser_free</strong>
+  void <strong>mrb_parser_free</strong>(struct mrb_parser_state* )
 
   
 </h3>
@@ -339,7 +490,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_parser_parse-function">
-  <strong>mrb_parser_parse</strong>
+  void <strong>mrb_parser_parse</strong>(struct mrb_parser_state* , mrbc_context* )
 
   
 </h3>
@@ -349,7 +500,47 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_parser_set_filename-function">
-  <strong>mrb_parser_set_filename</strong>
+  void <strong>mrb_parser_set_filename</strong>(struct mrb_parser_state* , char const)
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_parse_file-function">
+  struct mrb_parser_state* <strong>mrb_parse_file</strong>(mrb_state* , FILE* , mrbc_context* )
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_parse_string-function">
+  struct mrb_parser_state* <strong>mrb_parse_string</strong>(mrb_state* , const char* , mrbc_context* )
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_parse_nstring-function">
+  struct mrb_parser_state* <strong>mrb_parse_nstring</strong>(mrb_state* , const char* , int , mrbc_context* )
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_generate_code-function">
+  struct RProc* <strong>mrb_generate_code</strong>(mrb_state* , struct mrb_parser_state* )
 
   
 </h3>
@@ -359,7 +550,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_load_file-function">
-  <strong>mrb_load_file</strong>
+  mrb_value <strong>mrb_load_file</strong>(mrb_state* , FILE* )
 
   
 </h3>
@@ -369,7 +560,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_load_string-function">
-  <strong>mrb_load_string</strong>
+  mrb_value <strong>mrb_load_string</strong>(mrb_state * mrb, const char * s)
 
   
 </h3>
@@ -379,7 +570,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_load_nstring-function">
-  <strong>mrb_load_nstring</strong>
+  mrb_value <strong>mrb_load_nstring</strong>(mrb_state * mrb, const char * s, int len)
 
   
 </h3>
@@ -389,7 +580,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_load_file_cxt-function">
-  <strong>mrb_load_file_cxt</strong>
+  mrb_value <strong>mrb_load_file_cxt</strong>(mrb_state* , FILE* , mrbc_context * cxt)
 
   
 </h3>
@@ -399,7 +590,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_load_string_cxt-function">
-  <strong>mrb_load_string_cxt</strong>
+  mrb_value <strong>mrb_load_string_cxt</strong>(mrb_state * mrb, const char * s, mrbc_context * cxt)
 
   
 </h3>
@@ -409,7 +600,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_load_nstring_cxt-function">
-  <strong>mrb_load_nstring_cxt</strong>
+  mrb_value <strong>mrb_load_nstring_cxt</strong>(mrb_state * mrb, const char * s, int len, mrbc_context * cxt)
 
   
 </h3>
@@ -421,7 +612,7 @@ Included heaers
 </div>
 
     <div id="footer">
-  Generated on Mon Sep 28 13:37:47 2015 by
+  Generated on Tue Sep 29 15:15:33 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 in <a href="https://github.com/sagmor/yard-mruby">mruby mode</a> 0.1.0 (ruby-2.2.1).
 </div>

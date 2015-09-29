@@ -273,10 +273,10 @@
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/error.rb', line 38</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
-  <span class='ivar'>@args</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span>
-  <span class='kw'>super</span> <span class='id identifier rubyid_message'>message</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">initialize</span>(message=<span style="color:#069">nil</span>, name=<span style="color:#069">nil</span>, args=<span style="color:#069">nil</span>)
+  <span style="color:#33B">@args</span> = args
+  <span style="color:#080;font-weight:bold">super</span> message, name
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -322,9 +322,9 @@
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/error.rb', line 36</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_args'>args</span>
-  <span class='ivar'>@args</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">args</span>
+  <span style="color:#33B">@args</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -336,7 +336,7 @@
 </div>
 
     <div id="footer">
-  Generated on Mon Sep 28 13:37:46 2015 by
+  Generated on Tue Sep 29 15:15:31 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 in <a href="https://github.com/sagmor/yard-mruby">mruby mode</a> 0.1.0 (ruby-2.2.1).
 </div>

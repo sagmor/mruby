@@ -328,13 +328,13 @@ return false.</p>
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/compar.rb', line 13</span>
 
-<span class='kw'>def</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_other'>other</span>
-  <span class='id identifier rubyid_cmp'>cmp</span> <span class='op'>=</span> <span class='kw'>self</span> <span class='op'>&lt;=&gt;</span> <span class='id identifier rubyid_other'>other</span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_cmp'>cmp</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>comparison of </span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='embexpr_end'>}</span><span class='tstring_content'> with </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='embexpr_end'>}</span><span class='tstring_content'> failed</span><span class='tstring_end'>&quot;</span></span>
-  <span class='kw'>end</span>
-  <span class='id identifier rubyid_cmp'>cmp</span> <span class='op'>&lt;</span> <span class='int'>0</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">&lt;</span> other
+  cmp = <span style="color:#069">self</span> &lt;=&gt; other
+  <span style="color:#080;font-weight:bold">if</span> cmp.nil?
+    raise <span style="color:#036;font-weight:bold">ArgumentError</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">comparison of </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#069">self</span>.class<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20"> with </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>other.class<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20"> failed</span><span style="color:#710">&quot;</span></span>
+  <span style="color:#080;font-weight:bold">end</span>
+  cmp &lt; <span style="color:#00D">0</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -380,13 +380,13 @@ return false.</p>
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/compar.rb', line 27</span>
 
-<span class='kw'>def</span> <span class='op'>&lt;=</span> <span class='id identifier rubyid_other'>other</span>
-  <span class='id identifier rubyid_cmp'>cmp</span> <span class='op'>=</span> <span class='kw'>self</span> <span class='op'>&lt;=&gt;</span> <span class='id identifier rubyid_other'>other</span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_cmp'>cmp</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>comparison of </span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='embexpr_end'>}</span><span class='tstring_content'> with </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='embexpr_end'>}</span><span class='tstring_content'> failed</span><span class='tstring_end'>&quot;</span></span>
-  <span class='kw'>end</span>
-  <span class='id identifier rubyid_cmp'>cmp</span> <span class='op'>&lt;=</span> <span class='int'>0</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">&lt;=</span> other
+  cmp = <span style="color:#069">self</span> &lt;=&gt; other
+  <span style="color:#080;font-weight:bold">if</span> cmp.nil?
+    raise <span style="color:#036;font-weight:bold">ArgumentError</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">comparison of </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#069">self</span>.class<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20"> with </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>other.class<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20"> failed</span><span style="color:#710">&quot;</span></span>
+  <span style="color:#080;font-weight:bold">end</span>
+  cmp &lt;= <span style="color:#00D">0</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -429,10 +429,10 @@ return false.</p>
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/compar.rb', line 41</span>
 
-<span class='kw'>def</span> <span class='op'>==</span> <span class='id identifier rubyid_other'>other</span>
-  <span class='id identifier rubyid_cmp'>cmp</span> <span class='op'>=</span> <span class='kw'>self</span> <span class='op'>&lt;=&gt;</span> <span class='id identifier rubyid_other'>other</span>
-  <span class='id identifier rubyid_cmp'>cmp</span> <span class='op'>==</span> <span class='int'>0</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">==</span> other
+  cmp = <span style="color:#069">self</span> &lt;=&gt; other
+  cmp == <span style="color:#00D">0</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -478,13 +478,13 @@ Otherwise return false.</p>
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/compar.rb', line 52</span>
 
-<span class='kw'>def</span> <span class='op'>&gt;</span> <span class='id identifier rubyid_other'>other</span>
-  <span class='id identifier rubyid_cmp'>cmp</span> <span class='op'>=</span> <span class='kw'>self</span> <span class='op'>&lt;=&gt;</span> <span class='id identifier rubyid_other'>other</span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_cmp'>cmp</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>comparison of </span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='embexpr_end'>}</span><span class='tstring_content'> with </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='embexpr_end'>}</span><span class='tstring_content'> failed</span><span class='tstring_end'>&quot;</span></span>
-  <span class='kw'>end</span>
-  <span class='id identifier rubyid_cmp'>cmp</span> <span class='op'>&gt;</span> <span class='int'>0</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">&gt;</span> other
+  cmp = <span style="color:#069">self</span> &lt;=&gt; other
+  <span style="color:#080;font-weight:bold">if</span> cmp.nil?
+    raise <span style="color:#036;font-weight:bold">ArgumentError</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">comparison of </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#069">self</span>.class<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20"> with </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>other.class<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20"> failed</span><span style="color:#710">&quot;</span></span>
+  <span style="color:#080;font-weight:bold">end</span>
+  cmp &gt; <span style="color:#00D">0</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -530,13 +530,13 @@ Otherwise return false.</p>
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/compar.rb', line 66</span>
 
-<span class='kw'>def</span> <span class='op'>&gt;=</span> <span class='id identifier rubyid_other'>other</span>
-  <span class='id identifier rubyid_cmp'>cmp</span> <span class='op'>=</span> <span class='kw'>self</span> <span class='op'>&lt;=&gt;</span> <span class='id identifier rubyid_other'>other</span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_cmp'>cmp</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>comparison of </span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='embexpr_end'>}</span><span class='tstring_content'> with </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='embexpr_end'>}</span><span class='tstring_content'> failed</span><span class='tstring_end'>&quot;</span></span>
-  <span class='kw'>end</span>
-  <span class='id identifier rubyid_cmp'>cmp</span> <span class='op'>&gt;=</span> <span class='int'>0</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">&gt;=</span> other
+  cmp = <span style="color:#069">self</span> &lt;=&gt; other
+  <span style="color:#080;font-weight:bold">if</span> cmp.nil?
+    raise <span style="color:#036;font-weight:bold">ArgumentError</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">comparison of </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#069">self</span>.class<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20"> with </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>other.class<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20"> failed</span><span style="color:#710">&quot;</span></span>
+  <span style="color:#080;font-weight:bold">end</span>
+  cmp &gt;= <span style="color:#00D">0</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -592,9 +592,9 @@ return false.</p>
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/compar.rb', line 81</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_between?'>between?</span><span class='lparen'>(</span><span class='id identifier rubyid_min'>min</span><span class='comma'>,</span> <span class='id identifier rubyid_max'>max</span><span class='rparen'>)</span>
-  <span class='kw'>self</span> <span class='op'>&gt;=</span> <span class='id identifier rubyid_min'>min</span> <span class='kw'>and</span> <span class='kw'>self</span> <span class='op'>&lt;=</span> <span class='id identifier rubyid_max'>max</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">between?</span>(min, max)
+  <span style="color:#069">self</span> &gt;= min <span style="color:#080;font-weight:bold">and</span> <span style="color:#069">self</span> &lt;= max
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -605,7 +605,7 @@ return false.</p>
 </div>
 
     <div id="footer">
-  Generated on Mon Sep 28 13:37:45 2015 by
+  Generated on Tue Sep 29 15:15:30 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 in <a href="https://github.com/sagmor/yard-mruby">mruby mode</a> 0.1.0 (ruby-2.2.1).
 </div>

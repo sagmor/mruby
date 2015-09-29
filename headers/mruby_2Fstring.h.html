@@ -78,7 +78,19 @@
     <iframe id="search_frame"></iframe>
 
     <div id="content"><h1>Header: mruby/string.h</h1>
-Included heaers
+<h2>Overview</h2>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>String class</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>Included heaers
 
   <h2>
     Function Summary
@@ -89,7 +101,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_str_modify-function" title="<strong>mrb_str_modify</strong>"><strong>mrb_str_modify</strong></a>
+    <a href="#mrb_str_modify-function" title="mrb_str_modify">void <strong>mrb_str_modify</strong>(mrb_state*, struct RString*)</a>
 
     
   </span>
@@ -106,7 +118,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_str_concat-function" title="<strong>mrb_str_concat</strong>"><strong>mrb_str_concat</strong></a>
+    <a href="#mrb_str_concat-function" title="mrb_str_concat">void <strong>mrb_str_concat</strong>(mrb_state*, mrb_value, mrb_value)</a>
 
     
   </span>
@@ -123,7 +135,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_str_plus-function" title="<strong>mrb_str_plus</strong>"><strong>mrb_str_plus</strong></a>
+    <a href="#mrb_str_plus-function" title="mrb_str_plus">mrb_value <strong>mrb_str_plus</strong>(mrb_state*, mrb_value, mrb_value)</a>
 
     
   </span>
@@ -140,7 +152,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_ptr_to_str-function" title="<strong>mrb_ptr_to_str</strong>"><strong>mrb_ptr_to_str</strong></a>
+    <a href="#mrb_ptr_to_str-function" title="mrb_ptr_to_str">mrb_value <strong>mrb_ptr_to_str</strong>(mrb_state *, void*)</a>
 
     
   </span>
@@ -157,7 +169,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_obj_as_string-function" title="<strong>mrb_obj_as_string</strong>"><strong>mrb_obj_as_string</strong></a>
+    <a href="#mrb_obj_as_string-function" title="mrb_obj_as_string">mrb_value <strong>mrb_obj_as_string</strong>(mrb_state *, mrb_value)</a>
 
     
   </span>
@@ -174,7 +186,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_str_resize-function" title="<strong>mrb_str_resize</strong>"><strong>mrb_str_resize</strong></a>
+    <a href="#mrb_str_resize-function" title="mrb_str_resize">mrb_value <strong>mrb_str_resize</strong>(mrb_state *, mrb_value, mrb_int)</a>
 
     
   </span>
@@ -191,7 +203,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_str_substr-function" title="<strong>mrb_str_substr</strong>"><strong>mrb_str_substr</strong></a>
+    <a href="#mrb_str_substr-function" title="mrb_str_substr">mrb_value <strong>mrb_str_substr</strong>(mrb_state *, mrb_value, mrb_int, mrb_int)</a>
 
     
   </span>
@@ -208,7 +220,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_string_type-function" title="<strong>mrb_string_type</strong>"><strong>mrb_string_type</strong></a>
+    <a href="#mrb_string_type-function" title="mrb_string_type">mrb_value <strong>mrb_string_type</strong>(mrb_state *, mrb_value)</a>
 
     
   </span>
@@ -225,7 +237,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_check_string_type-function" title="<strong>mrb_check_string_type</strong>"><strong>mrb_check_string_type</strong></a>
+    <a href="#mrb_check_string_type-function" title="mrb_check_string_type">mrb_value <strong>mrb_check_string_type</strong>(mrb_state *, mrb_value)</a>
 
     
   </span>
@@ -242,7 +254,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_str_buf_new-function" title="<strong>mrb_str_buf_new</strong>"><strong>mrb_str_buf_new</strong></a>
+    <a href="#mrb_str_buf_new-function" title="mrb_str_buf_new">mrb_value <strong>mrb_str_buf_new</strong>(mrb_state *, size_t)</a>
 
     
   </span>
@@ -259,7 +271,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_str_dup-function" title="<strong>mrb_str_dup</strong>"><strong>mrb_str_dup</strong></a>
+    <a href="#mrb_str_dup-function" title="mrb_str_dup">mrb_value <strong>mrb_str_dup</strong>(mrb_state *, mrb_value)</a>
 
     
   </span>
@@ -276,7 +288,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_str_intern-function" title="<strong>mrb_str_intern</strong>"><strong>mrb_str_intern</strong></a>
+    <a href="#mrb_str_intern-function" title="mrb_str_intern">mrb_value <strong>mrb_str_intern</strong>(mrb_state *, mrb_value)</a>
 
     
   </span>
@@ -293,7 +305,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_str_to_inum-function" title="<strong>mrb_str_to_inum</strong>"><strong>mrb_str_to_inum</strong></a>
+    <a href="#mrb_str_to_inum-function" title="mrb_str_to_inum">mrb_value <strong>mrb_str_to_inum</strong>(mrb_state *, mrb_value, mrb_int, mrb_bool)</a>
 
     
   </span>
@@ -310,7 +322,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_str_to_dbl-function" title="<strong>mrb_str_to_dbl</strong>"><strong>mrb_str_to_dbl</strong></a>
+    <a href="#mrb_str_to_dbl-function" title="mrb_str_to_dbl">double <strong>mrb_str_to_dbl</strong>(mrb_state *, mrb_value, mrb_bool)</a>
 
     
   </span>
@@ -327,7 +339,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_str_to_str-function" title="<strong>mrb_str_to_str</strong>"><strong>mrb_str_to_str</strong></a>
+    <a href="#mrb_str_to_str-function" title="mrb_str_to_str">mrb_value <strong>mrb_str_to_str</strong>(mrb_state *, mrb_value)</a>
 
     
   </span>
@@ -344,7 +356,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_str_equal-function" title="<strong>mrb_str_equal</strong>"><strong>mrb_str_equal</strong></a>
+    <a href="#mrb_str_equal-function" title="mrb_str_equal">mrb_bool <strong>mrb_str_equal</strong>(mrb_state *, mrb_value, mrb_value)</a>
 
     
   </span>
@@ -361,7 +373,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_str_cat-function" title="<strong>mrb_str_cat</strong>"><strong>mrb_str_cat</strong></a>
+    <a href="#mrb_str_cat-function" title="mrb_str_cat">mrb_value <strong>mrb_str_cat</strong>(mrb_state *, mrb_value, const char *, size_t)</a>
 
     
   </span>
@@ -378,7 +390,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_str_cat_cstr-function" title="<strong>mrb_str_cat_cstr</strong>"><strong>mrb_str_cat_cstr</strong></a>
+    <a href="#mrb_str_cat_cstr-function" title="mrb_str_cat_cstr">mrb_value <strong>mrb_str_cat_cstr</strong>(mrb_state *, mrb_value, const char *)</a>
 
     
   </span>
@@ -395,7 +407,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_str_cat_str-function" title="<strong>mrb_str_cat_str</strong>"><strong>mrb_str_cat_str</strong></a>
+    <a href="#mrb_str_cat_str-function" title="mrb_str_cat_str">mrb_value <strong>mrb_str_cat_str</strong>(mrb_state *, mrb_value, mrb_value)</a>
 
     
   </span>
@@ -412,7 +424,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_str_append-function" title="<strong>mrb_str_append</strong>"><strong>mrb_str_append</strong></a>
+    <a href="#mrb_str_append-function" title="mrb_str_append">mrb_value <strong>mrb_str_append</strong>(mrb_state *, mrb_value, mrb_value)</a>
 
     
   </span>
@@ -429,7 +441,24 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_str_cmp-function" title="<strong>mrb_str_cmp</strong>"><strong>mrb_str_cmp</strong></a>
+    <a href="#mrb_str_cmp-function" title="mrb_str_cmp">int <strong>mrb_str_cmp</strong>(mrb_state *, mrb_value, mrb_value)</a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_str_to_cstr-function" title="mrb_str_to_cstr">char * <strong>mrb_str_to_cstr</strong>(mrb_state *, mrb_value)</a>
 
     
   </span>
@@ -446,13 +475,215 @@ Included heaers
     
   </ul>
 
+
+  <h2>Define Summary</h2>
+  <dl class="constants">
+    
+      <dt id="MRUBY_STRING_H-define" class=""><small>#define</small> MRUBY_STRING_H
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="RSTRING_EMBED_LEN_MAX-define" class=""><small>#define</small> RSTRING_EMBED_LEN_MAX
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="RSTR_EMBED_P-define" class=""><small>#define</small> RSTR_EMBED_P
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="RSTR_SET_EMBED_FLAG-define" class=""><small>#define</small> RSTR_SET_EMBED_FLAG
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="RSTR_UNSET_EMBED_FLAG-define" class=""><small>#define</small> RSTR_UNSET_EMBED_FLAG
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="RSTR_SET_EMBED_LEN-define" class=""><small>#define</small> RSTR_SET_EMBED_LEN
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="RSTR_SET_LEN-define" class=""><small>#define</small> RSTR_SET_LEN
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="RSTR_EMBED_LEN-define" class=""><small>#define</small> RSTR_EMBED_LEN
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="RSTR_PTR-define" class=""><small>#define</small> RSTR_PTR
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="RSTR_LEN-define" class=""><small>#define</small> RSTR_LEN
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="RSTR_CAPA-define" class=""><small>#define</small> RSTR_CAPA
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="RSTR_SHARED_P-define" class=""><small>#define</small> RSTR_SHARED_P
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="RSTR_SET_SHARED_FLAG-define" class=""><small>#define</small> RSTR_SET_SHARED_FLAG
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="RSTR_UNSET_SHARED_FLAG-define" class=""><small>#define</small> RSTR_UNSET_SHARED_FLAG
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="RSTR_NOFREE_P-define" class=""><small>#define</small> RSTR_NOFREE_P
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="RSTR_SET_NOFREE_FLAG-define" class=""><small>#define</small> RSTR_SET_NOFREE_FLAG
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="RSTR_UNSET_NOFREE_FLAG-define" class=""><small>#define</small> RSTR_UNSET_NOFREE_FLAG
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="RSTR_FROZEN_P-define" class=""><small>#define</small> RSTR_FROZEN_P
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="RSTR_SET_FROZEN_FLAG-define" class=""><small>#define</small> RSTR_SET_FROZEN_FLAG
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="RSTR_UNSET_FROZEN_FLAG-define" class=""><small>#define</small> RSTR_UNSET_FROZEN_FLAG
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="mrb_str_ptr-define" class=""><small>#define</small> mrb_str_ptr
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="RSTRING-define" class=""><small>#define</small> RSTRING
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="RSTRING_PTR-define" class=""><small>#define</small> RSTRING_PTR
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="RSTRING_EMBED_LEN-define" class=""><small>#define</small> RSTRING_EMBED_LEN
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="RSTRING_LEN-define" class=""><small>#define</small> RSTRING_LEN
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="RSTRING_CAPA-define" class=""><small>#define</small> RSTRING_CAPA
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="RSTRING_END-define" class=""><small>#define</small> RSTRING_END
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="MRB_STR_SHARED-define" class=""><small>#define</small> MRB_STR_SHARED
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="MRB_STR_NOFREE-define" class=""><small>#define</small> MRB_STR_NOFREE
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="MRB_STR_FROZEN-define" class=""><small>#define</small> MRB_STR_FROZEN
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="MRB_STR_EMBED-define" class=""><small>#define</small> MRB_STR_EMBED
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="MRB_STR_EMBED_LEN_MASK-define" class=""><small>#define</small> MRB_STR_EMBED_LEN_MASK
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="MRB_STR_EMBED_LEN_SHIFT-define" class=""><small>#define</small> MRB_STR_EMBED_LEN_SHIFT
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="mrb_str_cat_lit-define" class=""><small>#define</small> mrb_str_cat_lit
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="mrb_str_cat2-define" class=""><small>#define</small> mrb_str_cat2
+        <div class="docstring">
+  <div class="discussion">
+    
+<p>For backward compatibility</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="mrb_str_buf_cat-define" class=""><small>#define</small> mrb_str_buf_cat
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="mrb_str_buf_append-define" class=""><small>#define</small> mrb_str_buf_append
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+  </dl>
+
 <div id="functions_details" class="method_details_list">
   <h2>Function Details</h2>
 
   
     <div class="method_details first">
   <h3 class="signature first" id="mrb_str_modify-function">
-  <strong>mrb_str_modify</strong>
+  void <strong>mrb_str_modify</strong>(mrb_state* , struct RString* )
 
   
 </h3>
@@ -462,7 +693,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_str_concat-function">
-  <strong>mrb_str_concat</strong>
+  void <strong>mrb_str_concat</strong>(mrb_state* , mrb_value , mrb_value )
 
   
 </h3>
@@ -472,7 +703,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_str_plus-function">
-  <strong>mrb_str_plus</strong>
+  mrb_value <strong>mrb_str_plus</strong>(mrb_state* , mrb_value , mrb_value )
 
   
 </h3>
@@ -482,7 +713,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_ptr_to_str-function">
-  <strong>mrb_ptr_to_str</strong>
+  mrb_value <strong>mrb_ptr_to_str</strong>(mrb_state * , void* )
 
   
 </h3>
@@ -492,7 +723,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_obj_as_string-function">
-  <strong>mrb_obj_as_string</strong>
+  mrb_value <strong>mrb_obj_as_string</strong>(mrb_state * mrb, mrb_value obj)
 
   
 </h3>
@@ -502,7 +733,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_str_resize-function">
-  <strong>mrb_str_resize</strong>
+  mrb_value <strong>mrb_str_resize</strong>(mrb_state * mrb, mrb_value str, mrb_int len)
 
   
 </h3>
@@ -512,7 +743,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_str_substr-function">
-  <strong>mrb_str_substr</strong>
+  mrb_value <strong>mrb_str_substr</strong>(mrb_state * mrb, mrb_value str, mrb_int beg, mrb_int len)
 
   
 </h3>
@@ -522,7 +753,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_string_type-function">
-  <strong>mrb_string_type</strong>
+  mrb_value <strong>mrb_string_type</strong>(mrb_state * mrb, mrb_value str)
 
   
 </h3>
@@ -532,7 +763,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_check_string_type-function">
-  <strong>mrb_check_string_type</strong>
+  mrb_value <strong>mrb_check_string_type</strong>(mrb_state * mrb, mrb_value str)
 
   
 </h3>
@@ -542,7 +773,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_str_buf_new-function">
-  <strong>mrb_str_buf_new</strong>
+  mrb_value <strong>mrb_str_buf_new</strong>(mrb_state * mrb, size_t capa)
 
   
 </h3>
@@ -552,7 +783,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_str_dup-function">
-  <strong>mrb_str_dup</strong>
+  mrb_value <strong>mrb_str_dup</strong>(mrb_state * mrb, mrb_value str)
 
   
 </h3>
@@ -562,7 +793,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_str_intern-function">
-  <strong>mrb_str_intern</strong>
+  mrb_value <strong>mrb_str_intern</strong>(mrb_state * mrb, mrb_value self)
 
   
 </h3>
@@ -572,7 +803,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_str_to_inum-function">
-  <strong>mrb_str_to_inum</strong>
+  mrb_value <strong>mrb_str_to_inum</strong>(mrb_state * mrb, mrb_value str, mrb_int base, mrb_bool badcheck)
 
   
 </h3>
@@ -582,7 +813,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_str_to_dbl-function">
-  <strong>mrb_str_to_dbl</strong>
+  double <strong>mrb_str_to_dbl</strong>(mrb_state * mrb, mrb_value str, mrb_bool badcheck)
 
   
 </h3>
@@ -592,7 +823,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_str_to_str-function">
-  <strong>mrb_str_to_str</strong>
+  mrb_value <strong>mrb_str_to_str</strong>(mrb_state * mrb, mrb_value str)
 
   
 </h3>
@@ -602,7 +833,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_str_equal-function">
-  <strong>mrb_str_equal</strong>
+  mrb_bool <strong>mrb_str_equal</strong>(mrb_state * mrb, mrb_value str1, mrb_value str2)
 
   
 </h3>
@@ -612,7 +843,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_str_cat-function">
-  <strong>mrb_str_cat</strong>
+  mrb_value <strong>mrb_str_cat</strong>(mrb_state * mrb, mrb_value str, const char * ptr, size_t len)
 
   
 </h3>
@@ -622,7 +853,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_str_cat_cstr-function">
-  <strong>mrb_str_cat_cstr</strong>
+  mrb_value <strong>mrb_str_cat_cstr</strong>(mrb_state * mrb, mrb_value str, const char * ptr)
 
   
 </h3>
@@ -632,7 +863,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_str_cat_str-function">
-  <strong>mrb_str_cat_str</strong>
+  mrb_value <strong>mrb_str_cat_str</strong>(mrb_state * mrb, mrb_value str, mrb_value str2)
 
   
 </h3>
@@ -642,7 +873,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_str_append-function">
-  <strong>mrb_str_append</strong>
+  mrb_value <strong>mrb_str_append</strong>(mrb_state * mrb, mrb_value str, mrb_value str2)
 
   
 </h3>
@@ -652,7 +883,17 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_str_cmp-function">
-  <strong>mrb_str_cmp</strong>
+  int <strong>mrb_str_cmp</strong>(mrb_state * mrb, mrb_value str1, mrb_value str2)
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_str_to_cstr-function">
+  char * <strong>mrb_str_to_cstr</strong>(mrb_state * mrb, mrb_value str)
 
   
 </h3>
@@ -664,7 +905,7 @@ Included heaers
 </div>
 
     <div id="footer">
-  Generated on Mon Sep 28 13:37:47 2015 by
+  Generated on Tue Sep 29 15:15:33 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 in <a href="https://github.com/sagmor/yard-mruby">mruby mode</a> 0.1.0 (ruby-2.2.1).
 </div>

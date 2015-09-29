@@ -265,16 +265,16 @@ should be compatible to integers.</p>
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/numeric.rb', line 184</span>
 
-<span class='kw'>def</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_other'>other</span>
-  <span class='id identifier rubyid_n'>n</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
-  <span class='id identifier rubyid_other'>other</span> <span class='op'>=</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_other'>other</span> <span class='op'>&lt;</span> <span class='int'>0</span>
-    <span class='id identifier rubyid_n'>n</span> <span class='op'>&gt;&gt;</span> <span class='op'>-</span><span class='id identifier rubyid_other'>other</span>
-  <span class='kw'>else</span>
-    <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_n'>n</span> <span class='op'>*=</span> <span class='int'>2</span> <span class='rbrace'>}</span>
-    <span class='id identifier rubyid_n'>n</span>
-  <span class='kw'>end</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">&lt;&lt;</span> other
+  n = <span style="color:#069">self</span>.to_i
+  other = other.to_i
+  <span style="color:#080;font-weight:bold">if</span> other &lt; <span style="color:#00D">0</span>
+    n &gt;&gt; -other
+  <span style="color:#080;font-weight:bold">else</span>
+    other.times { n *= <span style="color:#00D">2</span> }
+    n
+  <span style="color:#080;font-weight:bold">end</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -329,24 +329,24 @@ should be compatible to integers.</p>
     <td>
       <pre class="code"><span class="info file"># File 'mrblib/numeric.rb', line 166</span>
 
-<span class='kw'>def</span> <span class='op'>&gt;&gt;</span> <span class='id identifier rubyid_other'>other</span>
-  <span class='id identifier rubyid_n'>n</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
-  <span class='id identifier rubyid_other'>other</span> <span class='op'>=</span> <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_other'>other</span> <span class='op'>&lt;</span> <span class='int'>0</span>
-    <span class='id identifier rubyid_n'>n</span> <span class='op'>&lt;&lt;</span> <span class='op'>-</span><span class='id identifier rubyid_other'>other</span>
-  <span class='kw'>else</span>
-    <span class='id identifier rubyid_other'>other</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_n'>n</span> <span class='op'>/=</span> <span class='int'>2</span> <span class='rbrace'>}</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_n'>n</span><span class='period'>.</span><span class='id identifier rubyid_abs'>abs</span> <span class='op'>&lt;</span> <span class='int'>1</span>
-      <span class='kw'>if</span> <span class='id identifier rubyid_n'>n</span> <span class='op'>&gt;=</span> <span class='int'>0</span>
-        <span class='int'>0</span>
-      <span class='kw'>else</span>
-        <span class='op'>-</span><span class='int'>1</span>
-      <span class='kw'>end</span>
-    <span class='kw'>else</span>
-      <span class='id identifier rubyid_n'>n</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
-    <span class='kw'>end</span>
-  <span class='kw'>end</span>
-<span class='kw'>end</span></pre>
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">&gt;&gt;</span> other
+  n = <span style="color:#069">self</span>.to_i
+  other = other.to_i
+  <span style="color:#080;font-weight:bold">if</span> other &lt; <span style="color:#00D">0</span>
+    n &lt;&lt; -other
+  <span style="color:#080;font-weight:bold">else</span>
+    other.times { n /= <span style="color:#00D">2</span> }
+    <span style="color:#080;font-weight:bold">if</span> n.abs &lt; <span style="color:#00D">1</span>
+      <span style="color:#080;font-weight:bold">if</span> n &gt;= <span style="color:#00D">0</span>
+        <span style="color:#00D">0</span>
+      <span style="color:#080;font-weight:bold">else</span>
+        <span style="color:#00D">-1</span>
+      <span style="color:#080;font-weight:bold">end</span>
+    <span style="color:#080;font-weight:bold">else</span>
+      n.to_i
+    <span style="color:#080;font-weight:bold">end</span>
+  <span style="color:#080;font-weight:bold">end</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
 </table>
@@ -357,7 +357,7 @@ should be compatible to integers.</p>
 </div>
 
     <div id="footer">
-  Generated on Mon Sep 28 13:37:46 2015 by
+  Generated on Tue Sep 29 15:15:32 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 in <a href="https://github.com/sagmor/yard-mruby">mruby mode</a> 0.1.0 (ruby-2.2.1).
 </div>

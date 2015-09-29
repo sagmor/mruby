@@ -78,7 +78,19 @@
     <iframe id="search_frame"></iframe>
 
     <div id="content"><h1>Header: mruby/value.h</h1>
-Included heaers
+<h2>Overview</h2>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>MRuby Value definition functions and macros.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>Included heaers
 
   <h2>
     Function Summary
@@ -89,7 +101,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_msvc_vsnprintf-function" title="<strong>mrb_msvc_vsnprintf</strong>"><strong>mrb_msvc_vsnprintf</strong></a>
+    <a href="#mrb_msvc_vsnprintf-function" title="mrb_msvc_vsnprintf">int <strong>mrb_msvc_vsnprintf</strong>(char *, size_t, const char *, va_list)</a>
 
     
   </span>
@@ -106,7 +118,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_msvc_snprintf-function" title="<strong>mrb_msvc_snprintf</strong>"><strong>mrb_msvc_snprintf</strong></a>
+    <a href="#mrb_msvc_snprintf-function" title="mrb_msvc_snprintf">int <strong>mrb_msvc_snprintf</strong>(char *, size_t, const char *, ...)</a>
 
     
   </span>
@@ -123,7 +135,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_regexp_p-function" title="<strong>mrb_regexp_p</strong>"><strong>mrb_regexp_p</strong></a>
+    <a href="#mrb_regexp_p-function" title="mrb_regexp_p">mrb_bool <strong>mrb_regexp_p</strong>(struct mrb_state*, mrb_value)</a>
 
     
   </span>
@@ -140,7 +152,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_nil_value-function" title="<strong>mrb_nil_value</strong>"><strong>mrb_nil_value</strong></a>
+    <a href="#mrb_nil_value-function" title="mrb_nil_value">mrb_value <strong>mrb_nil_value</strong>(void)</a>
 
     
   </span>
@@ -159,13 +171,159 @@ Included heaers
     
   </ul>
 
+
+  <h2>Define Summary</h2>
+  <dl class="constants">
+    
+      <dt id="MRUBY_VALUE_H-define" class=""><small>#define</small> MRUBY_VALUE_H
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="MRB_INT_BIT-define" class=""><small>#define</small> MRB_INT_BIT
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="MRB_INT_MIN-define" class=""><small>#define</small> MRB_INT_MIN
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="MRB_INT_MAX-define" class=""><small>#define</small> MRB_INT_MAX
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="str_to_mrb_float-define" class=""><small>#define</small> str_to_mrb_float
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="inline-define" class=""><small>#define</small> inline
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="vsnprintf-define" class=""><small>#define</small> vsnprintf
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="snprintf-define" class=""><small>#define</small> snprintf
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="isfinite-define" class=""><small>#define</small> isfinite
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="isnan-define" class=""><small>#define</small> isnan
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="isinf-define" class=""><small>#define</small> isinf
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="signbit-define" class=""><small>#define</small> signbit
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="strtof-define" class=""><small>#define</small> strtof
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="INFINITY-define" class=""><small>#define</small> INFINITY
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="NAN-define" class=""><small>#define</small> NAN
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="mrb_fixnum_p-define" class=""><small>#define</small> mrb_fixnum_p
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="mrb_undef_p-define" class=""><small>#define</small> mrb_undef_p
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="mrb_nil_p-define" class=""><small>#define</small> mrb_nil_p
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="mrb_bool-define" class=""><small>#define</small> mrb_bool
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="mrb_float_p-define" class=""><small>#define</small> mrb_float_p
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="mrb_symbol_p-define" class=""><small>#define</small> mrb_symbol_p
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="mrb_array_p-define" class=""><small>#define</small> mrb_array_p
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="mrb_string_p-define" class=""><small>#define</small> mrb_string_p
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="mrb_hash_p-define" class=""><small>#define</small> mrb_hash_p
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="mrb_cptr_p-define" class=""><small>#define</small> mrb_cptr_p
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="mrb_exception_p-define" class=""><small>#define</small> mrb_exception_p
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="mrb_test-define" class=""><small>#define</small> mrb_test
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="mrb_ro_data_p-define" class=""><small>#define</small> mrb_ro_data_p
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+  </dl>
+
 <div id="functions_details" class="method_details_list">
   <h2>Function Details</h2>
 
   
     <div class="method_details first">
   <h3 class="signature first" id="mrb_msvc_vsnprintf-function">
-  <strong>mrb_msvc_vsnprintf</strong>
+  int <strong>mrb_msvc_vsnprintf</strong>(char * s, size_t n, const char * format, va_list arg)
 
   
 </h3>
@@ -175,7 +333,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_msvc_snprintf-function">
-  <strong>mrb_msvc_snprintf</strong>
+  int <strong>mrb_msvc_snprintf</strong>(char * s, size_t n, const char * format, ... )
 
   
 </h3>
@@ -185,7 +343,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_regexp_p-function">
-  <strong>mrb_regexp_p</strong>
+  mrb_bool <strong>mrb_regexp_p</strong>(struct mrb_state* , mrb_value )
 
   
 </h3>
@@ -195,7 +353,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_nil_value-function">
-  <strong>mrb_nil_value</strong>
+  mrb_value <strong>mrb_nil_value</strong>(void)
 
   
 </h3>
@@ -236,7 +394,7 @@ Included heaers
 </div>
 
     <div id="footer">
-  Generated on Mon Sep 28 13:37:47 2015 by
+  Generated on Tue Sep 29 15:15:33 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 in <a href="https://github.com/sagmor/yard-mruby">mruby mode</a> 0.1.0 (ruby-2.2.1).
 </div>

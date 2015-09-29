@@ -78,7 +78,19 @@
     <iframe id="search_frame"></iframe>
 
     <div id="content"><h1>Header: mruby/hash.h</h1>
-Included heaers
+<h2>Overview</h2>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Hash class</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>Included heaers
 
   <h2>
     Function Summary
@@ -89,7 +101,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_hash_new_capa-function" title="<strong>mrb_hash_new_capa</strong>"><strong>mrb_hash_new_capa</strong></a>
+    <a href="#mrb_hash_new_capa-function" title="mrb_hash_new_capa">mrb_value <strong>mrb_hash_new_capa</strong>(mrb_state*, int)</a>
 
     
   </span>
@@ -106,7 +118,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_hash_new-function" title="<strong>mrb_hash_new</strong>"><strong>mrb_hash_new</strong></a>
+    <a href="#mrb_hash_new-function" title="mrb_hash_new">mrb_value <strong>mrb_hash_new</strong>(mrb_state *)</a>
 
     
   </span>
@@ -123,7 +135,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_hash_set-function" title="<strong>mrb_hash_set</strong>"><strong>mrb_hash_set</strong></a>
+    <a href="#mrb_hash_set-function" title="mrb_hash_set">void <strong>mrb_hash_set</strong>(mrb_state *, mrb_value, mrb_value, mrb_value)</a>
 
     
   </span>
@@ -140,7 +152,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_hash_get-function" title="<strong>mrb_hash_get</strong>"><strong>mrb_hash_get</strong></a>
+    <a href="#mrb_hash_get-function" title="mrb_hash_get">mrb_value <strong>mrb_hash_get</strong>(mrb_state *, mrb_value, mrb_value)</a>
 
     
   </span>
@@ -157,7 +169,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_hash_fetch-function" title="<strong>mrb_hash_fetch</strong>"><strong>mrb_hash_fetch</strong></a>
+    <a href="#mrb_hash_fetch-function" title="mrb_hash_fetch">mrb_value <strong>mrb_hash_fetch</strong>(mrb_state *, mrb_value, mrb_value, mrb_value)</a>
 
     
   </span>
@@ -174,7 +186,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_hash_delete_key-function" title="<strong>mrb_hash_delete_key</strong>"><strong>mrb_hash_delete_key</strong></a>
+    <a href="#mrb_hash_delete_key-function" title="mrb_hash_delete_key">mrb_value <strong>mrb_hash_delete_key</strong>(mrb_state *, mrb_value, mrb_value)</a>
 
     
   </span>
@@ -191,7 +203,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_hash_keys-function" title="<strong>mrb_hash_keys</strong>"><strong>mrb_hash_keys</strong></a>
+    <a href="#mrb_hash_keys-function" title="mrb_hash_keys">mrb_value <strong>mrb_hash_keys</strong>(mrb_state *, mrb_value)</a>
 
     
   </span>
@@ -208,7 +220,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_check_hash_type-function" title="<strong>mrb_check_hash_type</strong>"><strong>mrb_check_hash_type</strong></a>
+    <a href="#mrb_check_hash_type-function" title="mrb_check_hash_type">mrb_value <strong>mrb_check_hash_type</strong>(mrb_state *, mrb_value)</a>
 
     
   </span>
@@ -225,7 +237,7 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_hash_empty_p-function" title="<strong>mrb_hash_empty_p</strong>"><strong>mrb_hash_empty_p</strong></a>
+    <a href="#mrb_hash_empty_p-function" title="mrb_hash_empty_p">mrb_value <strong>mrb_hash_empty_p</strong>(mrb_state *, mrb_value)</a>
 
     
   </span>
@@ -242,7 +254,24 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_hash_clear-function" title="<strong>mrb_hash_clear</strong>"><strong>mrb_hash_clear</strong></a>
+    <a href="#mrb_hash_clear-function" title="mrb_hash_clear">mrb_value <strong>mrb_hash_clear</strong>(mrb_state *, mrb_value)</a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_hash_tbl-function" title="mrb_hash_tbl">struct kh_ht * <strong>mrb_hash_tbl</strong>(mrb_state *, mrb_value)</a>
 
     
   </span>
@@ -259,13 +288,75 @@ Included heaers
     
   </ul>
 
+
+  <h2>Define Summary</h2>
+  <dl class="constants">
+    
+      <dt id="MRUBY_HASH_H-define" class=""><small>#define</small> MRUBY_HASH_H
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="mrb_hash_ptr-define" class=""><small>#define</small> mrb_hash_ptr
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="mrb_hash_value-define" class=""><small>#define</small> mrb_hash_value
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="RHASH-define" class=""><small>#define</small> RHASH
+        <div class="docstring">
+  <div class="discussion">
+    
+<p>RHASH_TBL allocates st_table if not available.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="RHASH_TBL-define" class=""><small>#define</small> RHASH_TBL
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="RHASH_IFNONE-define" class=""><small>#define</small> RHASH_IFNONE
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="RHASH_PROCDEFAULT-define" class=""><small>#define</small> RHASH_PROCDEFAULT
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="MRB_HASH_PROC_DEFAULT-define" class=""><small>#define</small> MRB_HASH_PROC_DEFAULT
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="MRB_RHASH_PROCDEFAULT_P-define" class=""><small>#define</small> MRB_RHASH_PROCDEFAULT_P
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+  </dl>
+
 <div id="functions_details" class="method_details_list">
   <h2>Function Details</h2>
 
   
     <div class="method_details first">
   <h3 class="signature first" id="mrb_hash_new_capa-function">
-  <strong>mrb_hash_new_capa</strong>
+  mrb_value <strong>mrb_hash_new_capa</strong>(mrb_state* , int )
 
   
 </h3>
@@ -275,7 +366,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_hash_new-function">
-  <strong>mrb_hash_new</strong>
+  mrb_value <strong>mrb_hash_new</strong>(mrb_state * mrb)
 
   
 </h3>
@@ -285,7 +376,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_hash_set-function">
-  <strong>mrb_hash_set</strong>
+  void <strong>mrb_hash_set</strong>(mrb_state * mrb, mrb_value hash, mrb_value key, mrb_value val)
 
   
 </h3>
@@ -295,7 +386,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_hash_get-function">
-  <strong>mrb_hash_get</strong>
+  mrb_value <strong>mrb_hash_get</strong>(mrb_state * mrb, mrb_value hash, mrb_value key)
 
   
 </h3>
@@ -305,7 +396,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_hash_fetch-function">
-  <strong>mrb_hash_fetch</strong>
+  mrb_value <strong>mrb_hash_fetch</strong>(mrb_state * mrb, mrb_value hash, mrb_value key, mrb_value def)
 
   
 </h3>
@@ -315,7 +406,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_hash_delete_key-function">
-  <strong>mrb_hash_delete_key</strong>
+  mrb_value <strong>mrb_hash_delete_key</strong>(mrb_state * mrb, mrb_value hash, mrb_value key)
 
   
 </h3>
@@ -325,7 +416,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_hash_keys-function">
-  <strong>mrb_hash_keys</strong>
+  mrb_value <strong>mrb_hash_keys</strong>(mrb_state * mrb, mrb_value hash)
 
   
 </h3>
@@ -335,7 +426,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_check_hash_type-function">
-  <strong>mrb_check_hash_type</strong>
+  mrb_value <strong>mrb_check_hash_type</strong>(mrb_state * mrb, mrb_value hash)
 
   
 </h3>
@@ -345,7 +436,7 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_hash_empty_p-function">
-  <strong>mrb_hash_empty_p</strong>
+  mrb_value <strong>mrb_hash_empty_p</strong>(mrb_state * mrb, mrb_value self)
 
   
 </h3>
@@ -355,7 +446,17 @@ Included heaers
   
     <div class="method_details ">
   <h3 class="signature " id="mrb_hash_clear-function">
-  <strong>mrb_hash_clear</strong>
+  mrb_value <strong>mrb_hash_clear</strong>(mrb_state * mrb, mrb_value hash)
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_hash_tbl-function">
+  struct kh_ht * <strong>mrb_hash_tbl</strong>(mrb_state * mrb, mrb_value hash)
 
   
 </h3>
@@ -367,7 +468,7 @@ Included heaers
 </div>
 
     <div id="footer">
-  Generated on Mon Sep 28 13:37:47 2015 by
+  Generated on Tue Sep 29 15:15:32 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 in <a href="https://github.com/sagmor/yard-mruby">mruby mode</a> 0.1.0 (ruby-2.2.1).
 </div>

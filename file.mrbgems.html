@@ -88,26 +88,26 @@ extension integrated.</p>
 
 <p>To add a GEM into the <em>build_config.rb</em> add the following line for example:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_conf'>conf</span><span class='period'>.</span><span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/path/to/your/gem/dir</span><span class='tstring_end'>&#39;</span></span>
+<pre class="code ruby"><code class="ruby">conf.gem <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">/path/to/your/gem/dir</span><span style="color:#710">'</span></span>
 </code></pre>
 
 <p>You can also use a relative path which would be relative from the mruby root:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_conf'>conf</span><span class='period'>.</span><span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>examples/mrbgems/ruby_extension_example</span><span class='tstring_end'>&#39;</span></span>
+<pre class="code ruby"><code class="ruby">conf.gem <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">examples/mrbgems/ruby_extension_example</span><span style="color:#710">'</span></span>
 </code></pre>
 
 <p>A remote GIT repository location for a GEM is also supported:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_conf'>conf</span><span class='period'>.</span><span class='id identifier rubyid_gem'>gem</span> <span class='symbol'>:git</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>https://github.com/masuidrive/mrbgems-example.git</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='symbol'>:branch</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>master</span><span class='tstring_end'>&#39;</span></span>
-<span class='id identifier rubyid_conf'>conf</span><span class='period'>.</span><span class='id identifier rubyid_gem'>gem</span> <span class='symbol'>:github</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>masuidrive/mrbgems-example</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='symbol'>:branch</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>master</span><span class='tstring_end'>&#39;</span></span>
-<span class='id identifier rubyid_conf'>conf</span><span class='period'>.</span><span class='id identifier rubyid_gem'>gem</span> <span class='symbol'>:bitbucket</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>mruby/mrbgems-example</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='symbol'>:branch</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>master</span><span class='tstring_end'>&#39;</span></span>
+<pre class="code ruby"><code class="ruby">conf.gem <span style="color:#A60">:git</span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">https://github.com/masuidrive/mrbgems-example.git</span><span style="color:#710">'</span></span>, <span style="color:#A60">:branch</span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">master</span><span style="color:#710">'</span></span>
+conf.gem <span style="color:#A60">:github</span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">masuidrive/mrbgems-example</span><span style="color:#710">'</span></span>, <span style="color:#A60">:branch</span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">master</span><span style="color:#710">'</span></span>
+conf.gem <span style="color:#A60">:bitbucket</span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mruby/mrbgems-example</span><span style="color:#710">'</span></span>, <span style="color:#A60">:branch</span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">master</span><span style="color:#710">'</span></span>
 </code></pre>
 
 <p>To use mrbgem from <a href="https://github.com/mruby/mgem-list">mgem-list</a> use <code>:mgem</code> option:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_conf'>conf</span><span class='period'>.</span><span class='id identifier rubyid_gem'>gem</span> <span class='symbol'>:mgem</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>mruby-yaml</span><span class='tstring_end'>&#39;</span></span>
-<span class='id identifier rubyid_conf'>conf</span><span class='period'>.</span><span class='id identifier rubyid_gem'>gem</span> <span class='symbol'>:mgem</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>yaml</span><span class='tstring_end'>&#39;</span></span> <span class='comment'># &#39;mruby-&#39; prefix could be omitted
-</span></code></pre>
+<pre class="code ruby"><code class="ruby">conf.gem <span style="color:#A60">:mgem</span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mruby-yaml</span><span style="color:#710">'</span></span>
+conf.gem <span style="color:#A60">:mgem</span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">yaml</span><span style="color:#710">'</span></span> <span style="color:#777"># 'mruby-' prefix could be omitted</span>
+</code></pre>
 
 <p>If there is missing dependencies, mrbgem dependencies solver will reference
 mrbgem from core or mgem-list.</p>
@@ -129,10 +129,10 @@ loaded into mruby via <code>config.gembox &#39;boxname&#39;</code>.</p>
 
 <p>Below we have created a GemBox containing <em>mruby-time</em> and <em>mrbgems-example</em>:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='const'>MRuby</span><span class='op'>::</span><span class='const'>GemBox</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_conf'>conf</span><span class='op'>|</span>
-  <span class='id identifier rubyid_conf'>conf</span><span class='period'>.</span><span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_root'>root</span><span class='embexpr_end'>}</span><span class='tstring_content'>/mrbgems/mruby-time</span><span class='tstring_end'>&quot;</span></span>
-  <span class='id identifier rubyid_conf'>conf</span><span class='period'>.</span><span class='id identifier rubyid_gem'>gem</span> <span class='symbol'>:github</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>masuidrive/mrbgems-example</span><span class='tstring_end'>&#39;</span></span>
-<span class='kw'>end</span>
+<pre class="code ruby"><code class="ruby"><span style="color:#036;font-weight:bold">MRuby</span>::<span style="color:#036;font-weight:bold">GemBox</span>.new <span style="color:#080;font-weight:bold">do</span> |conf|
+  conf.gem <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>root<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">/mrbgems/mruby-time</span><span style="color:#710">&quot;</span></span>
+  conf.gem <span style="color:#A60">:github</span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">masuidrive/mrbgems-example</span><span style="color:#710">'</span></span>
+<span style="color:#080;font-weight:bold">end</span>
 </code></pre>
 
 <p>As mentioned, the GemBox uses the same conventions as <code>MRuby::Build</code>.  The GemBox
@@ -143,7 +143,7 @@ picked up by mruby.</p>
 directory in mruby, and add the following to our <em>build_config.rb</em> file inside
 the build block:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_conf'>conf</span><span class='period'>.</span><span class='id identifier rubyid_gembox'>gembox</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>custom</span><span class='tstring_end'>&#39;</span></span>
+<pre class="code ruby"><code class="ruby">conf.gembox <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">custom</span><span style="color:#710">'</span></span>
 </code></pre>
 
 <p>This will cause the <em>custom</em> GemBox to be read in during the build process,
@@ -152,7 +152,7 @@ adding <em>mruby-time</em> and <em>mrbgems-example</em> to the build.</p>
 <p>If you want, you can put GemBox outside of mruby directory. In that case you must
 specify an absolute path like below.</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_conf'>conf</span><span class='period'>.</span><span class='id identifier rubyid_gembox'>gembox</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>HOME</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>/mygemboxes/custom</span><span class='tstring_end'>&quot;</span></span>
+<pre class="code ruby"><code class="ruby">conf.gembox <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#069">ENV</span>[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">HOME</span><span style="color:#710">&quot;</span></span>]<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">/mygemboxes/custom</span><span style="color:#710">&quot;</span></span>
 </code></pre>
 
 <p>There are two GemBoxes that ship with mruby: <a href="../../mrbgems/default.gembox">default</a>
@@ -164,19 +164,19 @@ contains every gem found in the <em>mrbgems</em> directory.</p>
 
 <p>The maximal GEM structure looks like this:</p>
 
-<pre class="code ruby"><code class="ruby">+- GEM_NAME         &lt;- Name of GEM
+<pre class="code ruby"><code class="ruby">+- <span style="color:#036;font-weight:bold">GEM_NAME</span>         &lt;- <span style="color:#036;font-weight:bold">Name</span> of <span style="color:#036;font-weight:bold">GEM</span>
    |
-   +- include/      &lt;- Header for Ruby extension (will exported)
+   +- include/      &lt;- <span style="color:#036;font-weight:bold">Header</span> <span style="color:#080;font-weight:bold">for</span> <span style="color:#036;font-weight:bold">Ruby</span> extension (will exported)
    |
-   +- mrblib/       &lt;- Source for Ruby extension
+   +- mrblib/       &lt;- <span style="color:#036;font-weight:bold">Source</span> <span style="color:#080;font-weight:bold">for</span> <span style="color:#036;font-weight:bold">Ruby</span> extension
    |
-   +- src/          &lt;- Source for C extension
+   +- src/          &lt;- <span style="color:#036;font-weight:bold">Source</span> <span style="color:#080;font-weight:bold">for</span> <span style="color:#036;font-weight:bold">C</span> extension
    |
-   +- test/         &lt;- Test code (Ruby)
+   +- test/         &lt;- <span style="color:#036;font-weight:bold">Test</span> code (<span style="color:#036;font-weight:bold">Ruby</span>)
    |
-   +- mrbgem.rake   &lt;- GEM Specification
+   +- mrbgem.rake   &lt;- <span style="color:#036;font-weight:bold">GEM</span> <span style="color:#036;font-weight:bold">Specification</span>
    |
-   +- README.md     &lt;- Readme for GEM
+   +- <span style="color:#036;font-weight:bold">README</span>.md     &lt;- <span style="color:#036;font-weight:bold">Readme</span> <span style="color:#080;font-weight:bold">for</span> <span style="color:#036;font-weight:bold">GEM</span>
 </code></pre>
 
 <p>The folder <em>mrblib</em> contains pure Ruby files to extend mruby. The folder <em>src</em>
@@ -190,11 +190,11 @@ to compile C and Ruby files. <em>README.md</em> is a short description of your G
 <p>mrbgems expects a specification file called <em>mrbgem.rake</em> inside of your
 GEM directory. A typical GEM specification could look like this for example:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='const'>MRuby</span><span class='op'>::</span><span class='const'>Gem</span><span class='op'>::</span><span class='const'>Specification</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>c_and_ruby_extension_example</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_spec'>spec</span><span class='op'>|</span>
-  <span class='id identifier rubyid_spec'>spec</span><span class='period'>.</span><span class='id identifier rubyid_license'>license</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>MIT</span><span class='tstring_end'>&#39;</span></span>
-  <span class='id identifier rubyid_spec'>spec</span><span class='period'>.</span><span class='id identifier rubyid_author'>author</span>  <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>mruby developers</span><span class='tstring_end'>&#39;</span></span>
-  <span class='id identifier rubyid_spec'>spec</span><span class='period'>.</span><span class='id identifier rubyid_summary'>summary</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Example mrbgem using C and ruby</span><span class='tstring_end'>&#39;</span></span>
-<span class='kw'>end</span>
+<pre class="code ruby"><code class="ruby"><span style="color:#036;font-weight:bold">MRuby</span>::<span style="color:#036;font-weight:bold">Gem</span>::<span style="color:#036;font-weight:bold">Specification</span>.new(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">c_and_ruby_extension_example</span><span style="color:#710">'</span></span>) <span style="color:#080;font-weight:bold">do</span> |spec|
+  spec.license = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">MIT</span><span style="color:#710">'</span></span>
+  spec.author  = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mruby developers</span><span style="color:#710">'</span></span>
+  spec.summary = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">Example mrbgem using C and ruby</span><span style="color:#710">'</span></span>
+<span style="color:#080;font-weight:bold">end</span>
 </code></pre>
 
 <p>The mrbgems build process will use this specification to compile Object and Ruby
@@ -224,20 +224,20 @@ information purpose:</p>
 <p>In case your GEM is depending on other GEMs please use
 <code>spec.add_dependency(gem, *requirements[, default_get_info])</code> like:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='const'>MRuby</span><span class='op'>::</span><span class='const'>Gem</span><span class='op'>::</span><span class='const'>Specification</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>c_and_ruby_extension_example</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_spec'>spec</span><span class='op'>|</span>
-  <span class='id identifier rubyid_spec'>spec</span><span class='period'>.</span><span class='id identifier rubyid_license'>license</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>MIT</span><span class='tstring_end'>&#39;</span></span>
-  <span class='id identifier rubyid_spec'>spec</span><span class='period'>.</span><span class='id identifier rubyid_author'>author</span>  <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>mruby developers</span><span class='tstring_end'>&#39;</span></span>
+<pre class="code ruby"><code class="ruby"><span style="color:#036;font-weight:bold">MRuby</span>::<span style="color:#036;font-weight:bold">Gem</span>::<span style="color:#036;font-weight:bold">Specification</span>.new(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">c_and_ruby_extension_example</span><span style="color:#710">'</span></span>) <span style="color:#080;font-weight:bold">do</span> |spec|
+  spec.license = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">MIT</span><span style="color:#710">'</span></span>
+  spec.author  = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mruby developers</span><span style="color:#710">'</span></span>
 
-  <span class='comment'># Add GEM dependency mruby-parser.
-</span>  <span class='comment'># The version must be between 1.0.0 and 1.5.2 .
-</span>  <span class='id identifier rubyid_spec'>spec</span><span class='period'>.</span><span class='id identifier rubyid_add_dependency'>add_dependency</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>mruby-parser</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>&gt;= 1.0.0</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>&lt;= 1.5.2</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span style="color:#777"># Add GEM dependency mruby-parser.</span>
+  <span style="color:#777"># The version must be between 1.0.0 and 1.5.2 .</span>
+  spec.add_dependency(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mruby-parser</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">&gt;= 1.0.0</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">&lt;= 1.5.2</span><span style="color:#710">'</span></span>)
 
-  <span class='comment'># Use any version of mruby-uv from github.
-</span>  <span class='id identifier rubyid_spec'>spec</span><span class='period'>.</span><span class='id identifier rubyid_add_dependency'>add_dependency</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>mruby-uv</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>&gt;= 0.0.0</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='symbol'>:github</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>mattn/mruby-uv</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span style="color:#777"># Use any version of mruby-uv from github.</span>
+  spec.add_dependency(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mruby-uv</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">&gt;= 0.0.0</span><span style="color:#710">'</span></span>, <span style="color:#A60">:github</span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mattn/mruby-uv</span><span style="color:#710">'</span></span>)
 
-  <span class='comment'># Use latest mruby-onig-regexp from github. (version requirements can be omitted)
-</span>  <span class='id identifier rubyid_spec'>spec</span><span class='period'>.</span><span class='id identifier rubyid_add_dependency'>add_dependency</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>mruby-onig-regexp</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='symbol'>:github</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>mattn/mruby-onig-regexp</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
-<span class='kw'>end</span>
+  <span style="color:#777"># Use latest mruby-onig-regexp from github. (version requirements can be omitted)</span>
+  spec.add_dependency(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mruby-onig-regexp</span><span style="color:#710">'</span></span>, <span style="color:#A60">:github</span> =&gt; <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mattn/mruby-onig-regexp</span><span style="color:#710">'</span></span>)
+<span style="color:#080;font-weight:bold">end</span>
 </code></pre>
 
 <p>The version requirements and default gem information are optional.</p>
@@ -280,15 +280,15 @@ use <code>MRuby::Build#gem</code> in <em>build_config.rb</em> to override defaul
 
 <p>like following code:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='const'>MRuby</span><span class='op'>::</span><span class='const'>Gem</span><span class='op'>::</span><span class='const'>Specification</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>some-regexp-binding</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_spec'>spec</span><span class='op'>|</span>
-  <span class='id identifier rubyid_spec'>spec</span><span class='period'>.</span><span class='id identifier rubyid_license'>license</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>BSD</span><span class='tstring_end'>&#39;</span></span>
-  <span class='id identifier rubyid_spec'>spec</span><span class='period'>.</span><span class='id identifier rubyid_author'>author</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>John Doe</span><span class='tstring_end'>&#39;</span></span>
+<pre class="code ruby"><code class="ruby"><span style="color:#036;font-weight:bold">MRuby</span>::<span style="color:#036;font-weight:bold">Gem</span>::<span style="color:#036;font-weight:bold">Specification</span>.new <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">some-regexp-binding</span><span style="color:#710">'</span></span> <span style="color:#080;font-weight:bold">do</span> |spec|
+  spec.license = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">BSD</span><span style="color:#710">'</span></span>
+  spec.author = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">John Doe</span><span style="color:#710">'</span></span>
 
-  <span class='id identifier rubyid_spec'>spec</span><span class='period'>.</span><span class='id identifier rubyid_add_conflict'>add_conflict</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>mruby-onig-regexp</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>&gt; 0.0.0</span><span class='tstring_end'>&#39;</span></span>
-  <span class='id identifier rubyid_spec'>spec</span><span class='period'>.</span><span class='id identifier rubyid_add_conflict'>add_conflict</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>mruby-hs-regexp</span><span class='tstring_end'>&#39;</span></span>
-  <span class='id identifier rubyid_spec'>spec</span><span class='period'>.</span><span class='id identifier rubyid_add_conflict'>add_conflict</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>mruby-pcre-regexp</span><span class='tstring_end'>&#39;</span></span>
-  <span class='id identifier rubyid_spec'>spec</span><span class='period'>.</span><span class='id identifier rubyid_add_conflict'>add_conflict</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>mruby-regexp-pcre</span><span class='tstring_end'>&#39;</span></span>
-<span class='kw'>end</span>
+  spec.add_conflict <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mruby-onig-regexp</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">&gt; 0.0.0</span><span style="color:#710">'</span></span>
+  spec.add_conflict <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mruby-hs-regexp</span><span style="color:#710">'</span></span>
+  spec.add_conflict <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mruby-pcre-regexp</span><span style="color:#710">'</span></span>
+  spec.add_conflict <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">mruby-regexp-pcre</span><span style="color:#710">'</span></span>
+<span style="color:#080;font-weight:bold">end</span>
 </code></pre>
 
 <p>In case your GEM has more complex build requirements you can use
@@ -361,15 +361,15 @@ mrb_c_extension_example_gem_final(mrb_state* mrb) {
    |
    +- src/
    |  |
-   |  +- example.c         &lt;- C extension source
+   |  +- example.c         &lt;- <span style="color:#036;font-weight:bold">C</span> extension source
    |
    +- test/
    |  |
-   |  +- example.rb        &lt;- Test code for C extension
+   |  +- example.rb        &lt;- <span style="color:#036;font-weight:bold">Test</span> code <span style="color:#080;font-weight:bold">for</span> <span style="color:#036;font-weight:bold">C</span> extension
    |
-   +- mrbgem.rake          &lt;- GEM specification
+   +- mrbgem.rake          &lt;- <span style="color:#036;font-weight:bold">GEM</span> specification
    |
-   +- README.md
+   +- <span style="color:#036;font-weight:bold">README</span>.md
 </code></pre>
 
 <h2>Ruby Extension</h2>
@@ -388,15 +388,15 @@ folder.</p>
    |
    +- mrblib/
    |  |
-   |  +- example.rb        &lt;- Ruby extension source
+   |  +- example.rb        &lt;- <span style="color:#036;font-weight:bold">Ruby</span> extension source
    |
    +- test/
    |  |
-   |  +- example.rb        &lt;- Test code for Ruby extension
+   |  +- example.rb        &lt;- <span style="color:#036;font-weight:bold">Test</span> code <span style="color:#080;font-weight:bold">for</span> <span style="color:#036;font-weight:bold">Ruby</span> extension
    |
-   +- mrbgem.rake          &lt;- GEM specification
+   +- mrbgem.rake          &lt;- <span style="color:#036;font-weight:bold">GEM</span> specification
    |
-   +- README.md
+   +- <span style="color:#036;font-weight:bold">README</span>.md
 </code></pre>
 
 <h2>C and Ruby Extension</h2>
@@ -419,24 +419,24 @@ function is called. Make sure <em>mruby script</em> depends on <em>C code</em> a
    |
    +- mrblib/
    |  |
-   |  +- example.rb        &lt;- Ruby extension source
+   |  +- example.rb        &lt;- <span style="color:#036;font-weight:bold">Ruby</span> extension source
    |
    +- src/
    |  |
-   |  +- example.c         &lt;- C extension source
+   |  +- example.c         &lt;- <span style="color:#036;font-weight:bold">C</span> extension source
    |
    +- test/
    |  |
-   |  +- example.rb        &lt;- Test code for C and Ruby extension
+   |  +- example.rb        &lt;- <span style="color:#036;font-weight:bold">Test</span> code <span style="color:#080;font-weight:bold">for</span> <span style="color:#036;font-weight:bold">C</span> <span style="color:#080;font-weight:bold">and</span> <span style="color:#036;font-weight:bold">Ruby</span> extension
    |
-   +- mrbgem.rake          &lt;- GEM specification
+   +- mrbgem.rake          &lt;- <span style="color:#036;font-weight:bold">GEM</span> specification
    |
-   +- README.md
+   +- <span style="color:#036;font-weight:bold">README</span>.md
 </code></pre>
 </div></div>
 
     <div id="footer">
-  Generated on Mon Sep 28 13:37:45 2015 by
+  Generated on Tue Sep 29 15:15:30 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 in <a href="https://github.com/sagmor/yard-mruby">mruby mode</a> 0.1.0 (ruby-2.2.1).
 </div>

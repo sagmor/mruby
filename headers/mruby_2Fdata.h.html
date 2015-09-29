@@ -78,7 +78,19 @@
     <iframe id="search_frame"></iframe>
 
     <div id="content"><h1>Header: mruby/data.h</h1>
-Included heaers
+<h2>Overview</h2>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Custom data type description.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>Included heaers
 
   <h2>
     Function Summary
@@ -89,7 +101,58 @@ Included heaers
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_data_check_type-function" title="<strong>mrb_data_check_type</strong>"><strong>mrb_data_check_type</strong></a>
+    <a href="#mrb_data_object_alloc-function" title="mrb_data_object_alloc">struct RData * <strong>mrb_data_object_alloc</strong>(mrb_state *, struct RClass*, void *, const mrb_data_type *)</a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_data_check_type-function" title="mrb_data_check_type">void <strong>mrb_data_check_type</strong>(mrb_state *, mrb_value, const mrb_data_type*)</a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_data_get_ptr-function" title="mrb_data_get_ptr">void * <strong>mrb_data_get_ptr</strong>(mrb_state *, mrb_value, const mrb_data_type*)</a>
+
+    
+  </span>
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    <a href="#mrb_data_check_get_ptr-function" title="mrb_data_check_get_ptr">void * <strong>mrb_data_check_get_ptr</strong>(mrb_state *, mrb_value, const mrb_data_type*)</a>
 
     
   </span>
@@ -106,13 +169,120 @@ Included heaers
     
   </ul>
 
+
+  <h2>Define Summary</h2>
+  <dl class="constants">
+    
+      <dt id="MRUBY_DATA_H-define" class=""><small>#define</small> MRUBY_DATA_H
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="Data_Wrap_Struct-define" class=""><small>#define</small> Data_Wrap_Struct
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="Data_Make_Struct-define" class=""><small>#define</small> Data_Make_Struct
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="RDATA-define" class=""><small>#define</small> RDATA
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="DATA_PTR-define" class=""><small>#define</small> DATA_PTR
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="DATA_TYPE-define" class=""><small>#define</small> DATA_TYPE
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="DATA_GET_PTR-define" class=""><small>#define</small> DATA_GET_PTR
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="DATA_CHECK_GET_PTR-define" class=""><small>#define</small> DATA_CHECK_GET_PTR
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="mrb_data_check_and_get-define" class=""><small>#define</small> mrb_data_check_and_get
+        <div class="docstring">
+  <div class="discussion">
+    
+<p>obsolete functions and macros</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="mrb_get_datatype-define" class=""><small>#define</small> mrb_get_datatype
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="mrb_check_datatype-define" class=""><small>#define</small> mrb_check_datatype
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+      <dt id="Data_Get_Struct-define" class=""><small>#define</small> Data_Get_Struct
+        
+      </dt>
+      <dd><pre class="code"></pre></dd>
+    
+  </dl>
+
 <div id="functions_details" class="method_details_list">
   <h2>Function Details</h2>
 
   
     <div class="method_details first">
-  <h3 class="signature first" id="mrb_data_check_type-function">
-  <strong>mrb_data_check_type</strong>
+  <h3 class="signature first" id="mrb_data_object_alloc-function">
+  struct RData * <strong>mrb_data_object_alloc</strong>(mrb_state * mrb, struct RClass* klass, void * datap, const mrb_data_type * type)
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_data_check_type-function">
+  void <strong>mrb_data_check_type</strong>(mrb_state * mrb, mrb_value , const mrb_data_type* )
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_data_get_ptr-function">
+  void * <strong>mrb_data_get_ptr</strong>(mrb_state * mrb, mrb_value , const mrb_data_type* )
+
+  
+</h3>
+
+</div>
+
+  
+    <div class="method_details ">
+  <h3 class="signature " id="mrb_data_check_get_ptr-function">
+  void * <strong>mrb_data_check_get_ptr</strong>(mrb_state * mrb, mrb_value , const mrb_data_type* )
 
   
 </h3>
@@ -124,7 +294,7 @@ Included heaers
 </div>
 
     <div id="footer">
-  Generated on Mon Sep 28 13:37:47 2015 by
+  Generated on Tue Sep 29 15:15:32 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 in <a href="https://github.com/sagmor/yard-mruby">mruby mode</a> 0.1.0 (ruby-2.2.1).
 </div>
