@@ -101,7 +101,7 @@
     
       <li class="public ">
   <span class="summary_signature">
-    <a href="#mrb_range_new-function" title="mrb_range_new">mrb_value <strong>mrb_range_new</strong>(mrb_state*, mrb_value, mrb_value, mrb_bool)</a>
+    <a href="#mrb_range_new-function" title="mrb_range_new">mrb_value <strong>mrb_range_new</strong>(mrb_state *, mrb_value, mrb_value, mrb_bool)</a>
 
     
   </span>
@@ -111,7 +111,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Initializes a Range.</p>
+</div></span>
   
 </li>
 
@@ -162,11 +164,78 @@
   
     <div class="method_details first">
   <h3 class="signature first" id="mrb_range_new-function">
-  mrb_value <strong>mrb_range_new</strong>(mrb_state* , mrb_value , mrb_value , mrb_bool )
+  mrb_value <strong>mrb_range_new</strong>(mrb_state * mrb, mrb_value start, mrb_value end, mrb_bool exclusive)
 
   
 </h3>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Initializes a Range.</p>
 
+<p>If the third parameter is FALSE then it includes the last value in the
+range. If the third parameter is TRUE then it excludes the last value in
+the range.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>start</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the beginning value.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>end</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the ending value.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>exclusive</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>represents the inclusion or exclusion of the last value.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div>
 </div>
 
   
@@ -184,9 +253,9 @@
 </div>
 
     <div id="footer">
-  Generated on Tue Sep 29 15:15:32 2015 by
+  Generated on Thu Oct  8 13:24:50 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 in <a href="https://github.com/sagmor/yard-mruby">mruby mode</a> 0.1.0 (ruby-2.2.1).
+  0.8.7.6 in <a href="https://github.com/sagmor/yard-mruby">mruby mode</a> 0.1.0 (ruby-2.2.3).
 </div>
 
   </body>

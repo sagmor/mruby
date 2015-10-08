@@ -75,276 +75,166 @@
 
     <iframe id="search_frame"></iframe>
 
-    <div id="content"><div id='filecontents'><h1>mruby configuration macros.</h1>
+    <div id="content"><div id='filecontents'>
+<h1 id="label-mruby+configuration+macros.">mruby configuration macros.</h1>
 
-<h2>How to use these macros.</h2>
+<h2 id="label-How+to+use+these+macros.">How to use these macros.</h2>
 
-<p>You can use mrbconfs with following ways:</p>
+<p>You can use mrbconfs with following ways: * Write them in
+<code>mrbconf.h</code>.  * Using compiler flags is preferred when building
+a cross binaries or multiple mruby binaries  since it&#39;s easier to use
+different mrbconf per each <code>MRuby::Build</code>.  * Most flags can be
+enabled by just commenting in. * Pass them as compiler flags.  * Make sure
+you pass the same flags to all compilers since some mrbconf(e.g.,
+<code>MRB_GC_FIXED_ARENA</code>)  changes <code>struct</code> layout and
+cause memory access error when C and other language(e.g., C++) is mixed.</p>
 
-<ul>
-<li>Write them in <code>mrbconf.h</code>.
+<h2 id="label-stdio+setting.">stdio setting.</h2>
 
-<ul>
-<li>Using compiler flags is preferred  when building a cross binaries or multiple mruby binaries
-since it&#39;s easier to use different mrbconf per each <code>MRuby::Build</code>.</li>
-<li>Most flags can be enabled by just commenting in.</li>
-</ul></li>
-<li>Pass them as compiler flags.
+<p><code>ENABLE_STDIO</code> * Will be defined automatically if
+<code>DISABLE_STDIO</code> isn&#39;t defined. * Uses
+<code>&lt;stdio.h&gt;</code> functions.</p>
 
-<ul>
-<li>Make sure you pass the same flags to all compilers since some mrbconf(e.g., <code>MRB_GC_FIXED_ARENA</code>)
-changes <code>struct</code> layout and cause memory access error when C and other language(e.g., C++) is mixed.</li>
-</ul></li>
-</ul>
+<p><code>DISABLE_STDIO</code> * When defined <code>&lt;stdio.h&gt;</code>
+functions won&#39;t be used. * Some features will be disabled when this is
+enabled:  * <code>mrb_irep</code> load/dump from/to file.  * Compiling
+mruby script from file.  * Printing features in
+<strong>src/print.c</strong>.</p>
 
-<h2>stdio setting.</h2>
+<h2 id="label-Debug+macros.">Debug macros.</h2>
 
-<p><code>ENABLE_STDIO</code></p>
+<p><code>ENABLE_DEBUG</code> * When defined code fetch hook and debug OP hook
+will be enabled. * When using any of the hook set function pointer
+<code>code_fetch_hook</code> and/or <code>debug_op_hook</code> of
+<code>mrb_state</code>. * Fetch hook will be called before any OP. * Debug
+OP hook will be called when dispatching <code>OP_DEBUG</code>.</p>
 
-<ul>
-<li>Will be defined automatically if <code>DISABLE_STDIO</code> isn&#39;t defined.</li>
-<li>Uses <code>&lt;stdio.h&gt;</code> functions.</li>
-</ul>
+<p><code>DISABLE_DEBUG</code> * Will be define automatically if
+<code>ENABLE_DEBUG</code> isn&#39;t defined.</p>
 
-<p><code>DISABLE_STDIO</code></p>
+<p><code>MRB_DEBUG</code> * When defined <code>mrb_assert*</code> macro will
+be defined with macros from <code>&lt;assert.h&gt;</code>. * Could be
+enabled via <code>enable_debug</code> method of <code>MRuby::Build</code>.</p>
 
-<ul>
-<li>When defined <code>&lt;stdio.h&gt;</code> functions won&#39;t be used.</li>
-<li>Some features will be disabled when this is enabled:
+<h2 id="label-Stack+configuration">Stack configuration</h2>
 
-<ul>
-<li><code>mrb_irep</code> load/dump from/to file.</li>
-<li>Compiling mruby script from file.</li>
-<li>Printing features in <strong>src/print.c</strong>.</li>
-</ul></li>
-</ul>
+<p><code>MRB_STACK_EXTEND_DOUBLING</code> * If defined doubles the stack size
+when extending it. * Else extends stack with <code>MRB_STACK_GROWTH</code>.</p>
 
-<h2>Debug macros.</h2>
+<p><code>MRB_STACK_GROWTH</code> * Default value is <code>128</code>. * Used
+in stack extending. * Ignored when <code>MRB_STACK_EXTEND_DOUBLING</code>
+is defined.</p>
 
-<p><code>ENABLE_DEBUG</code></p>
+<p><code>MRB_STACK_MAX</code> * Default value is <code>0x40000 -
+MRB_STACK_GROWTH</code>. * Raises <code>RuntimeError</code> when stack size
+exceeds this value.</p>
 
-<ul>
-<li>When defined code fetch hook and debug OP hook will be enabled.</li>
-<li>When using any of the hook set function pointer <code>code_fetch_hook</code> and/or <code>debug_op_hook</code> of <code>mrb_state</code>.</li>
-<li>Fetch hook will be called before any OP.</li>
-<li>Debug OP hook will be called when dispatching <code>OP_DEBUG</code>.</li>
-</ul>
+<h2 id="label-Primitive+type+configuration.">Primitive type configuration.</h2>
 
-<p><code>DISABLE_DEBUG</code></p>
+<p><code>MRB_USE_FLOAT</code> * When defined single precision floating point
+type(C type <code>float</code>) is used as <code>mrb_float</code>. * Else
+double precision floating point type(C type <code>double</code>) is used as
+<code>mrb_float</code>.</p>
 
-<ul>
-<li>Will be define automatically if <code>ENABLE_DEBUG</code> isn&#39;t defined.</li>
-</ul>
+<p><code>MRB_INT16</code> * When defined <code>int16_t</code> will be defined
+as <code>mrb_int</code>. * Conflicts with <code>MRB_INT64</code>.</p>
 
-<p><code>MRB_DEBUG</code></p>
+<p><code>MRB_INT64</code> * When defined <code>int64_t</code> will be defined
+as <code>mrb_int</code>. * Conflicts with <code>MRB_INT16</code>. * When
+<code>MRB_INT16</code> or <code>MRB_INT64</code> isn&#39;t defined
+<code>int</code>(most of the times 32-bit integer) will be defined as
+<code>mrb_int</code>.</p>
 
-<ul>
-<li>When defined <code>mrb_assert*</code> macro will be defined with macros from <code>&lt;assert.h&gt;</code>.</li>
-<li>Could be enabled via <code>enable_debug</code> method of <code>MRuby::Build</code>.</li>
-</ul>
+<h2 id="label-Garbage+collector+configuration.">Garbage collector configuration.</h2>
 
-<h2>Stack configuration</h2>
+<p><code>MRB_GC_STRESS</code> * When defined full GC is emitted per each
+<code>RBasic</code> allocation. * Mainly used in memory manager debugging.</p>
 
-<p><code>MRB_STACK_EXTEND_DOUBLING</code></p>
+<p><code>MRB_GC_TURN_OFF_GENERATIONAL</code> * When defined turns generational
+GC by default.</p>
 
-<ul>
-<li>If defined doubles the stack size when extending it.</li>
-<li>Else extends stack with <code>MRB_STACK_GROWTH</code>.</li>
-</ul>
+<p><code>MRB_GC_FIXED_ARENA</code> * When defined used fixed size GC arena. *
+Raises <code>RuntimeError</code> when this is defined and GC arena size
+exceeds <code>MRB_GC_ARENA_SIZE</code>. * Useful tracking unnecessary mruby
+object allocation.</p>
 
-<p><code>MRB_STACK_GROWTH</code></p>
+<p><code>MRB_GC_ARENA_SIZE</code> * Default value is <code>100</code>. *
+Ignored when <code>MRB_GC_FIXED_ARENA</code> isn&#39;t defined. * Defines
+fixed GC arena size.</p>
 
-<ul>
-<li>Default value is <code>128</code>.</li>
-<li>Used in stack extending.</li>
-<li>Ignored when <code>MRB_STACK_EXTEND_DOUBLING</code> is defined.</li>
-</ul>
+<p><code>MRB_HEAP_PAGE_SIZE</code> * Defines value is <code>1024</code>. *
+Specifies number of <code>RBasic</code> per each heap page.</p>
 
-<p><code>MRB_STACK_MAX</code></p>
+<h2 id="label-Memory+pool+configuration.">Memory pool configuration.</h2>
 
-<ul>
-<li>Default value is <code>0x40000 - MRB_STACK_GROWTH</code>.</li>
-<li>Raises <code>RuntimeError</code> when stack size exceeds this value.</li>
-</ul>
+<p><code>POOL_ALIGNMENT</code> * Default value is <code>4</code>. * If
+you&#39;re allocating data types that requires alignment more than default
+value define the largest value of required alignment.</p>
 
-<h2>Primitive type configuration.</h2>
+<p><code>POOL_PAGE_SIZE</code> * Default value is <code>16000</code>. *
+Specifies page size of pool page. * Smaller the value is increases memory
+overhead.</p>
 
-<p><code>MRB_USE_FLOAT</code></p>
+<h2 id="label-State+atexit+configuration.">State atexit configuration.</h2>
 
-<ul>
-<li>When defined single precision floating point type(C type <code>float</code>) is used as <code>mrb_float</code>.</li>
-<li>Else double precision floating point type(C type <code>double</code>) is used as <code>mrb_float</code>.</li>
-</ul>
+<p><code>MRB_FIXED_STATE_ATEXIT_STACK</code> * If defined enables fixed size
+<code>mrb_state</code> atexit stack. * Raises <code>RuntimeError</code>
+when <code>mrb_state_atexit</code> call count to same
+<code>mrb_state</code> exceeds
+<code>MRB_FIXED_STATE_ATEXIT_STACK_SIZE</code>&#39;s value.</p>
 
-<p><code>MRB_INT16</code></p>
+<p><code>MRB_FIXED_STATE_ATEXIT_STACK_SIZE</code> * Default value is
+<code>5</code>. * If <code>MRB_FIXED_STATE_ATEXIT_STACK</code> isn&#39;t
+defined this macro is ignored.</p>
 
-<ul>
-<li>When defined <code>int16_t</code> will be defined as <code>mrb_int</code>.</li>
-<li>Conflicts with <code>MRB_INT64</code>.</li>
-</ul>
+<h2 id="label-mrb_value+configuration."><code>mrb_value</code> configuration.</h2>
 
-<p><code>MRB_INT64</code></p>
+<p><code>MRB_ENDIAN_BIG</code> * If defined compiles mruby for big endian
+machines. * Used in <code>MRB_NAN_BOXING</code>. * Some mrbgem use this
+mrbconf.</p>
 
-<ul>
-<li>When defined <code>int64_t</code> will be defined as <code>mrb_int</code>.</li>
-<li>Conflicts with <code>MRB_INT16</code>.</li>
-<li>When <code>MRB_INT16</code> or <code>MRB_INT64</code> isn&#39;t defined <code>int</code>(most of the times 32-bit integer)
-will be defined as <code>mrb_int</code>.</li>
-</ul>
+<p><code>MRB_NAN_BOXING</code> * If defined represent <code>mrb_value</code>
+in boxed <code>double</code>. * Conflicts with <code>MRB_USE_FLOAT</code>.</p>
 
-<h2>Garbage collector configuration.</h2>
+<p><code>MRB_WORD_BOXING</code> * If defined represent <code>mrb_value</code>
+as a word. * If defined <code>Float</code> will be a mruby object with
+<code>RBasic</code>.</p>
 
-<p><code>MRB_GC_STRESS</code></p>
+<h2 id="label-Instance+variable+configuration.">Instance variable configuration.</h2>
 
-<ul>
-<li>When defined full GC is emitted per each <code>RBasic</code> allocation.</li>
-<li>Mainly used in memory manager debugging.</li>
-</ul>
+<p><code>MRB_USE_IV_SEGLIST</code> * If defined enable segmented list in
+instance variable table instead of khash. * Segmented list is a linked list
+of key and value segments. * It will linear search instead of hash search.</p>
 
-<p><code>MRB_GC_TURN_OFF_GENERATIONAL</code></p>
+<p><code>MRB_SEGMENT_SIZE</code> * Default value is <code>4</code>. *
+Specifies size of each segment in segment list. * Ignored when
+<code>MRB_USE_IV_SEGLIST</code> isn&#39;t defined.</p>
 
-<ul>
-<li>When defined turns generational GC by default.</li>
-</ul>
+<p><code>MRB_IVHASH_INIT_SIZE</code> * Default value is <code>8</code>. *
+Specifies initial size for instance variable table. * Ignored when
+<code>MRB_USE_IV_SEGLIST</code> is defined.</p>
 
-<p><code>MRB_GC_FIXED_ARENA</code></p>
+<h2 id="label-Other+configuration.">Other configuration.</h2>
 
-<ul>
-<li>When defined used fixed size GC arena.</li>
-<li>Raises <code>RuntimeError</code> when this is defined and GC arena size exceeds <code>MRB_GC_ARENA_SIZE</code>.</li>
-<li>Useful tracking unnecessary mruby object allocation.</li>
-</ul>
+<p><code>MRB_FUNCALL_ARGC_MAX</code> * Default value is <code>16</code>. *
+Specifies 4th argument(<code>argc</code>) max value of
+<code>mrb_funcall</code>. * Raises <code>ArgumentError</code> when the
+<code>argc</code> argument is bigger then this value
+<code>mrb_funcall</code>.</p>
 
-<p><code>MRB_GC_ARENA_SIZE</code></p>
+<p><code>KHASH_DEFAULT_SIZE</code> * Default value is <code>32</code>. *
+Specifies default size of khash table bucket. * Used in <code>kh_init_ ##
+name</code> function.</p>
 
-<ul>
-<li>Default value is <code>100</code>.</li>
-<li>Ignored when <code>MRB_GC_FIXED_ARENA</code> isn&#39;t defined.</li>
-<li>Defines fixed GC arena size.</li>
-</ul>
-
-<p><code>MRB_HEAP_PAGE_SIZE</code></p>
-
-<ul>
-<li>Defines value is <code>1024</code>.</li>
-<li>Specifies number of <code>RBasic</code> per each heap page.</li>
-</ul>
-
-<h2>Memory pool configuration.</h2>
-
-<p><code>POOL_ALIGNMENT</code></p>
-
-<ul>
-<li>Default value is <code>4</code>.</li>
-<li>If you&#39;re allocating data types that requires alignment more than default value define the
-largest value of required alignment.</li>
-</ul>
-
-<p><code>POOL_PAGE_SIZE</code></p>
-
-<ul>
-<li>Default value is <code>16000</code>.</li>
-<li>Specifies page size of pool page.</li>
-<li>Smaller the value is increases memory overhead.</li>
-</ul>
-
-<h2>State atexit configuration.</h2>
-
-<p><code>MRB_FIXED_STATE_ATEXIT_STACK</code></p>
-
-<ul>
-<li>If defined enables fixed size <code>mrb_state</code> atexit stack.</li>
-<li>Raises <code>RuntimeError</code> when <code>mrb_state_atexit</code> call count to same <code>mrb_state</code> exceeds
-<code>MRB_FIXED_STATE_ATEXIT_STACK_SIZE</code>&#39;s value.</li>
-</ul>
-
-<p><code>MRB_FIXED_STATE_ATEXIT_STACK_SIZE</code></p>
-
-<ul>
-<li>Default value is <code>5</code>.</li>
-<li>If <code>MRB_FIXED_STATE_ATEXIT_STACK</code> isn&#39;t defined this macro is ignored.</li>
-</ul>
-
-<h2><code>mrb_value</code> configuration.</h2>
-
-<p><code>MRB_ENDIAN_BIG</code></p>
-
-<ul>
-<li>If defined compiles mruby for big endian machines.</li>
-<li>Used in <code>MRB_NAN_BOXING</code>.</li>
-<li>Some mrbgem use this mrbconf.</li>
-</ul>
-
-<p><code>MRB_NAN_BOXING</code></p>
-
-<ul>
-<li>If defined represent <code>mrb_value</code> in boxed <code>double</code>.</li>
-<li>Conflicts with <code>MRB_USE_FLOAT</code>.</li>
-</ul>
-
-<p><code>MRB_WORD_BOXING</code></p>
-
-<ul>
-<li>If defined represent <code>mrb_value</code> as a word.</li>
-<li>If defined <code>Float</code> will be a mruby object with <code>RBasic</code>.</li>
-</ul>
-
-<h2>Instance variable configuration.</h2>
-
-<p><code>MRB_USE_IV_SEGLIST</code></p>
-
-<ul>
-<li>If defined enable segmented list in instance variable table instead of khash.</li>
-<li>Segmented list is a linked list of key and value segments.</li>
-<li>It will linear search instead of hash search.</li>
-</ul>
-
-<p><code>MRB_SEGMENT_SIZE</code></p>
-
-<ul>
-<li>Default value is <code>4</code>.</li>
-<li>Specifies size of each segment in segment list.</li>
-<li>Ignored when <code>MRB_USE_IV_SEGLIST</code> isn&#39;t defined.</li>
-</ul>
-
-<p><code>MRB_IVHASH_INIT_SIZE</code></p>
-
-<ul>
-<li>Default value is <code>8</code>.</li>
-<li>Specifies initial size for instance variable table.</li>
-<li>Ignored when <code>MRB_USE_IV_SEGLIST</code> is defined.</li>
-</ul>
-
-<h2>Other configuration.</h2>
-
-<p><code>MRB_FUNCALL_ARGC_MAX</code></p>
-
-<ul>
-<li>Default value is <code>16</code>.</li>
-<li>Specifies 4th argument(<code>argc</code>) max value of <code>mrb_funcall</code>.</li>
-<li>Raises <code>ArgumentError</code> when the <code>argc</code> argument is bigger then this value <code>mrb_funcall</code>.</li>
-</ul>
-
-<p><code>KHASH_DEFAULT_SIZE</code></p>
-
-<ul>
-<li>Default value is <code>32</code>.</li>
-<li>Specifies default size of khash table bucket.</li>
-<li>Used in <code>kh_init_ ## name</code> function.</li>
-</ul>
-
-<p><code>MRB_STR_BUF_MIN_SIZE</code></p>
-
-<ul>
-<li>Default value is <code>128</code>.</li>
-<li>Specifies initial capacity of <code>RString</code> created by <code>mrb_str_buf_new</code> function..</li>
-</ul>
+<p><code>MRB_STR_BUF_MIN_SIZE</code> * Default value is <code>128</code>. *
+Specifies initial capacity of <code>RString</code> created by
+<code>mrb_str_buf_new</code> function..</p>
 </div></div>
 
     <div id="footer">
-  Generated on Tue Sep 29 15:15:30 2015 by
+  Generated on Thu Oct  8 13:24:46 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 in <a href="https://github.com/sagmor/yard-mruby">mruby mode</a> 0.1.0 (ruby-2.2.1).
+  0.8.7.6 in <a href="https://github.com/sagmor/yard-mruby">mruby mode</a> 0.1.0 (ruby-2.2.3).
 </div>
 
   </body>
