@@ -212,15 +212,16 @@ typedef mrb_value (*mrb_func_t)(mrb_state *mrb, mrb_value);
  *
  * If you're creating a gem it may look something like this:
  *
- *      !!!c
- *      void mrb_example_gem_init(mrb_state* mrb) {
- *              struct RClass *example_class;
- *              example_class = mrb_define_class(mrb, "Example_Class", mrb->object_class);
- *      }
+ * ```c
+ * void mrb_example_gem_init(mrb_state* mrb) {
+ *         struct RClass *example_class;
+ *         example_class = mrb_define_class(mrb, "Example_Class", mrb->object_class);
+ * }
  *
- *      void mrb_example_gem_final(mrb_state* mrb) {
- *              //free(TheAnimals);
- *      }
+ * void mrb_example_gem_final(mrb_state* mrb) {
+ *         //free(TheAnimals);
+ * }
+ * ```
  *
  * @param mrb The current mruby state.
  * @param name The name of the defined class
@@ -269,17 +270,18 @@ MRB_API void mrb_prepend_module(mrb_state*, struct RClass*, struct RClass*);
  *
  * If you're creating a gem it may look something like this:
  *
- *     !!!c
- *     mrb_value example_method(mrb_state* mrb, mrb_value self)
- *     {
- *          puts("Executing example command!");
- *          return self;
- *     }
+ * ```c
+ * mrb_value example_method(mrb_state* mrb, mrb_value self)
+ * {
+ *      puts("Executing example command!");
+ *      return self;
+ * }
  *
- *     void mrb_example_gem_init(mrb_state* mrb)
- *     {
- *           mrb_define_method(mrb, mrb->kernel_module, "example_method", example_method, MRB_ARGS_NONE());
- *     }
+ * void mrb_example_gem_init(mrb_state* mrb)
+ * {
+ *       mrb_define_method(mrb, mrb->kernel_module, "example_method", example_method, MRB_ARGS_NONE());
+ * }
+ * ```
  *
  * @param mrb The MRuby state reference.
  * @param cla The class pointer where the method will be defined.
