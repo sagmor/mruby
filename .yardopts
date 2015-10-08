@@ -1,6 +1,8 @@
+--markup markdown
+--markup-provider=redcarpet
+--output-dir doc/api
 --plugin mruby
 --plugin coderay
---output-dir doc/api
 -
 AUTHORS
 MITL

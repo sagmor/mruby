@@ -446,10 +446,16 @@ MRB_API struct RClass * mrb_define_module_under(mrb_state *mrb, struct RClass *o
  */
 #define MRB_ARGS_NONE()     ((mrb_aspec)0)
 
+
 /**
- * Format specifiers for \ref mrb_get_args function
+ * Retrieve arguments from mrb_state.
  *
- * Must be a list of following format specifiers:
+ * When applicable, implicit conversions (such as to_str, to_ary, to_hash) are
+ * applied to received arguments.
+ * Use it inside a function pointed by mrb_func_t.
+ *
+ *
+ * format must be a list of the following specifiers:
  *
  * | char | mruby type     | retrieve types      |note                                                |
  * |:----:|----------------|---------------------|----------------------------------------------------|
@@ -467,24 +473,15 @@ MRB_API struct RClass * mrb_define_module_under(mrb_state *mrb, struct RClass *o
  * | n    | Symbol         | mrb_sym             |                                                    |
  * | &    | block          | mrb_value           |                                                    |
  * | *    | rest arguments | mrb_value *, mrb_int | Receive the rest of arguments as an array.         |
- * | \|   | optional       |                     | After this spec following specs would be optional. |
+ * | &vert; | optional       |                     | After this spec following specs would be optional. |
  * | ?    | optional given | mrb_bool            | True if preceding argument is given. Used to check optional argument is given. |
- */
-typedef const char *mrb_args_format;
-
-/**
- * Retrieve arguments from mrb_state.
- *
- * When applicable, implicit conversions (such as to_str, to_ary, to_hash) are
- * applied to received arguments.
- * Use it inside a function pointed by mrb_func_t.
  *
  * @param mrb The current MRuby state.
  * @param format is a list of format specifiers see @ref mrb_args_format
  * @param ... The passing variadic arguments must be a pointer of retrieving type.
  * @return the number of arguments retrieved.
  */
-MRB_API mrb_int mrb_get_args(mrb_state *mrb, mrb_args_format format, ...);
+MRB_API mrb_int mrb_get_args(mrb_state *mrb, mrb_args_format const char *, ...);
 
 static inline mrb_sym
 mrb_get_mid(mrb_state *mrb) /* get method symbol */
