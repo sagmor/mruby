@@ -447,7 +447,7 @@ MRB_API struct RClass * mrb_define_module_under(mrb_state *mrb, struct RClass *o
 #define MRB_ARGS_NONE()     ((mrb_aspec)0)
 
 
-/**
+/*
  * Retrieve arguments from mrb_state.
  *
  * When applicable, implicit conversions (such as to_str, to_ary, to_hash) are
@@ -476,12 +476,12 @@ MRB_API struct RClass * mrb_define_module_under(mrb_state *mrb, struct RClass *o
  * | &vert; | optional       |                     | After this spec following specs would be optional. |
  * | ?    | optional given | mrb_bool            | True if preceding argument is given. Used to check optional argument is given. |
  *
- * @param mrb The current MRuby state.
- * @param format is a list of format specifiers see @ref mrb_args_format
+ * @param mrb The current mruby state.
+ * @param format is a list of format specifiers see the table above.
  * @param ... The passing variadic arguments must be a pointer of retrieving type.
  * @return the number of arguments retrieved.
  */
-MRB_API mrb_int mrb_get_args(mrb_state *mrb, mrb_args_format const char *, ...);
+MRB_API mrb_int mrb_get_args(mrb_state *mrb, const char *format, ...);
 
 static inline mrb_sym
 mrb_get_mid(mrb_state *mrb) /* get method symbol */
