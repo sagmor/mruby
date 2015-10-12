@@ -10,7 +10,9 @@
 #include "mruby/common.h"
 
 /**
- * Hash class
+ * Hash C API functions
+ *
+ * @see Hash Hash Ruby API
  */
 MRB_BEGIN_DECL
 
@@ -27,16 +29,30 @@ MRB_API mrb_value mrb_hash_new_capa(mrb_state*, int);
 
 /*
  * Initializes a new hash.
+ *
+ * @return [Hash] The newly initialized hash.
+ * @example Equivalent in Ruby:
+ *   Hash.new
  */
 MRB_API mrb_value mrb_hash_new(mrb_state *mrb);
 
 /*
  * Sets a keys and values to hashes.
+ *
+ * @param [Hash] hash The target hash.
+ * @param key The key to set.
+ * @param val The value to assign.
+ * @see Hash#[]=
  */
 MRB_API void mrb_hash_set(mrb_state *mrb, mrb_value hash, mrb_value key, mrb_value val);
 
 /*
  * Gets a value from a key.
+ *
+ * @param [Hash] hash The target hash.
+ * @param key The key to retrieve.
+ * @return The value associated to the key.
+ * @see Hash#[]
  */
 MRB_API mrb_value mrb_hash_get(mrb_state *mrb, mrb_value hash, mrb_value key);
 
@@ -44,11 +60,20 @@ MRB_API mrb_value mrb_hash_fetch(mrb_state *mrb, mrb_value hash, mrb_value key, 
 
 /*
  * Deletes hash key and value pair.
+ *
+ * @param [Hash] hash The target hash.
+ * @param key The key to delete.
+ * @return The deleted value associated to the key.
+ * @see Hash#delete
  */
 MRB_API mrb_value mrb_hash_delete_key(mrb_state *mrb, mrb_value hash, mrb_value key);
 
 /*
  * Gets an array of keys.
+ *
+ * @param [Hash] hash The target hash.
+ * @return [Array] The list of keys
+ * @see Hash#keys
  */
 MRB_API mrb_value mrb_hash_keys(mrb_state *mrb, mrb_value hash);
 MRB_API mrb_value mrb_check_hash_type(mrb_state *mrb, mrb_value hash);

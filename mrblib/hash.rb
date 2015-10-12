@@ -1,7 +1,11 @@
 ##
-# Hash
+# A Hash is a dictionary-like collection of unique keys and their values.
+# Also called associative arrays, they are similar to Arrays,
+# but where an {Array} uses integers as its index,
+# a Hash allows you to use any object type.
 #
-# ISO 15.2.13
+# @ISO 15.2.13
+# @see mruby/hash.h Hash C API functions
 class Hash
   ##
   #  Equality---Two hashes are equal if they each contain the same number
@@ -9,7 +13,7 @@ class Hash
   #  <code>Object#==</code>) the corresponding elements in the other
   #  hash.
   #
-  # ISO 15.2.13.4.1
+  # @ISO 15.2.13.4.1
   def ==(hash)
     return true if self.equal?(hash)
     begin
@@ -26,10 +30,10 @@ class Hash
   end
 
   ##
-  # Returns <code>true</code> if <i>hash</i> and <i>other</i> are
+  # Returns `true` if *hash* and *self* are
   # both hashes with the same content compared by eql?.
   #
-  # ISO 15.2.13.4.32 (x)
+  # @ISO 15.2.13.4.32 (x)
   def eql?(hash)
     return true if self.equal?(hash)
     begin
@@ -46,13 +50,13 @@ class Hash
   end
 
   ##
-  # Delete the element with the key +key+.
-  # Return the value of the element if +key+
+  # Delete the element with the key *key*.
+  # Return the value of the element if *key*
   # was found. Return nil if nothing was
   # found. If a block is given, call the
   # block with the value of the element.
   #
-  # ISO 15.2.13.4.8
+  # @ISO 15.2.13.4.8
   def delete(key, &block)
     if block && !self.has_key?(key)
       block.call(key)
@@ -62,27 +66,28 @@ class Hash
   end
 
   ##
-  # Calls the given block for each element of +self+
-  # and pass the key and value of each element.
+  # Iterate over each key value pair
   #
-  # call-seq:
-  #   hsh.each      {| key, value | block } -> hsh
-  #   hsh.each_pair {| key, value | block } -> hsh
-  #   hsh.each                              -> an_enumerator
-  #   hsh.each_pair                         -> an_enumerator
+  # @example
+  #   h = { "a" => 100, "b" => 200 }
+  #   h.each {|key, value| puts "#{key} is #{value}" }
   #
+  #   # outputs:
+  #   # a is 100
+  #   # b is 200
   #
-  # If no block is given, an enumerator is returned instead.
+  # @overload each(&block)
+  #     Calls the given block for each element of `self`
+  #     and pass the key and value of each element.
   #
-  #  h = { "a" => 100, "b" => 200 }
-  #  h.each {|key, value| puts "#{key} is #{value}" }
+  #     @yield [key, value] The current key and value pairs.
+  #     @return [Hash] returns self.
   #
-  # <em>produces:</em>
+  # @overload each
+  #     If no block is given, an enumerator is returned instead.
+  #     @return [Enumerable] an enumerator
   #
-  # a is 100
-  # b is 200
-  #
-  # ISO 15.2.13.4.9
+  # @ISO 15.2.13.4.9
   def each(&block)
     return to_enum :each unless block_given?
 
@@ -115,7 +120,7 @@ class Hash
   #  a
   #  b
   #
-  # ISO 15.2.13.4.10
+  # @ISO 15.2.13.4.10
   def each_key(&block)
     return to_enum :each_key unless block_given?
 
@@ -141,7 +146,7 @@ class Hash
   #  100
   #  200
   #
-  # ISO 15.2.13.4.11
+  # @ISO 15.2.13.4.11
   def each_value(&block)
     return to_enum :each_value unless block_given?
 
@@ -152,7 +157,7 @@ class Hash
   ##
   # Replaces the contents of <i>hsh</i> with the contents of other hash
   #
-  # ISO 15.2.13.4.23
+  # @ISO 15.2.13.4.23
   def replace(hash)
     self.clear
     hash = hash.to_hash
@@ -166,7 +171,8 @@ class Hash
     end
     self
   end
-  # ISO 15.2.13.4.17
+
+  # @ISO 15.2.13.4.17
   alias initialize_copy replace
 
   ##
@@ -176,7 +182,7 @@ class Hash
   # a duplicate key. The value of the block
   # will be the final value of this element.
   #
-  # ISO 15.2.13.4.22
+  # @ISO 15.2.13.4.22
   def merge(other, &block)
     h = {}
     raise TypeError, "can't convert argument into Hash" unless other.respond_to?(:to_hash)
@@ -202,7 +208,7 @@ class Hash
   ##
   # Return the contents of this hash as a string. 
  #
-  # ISO 15.2.13.4.30 (x)
+  # @ISO 15.2.13.4.30 (x)
   def inspect
     begin
       self._inspect
@@ -210,7 +216,8 @@ class Hash
       "{...}"
     end
   end
-  # ISO 15.2.13.4.31 (x)
+
+  # @ISO 15.2.13.4.31 (x)
   alias to_s inspect
 
   ##
@@ -348,10 +355,10 @@ class Hash
   end
 end
 
-##
-# Hash is enumerable
-#
-# ISO 15.2.13.3
 class Hash
+  #
+  # Hash is enumerable
+  #
+  # @ISO 15.2.13.3
   include Enumerable
 end
